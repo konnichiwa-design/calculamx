@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Finiquito México 2026 — CalculaMX</title>
+  <meta name="description" content="Calcula tu finiquito en México 2026 gratis. Ingresa tu sueldo, fecha de ingreso y salida. Resultados con desglose de aguinaldo, vacaciones y prima vacacional. Actualizado con salario mínimo 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/finiquito/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/finiquito/">
+  <meta property="og:title" content="Calculadora de Finiquito México 2026 — CalculaMX">
+  <meta property="og:description" content="¿Cuánto te corresponde de finiquito? Calcula gratis con desglose completo. Actualizado 2026.">
+  <meta property="og:url" content="https://calculamx.com.mx/finiquito/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    /* CALCULADORA */
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .tipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .tipo-btn { padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--white); cursor: pointer; text-align: center; transition: all 0.2s; }
+    .tipo-btn:hover { border-color: var(--accent); }
+    .tipo-btn.active { border-color: var(--accent); background: #fff3ec; }
+    .tipo-btn .tipo-icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+    .tipo-btn .tipo-label { font-size: 0.8rem; font-weight: 600; color: var(--primary); }
+    .tipo-btn .tipo-sub { font-size: 0.72rem; color: var(--muted); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; font-size: 0.9rem; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: 0.01em; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    /* RESULTADOS */
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+    .total-box { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 16px; }
+    .total-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+    .total-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 1px; }
+    .desglose-value { font-weight: 700; color: var(--green); white-space: nowrap; }
+
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 16px; font-size: 0.78rem; color: #92400e; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    /* CONTENIDO SEO */
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    /* AD MID CONTENT */
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    /* FAQ */
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; background: var(--white); }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    nav { position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Finiquito México 2026",
+    "url": "https://calculamx.com.mx/finiquito/",
+    "description": "Calcula tu finiquito en México 2026 gratis. Desglose de aguinaldo proporcional, vacaciones proporcionales y prima vacacional. Actualizado con salario mínimo 2026.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es el finiquito en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El finiquito es el pago que recibe un trabajador al terminar una relación laboral, ya sea por renuncia voluntaria o despido. Incluye partes proporcionales de aguinaldo, vacaciones no disfrutadas y prima vacacional." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre finiquito y liquidación?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El finiquito aplica en cualquier terminación de relación laboral e incluye partes proporcionales de prestaciones. La liquidación aplica solo cuando el trabajador es despedido sin causa justificada e incluye adicionalmente 3 meses de salario y 20 días por año trabajado." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo te dan el finiquito?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El empleador tiene la obligación de pagar el finiquito el mismo día que termina la relación laboral o a más tardar dentro de los 3 días hábiles siguientes, según el artículo 53 de la Ley Federal del Trabajo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos días de aguinaldo me corresponden en el finiquito?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El mínimo legal es 15 días de aguinaldo por año. En el finiquito, se paga la parte proporcional al tiempo trabajado en el año. Por ejemplo, si trabajaste 6 meses, recibes 7.5 días de aguinaldo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo calcular mi finiquito si renuncié?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si renunciaste voluntariamente, tienes derecho a finiquito que incluye: aguinaldo proporcional, vacaciones proporcionales no disfrutadas y prima vacacional. No incluye los 3 meses ni los 20 días por año, eso solo aplica para despido injustificado." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El finiquito se paga en efectivo o cheque?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La Ley Federal del Trabajo no especifica el medio de pago. Puede ser en efectivo, cheque o transferencia bancaria. Lo importante es que quede documentado con un recibo firmado." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El finiquito está libre de impuestos?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La parte exenta de ISR equivale a 90 veces la UMA ($10,182.60 en 2026). El excedente está gravado. Para una renuncia normal, generalmente el finiquito completo queda dentro del límite exento." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos días de vacaciones me corresponden?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Según la reforma LFT 2022, el mínimo es: 12 días en el primer año, 14 en el segundo, 16 en el tercero, 18 en el cuarto, y 20 días a partir del quinto año. En el finiquito se pagan los días proporcionales al tiempo trabajado en el periodo vacacional vigente." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Finiquito</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">✅ Actualizado con salario mínimo 2026: $248.93/día</div>
+    <h1>Calculadora de Finiquito México 2026</h1>
+    <p>Ingresa tus datos y calcula exactamente cuánto te corresponde — con desglose completo y base legal.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- CALCULADORA -->
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">💼 Ingresa tus datos</div>
+      <div class="calc-body">
+
+        <div class="form-group">
+          <label>¿Cómo termina la relación laboral?</label>
+          <div class="tipo-grid">
+            <button class="tipo-btn active" onclick="setTipo('renuncia', this)">
+              <span class="tipo-icon">🚪</span>
+              <div class="tipo-label">Renuncia</div>
+              <div class="tipo-sub">Salida voluntaria</div>
+            </button>
+            <button class="tipo-btn" onclick="setTipo('despido', this)">
+              <span class="tipo-icon">📋</span>
+              <div class="tipo-label">Despido</div>
+              <div class="tipo-sub">Sin causa justificada</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Salario diario <span class="hint">(salario base sin bonos)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="salario" placeholder="ej. 500" min="248.93" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha de ingreso</label>
+          <input type="date" id="fecha_ingreso">
+        </div>
+
+        <div class="form-group">
+          <label>Fecha de salida</label>
+          <input type="date" id="fecha_salida">
+        </div>
+
+        <div class="form-group">
+          <label>Días de aguinaldo <span class="hint">(mínimo legal: 15)</span></label>
+          <input type="number" id="aguinaldo_dias" value="15" min="15" step="1">
+        </div>
+
+        <div class="form-group">
+          <label>Vacaciones no disfrutadas <span class="hint">(días pendientes, si aplica)</span></label>
+          <input type="number" id="vacaciones_extra" value="0" min="0" step="1">
+        </div>
+
+        <div class="divider"></div>
+
+        <button class="btn-calc" onclick="calcular()">Calcular mi finiquito →</button>
+
+        <!-- RESULTADO -->
+        <div class="resultado" id="resultado">
+          <div class="total-box">
+            <div class="total-label">Tu finiquito estimado es</div>
+            <div class="total-amount" id="total-amount">$0.00</div>
+            <div style="font-size:0.75rem;opacity:0.8;margin-top:4px;" id="tipo-label-result">Finiquito por renuncia</div>
+          </div>
+
+          <div class="desglose">
+            <div class="desglose-title">Desglose del cálculo</div>
+
+            <div class="desglose-row" id="row-aguinaldo">
+              <div class="desglose-concept">
+                Aguinaldo proporcional
+                <small id="desc-aguinaldo"></small>
+              </div>
+              <div class="desglose-value" id="val-aguinaldo">$0.00</div>
+            </div>
+
+            <div class="desglose-row" id="row-vacaciones">
+              <div class="desglose-concept">
+                Vacaciones proporcionales
+                <small id="desc-vacaciones"></small>
+              </div>
+              <div class="desglose-value" id="val-vacaciones">$0.00</div>
+            </div>
+
+            <div class="desglose-row" id="row-prima">
+              <div class="desglose-concept">
+                Prima vacacional (25%)
+                <small id="desc-prima"></small>
+              </div>
+              <div class="desglose-value" id="val-prima">$0.00</div>
+            </div>
+
+            <div class="desglose-row" id="row-indemnizacion" style="display:none;">
+              <div class="desglose-concept">
+                Indemnización constitucional
+                <small>3 meses de salario × $<span id="sal-ref"></span>/día</small>
+              </div>
+              <div class="desglose-value" id="val-indemnizacion">$0.00</div>
+            </div>
+
+            <div class="desglose-row" id="row-20dias" style="display:none;">
+              <div class="desglose-concept">
+                20 días por año trabajado
+                <small id="desc-20dias"></small>
+              </div>
+              <div class="desglose-value" id="val-20dias">$0.00</div>
+            </div>
+
+            <div class="desglose-row" id="row-vacaciones-extra" style="display:none;">
+              <div class="desglose-concept">
+                Vacaciones no disfrutadas
+                <small>Días pendientes por liquidar</small>
+              </div>
+              <div class="desglose-value" id="val-vacaciones-extra">$0.00</div>
+            </div>
+
+          </div>
+
+          <div class="legal-note">
+            ⚠️ <strong>Calculadora de referencia.</strong> Los resultados son estimados con base en la Ley Federal del Trabajo (LFT) y el salario mínimo 2026. No constituye asesoría legal. Consulta a un abogado laboral certificado para tu caso específico.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>📋 Datos de referencia 2026</h3>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>Salario mínimo frontera</span><span>$374.89/día</span></div>
+      <div class="info-item"><span>UMA diaria</span><span>$113.14</span></div>
+      <div class="info-item"><span>UMA mensual</span><span>$3,439.35</span></div>
+      <div class="info-item"><span>Aguinaldo mínimo</span><span>15 días/año</span></div>
+      <div class="info-item"><span>Prima vacacional</span><span>25% mínimo</span></div>
+      <div class="info-item"><span>Vacaciones año 1</span><span>12 días</span></div>
+      <div class="info-item"><span>Vacaciones año 2</span><span>14 días</span></div>
+      <div class="info-item"><span>Vacaciones año 3+</span><span>+2 días c/año</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTENIDO SEO -->
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es el finiquito en México?</h2>
+  <p>El finiquito es el pago que recibe todo trabajador al terminar su relación laboral, independientemente del motivo de la separación. Está regulado por la <strong>Ley Federal del Trabajo (LFT)</strong> y debe cubrir todas las prestaciones proporcionales al tiempo trabajado.</p>
+  <p>Ya sea que renuncies voluntariamente o seas despedido, tienes derecho a cobrar tu finiquito. La diferencia es que si te despiden <em>sin causa justificada</em>, además del finiquito recibes una <strong>indemnización constitucional</strong>.</p>
+
+  <h2>¿Qué incluye el finiquito?</h2>
+  <ul>
+    <li><strong>Aguinaldo proporcional:</strong> Los días de aguinaldo que te corresponden según el tiempo trabajado en el año. El mínimo legal es 15 días anuales.</li>
+    <li><strong>Vacaciones proporcionales:</strong> Los días de vacaciones que no disfrutaste, según la tabla de la LFT actualizada en 2022.</li>
+    <li><strong>Prima vacacional (25%):</strong> El 25% del valor de tus vacaciones proporcionales, como mínimo establecido por ley.</li>
+    <li><strong>Días trabajados pendientes:</strong> Si tu empresa paga quincenal o mensual, los días del período actual no pagado.</li>
+  </ul>
+
+  <h2>¿Cuándo aplica la indemnización?</h2>
+  <p>Si fuiste despedido <strong>sin causa justificada</strong>, además del finiquito anterior tienes derecho a:</p>
+  <ul>
+    <li><strong>3 meses de salario</strong> como indemnización constitucional (Art. 123 Constitucional)</li>
+    <li><strong>20 días de salario por año trabajado</strong> (Art. 50 LFT)</li>
+    <li><strong>Prima de antigüedad:</strong> 12 días de salario por año trabajado (máximo 2 UMAs de salario diario)</li>
+  </ul>
+
+  <h2>¿En cuánto tiempo deben pagar el finiquito?</h2>
+  <p>El empleador debe pagar el finiquito <strong>el mismo día</strong> que termina la relación laboral. En la práctica, la Ley Federal del Trabajo acepta un máximo de <strong>3 días hábiles</strong>. Si no te pagan en ese plazo, puedes presentar una queja ante la STPS o acudir a la JFCA.</p>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el finiquito</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la diferencia entre finiquito y liquidación? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El finiquito aplica en cualquier terminación de relación laboral e incluye partes proporcionales de prestaciones (aguinaldo, vacaciones, prima vacacional). La liquidación aplica solo cuando el trabajador es despedido sin causa justificada e incluye adicionalmente 3 meses de salario y 20 días por año trabajado.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo te dan el finiquito? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El empleador tiene la obligación de pagar el finiquito el mismo día que termina la relación laboral o a más tardar dentro de los 3 días hábiles siguientes, según el artículo 53 de la Ley Federal del Trabajo.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿El finiquito está libre de ISR? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La parte exenta de ISR equivale a 90 veces la UMA ($10,182.60 en 2026). El excedente está gravado. Para una renuncia normal, generalmente el finiquito completo queda dentro del límite exento. Para liquidaciones grandes, puede haber ISR a pagar.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Si renuncio pierdo el derecho a finiquito? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No. Si renuncias voluntariamente tienes derecho a cobrar tu finiquito completo: aguinaldo proporcional, vacaciones proporcionales no disfrutadas y prima vacacional. Lo que no aplica en renuncia son los 3 meses y los 20 días por año (eso es solo para despido injustificado).</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si no me pagan el finiquito? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Puedes presentar una queja ante la Secretaría del Trabajo y Previsión Social (STPS) o demandar ante la Junta Federal de Conciliación y Arbitraje (JFCA) o el Centro de Conciliación Laboral de tu estado. Tienes hasta 2 años para reclamar desde la fecha de terminación.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuántos días de vacaciones corresponden según la LFT 2026? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Según la reforma LFT 2022: Año 1: 12 días · Año 2: 14 días · Año 3: 16 días · Año 4: 18 días · Año 5+: 20 días, incrementando 2 días por cada 5 años adicionales trabajados.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  let tipoActual = 'renuncia';
+
+  function setTipo(tipo, btn) {
+    tipoActual = tipo;
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const res = document.getElementById('resultado');
+    if (res.classList.contains('show')) calcular();
+  }
+
+  function diasVacaciones(anios) {
+    if (anios < 1) return 0;
+    if (anios === 1) return 12;
+    if (anios === 2) return 14;
+    if (anios === 3) return 16;
+    if (anios === 4) return 18;
+    if (anios <= 9) return 20;
+    if (anios <= 14) return 22;
+    if (anios <= 19) return 24;
+    if (anios <= 24) return 26;
+    return 28;
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calcular() {
+    const salario = parseFloat(document.getElementById('salario').value) || 0;
+    const ingreso = document.getElementById('fecha_ingreso').value;
+    const salida = document.getElementById('fecha_salida').value;
+    const diasAguinaldo = parseInt(document.getElementById('aguinaldo_dias').value) || 15;
+    const vacExtra = parseInt(document.getElementById('vacaciones_extra').value) || 0;
+
+    if (!salario || !ingreso || !salida) {
+      alert('Por favor completa todos los campos obligatorios.');
+      return;
+    }
+
+    const fechaIngreso = new Date(ingreso);
+    const fechaSalida = new Date(salida);
+
+    if (fechaSalida <= fechaIngreso) {
+      alert('La fecha de salida debe ser posterior a la fecha de ingreso.');
+      return;
+    }
+
+    const diffMs = fechaSalida - fechaIngreso;
+    const diasTotales = diffMs / (1000 * 60 * 60 * 24);
+    const aniosTotales = diasTotales / 365;
+    const aniosCompletos = Math.floor(aniosTotales);
+
+    // Días trabajados en el año en curso (para aguinaldo proporcional)
+    const inicioAnio = new Date(fechaSalida.getFullYear(), 0, 1);
+    const diasEnAnio = (fechaSalida - inicioAnio) / (1000 * 60 * 60 * 24);
+
+    // Aguinaldo proporcional
+    const aguinaldoProp = (diasEnAnio / 365) * diasAguinaldo * salario;
+
+    // Vacaciones proporcionales
+    const diasVacAnio = diasVacaciones(Math.max(1, aniosCompletos + 1));
+    // Proporción del año en el período de vacaciones actual
+    const inicioVacPeriodo = new Date(fechaIngreso.getFullYear() + aniosCompletos, fechaIngreso.getMonth(), fechaIngreso.getDate());
+    const diasEnPeriodoVac = (fechaSalida - inicioVacPeriodo) / (1000 * 60 * 60 * 24);
+    const diasVacProp = Math.max(0, (diasEnPeriodoVac / 365) * diasVacAnio);
+    const vacacionesProp = diasVacProp * salario;
+
+    // Prima vacacional (25%)
+    const primaVacacional = vacacionesProp * 0.25;
+
+    // Vacaciones extra no disfrutadas
+    const vacExtrasValor = vacExtra * salario;
+
+    let total = aguinaldoProp + vacacionesProp + primaVacacional + vacExtrasValor;
+
+    // Indemnización (solo despido)
+    let indemnizacion = 0;
+    let veinteDias = 0;
+    if (tipoActual === 'despido') {
+      indemnizacion = 90 * salario; // 3 meses = 90 días
+      veinteDias = 20 * aniosTotales * salario;
+      total += indemnizacion + veinteDias;
+    }
+
+    // Mostrar resultados
+    document.getElementById('total-amount').textContent = fmt(total);
+    document.getElementById('tipo-label-result').textContent = tipoActual === 'renuncia' ? 'Finiquito por renuncia voluntaria' : 'Finiquito + Indemnización por despido injustificado';
+
+    document.getElementById('val-aguinaldo').textContent = fmt(aguinaldoProp);
+    document.getElementById('desc-aguinaldo').textContent = `${diasEnAnio.toFixed(0)} días trabajados en ${fechaSalida.getFullYear()} × ${diasAguinaldo} días de aguinaldo ÷ 365`;
+
+    document.getElementById('val-vacaciones').textContent = fmt(vacacionesProp);
+    document.getElementById('desc-vacaciones').textContent = `${diasVacProp.toFixed(1)} días proporcionales × $${salario}/día`;
+
+    document.getElementById('val-prima').textContent = fmt(primaVacacional);
+    document.getElementById('desc-prima').textContent = `25% de $${vacacionesProp.toFixed(2)} en vacaciones`;
+
+    // Vacaciones extra
+    const rowExtra = document.getElementById('row-vacaciones-extra');
+    if (vacExtra > 0) {
+      rowExtra.style.display = 'flex';
+      document.getElementById('val-vacaciones-extra').textContent = fmt(vacExtrasValor);
+    } else {
+      rowExtra.style.display = 'none';
+    }
+
+    // Indemnización
+    const rowInd = document.getElementById('row-indemnizacion');
+    const row20 = document.getElementById('row-20dias');
+    if (tipoActual === 'despido') {
+      rowInd.style.display = 'flex';
+      row20.style.display = 'flex';
+      document.getElementById('sal-ref').textContent = salario;
+      document.getElementById('val-indemnizacion').textContent = fmt(indemnizacion);
+      document.getElementById('val-20dias').textContent = fmt(veinteDias);
+      document.getElementById('desc-20dias').textContent = `20 días × ${aniosTotales.toFixed(2)} años × $${salario}/día`;
+    } else {
+      rowInd.style.display = 'none';
+      row20.style.display = 'none';
+    }
+
+    document.getElementById('resultado').classList.add('show');
+    document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  // Set default dates
+  const today = new Date();
+  const oneYearAgo = new Date(today);
+  oneYearAgo.setFullYear(today.getFullYear() - 1);
+  document.getElementById('fecha_salida').value = today.toISOString().split('T')[0];
+  document.getElementById('fecha_ingreso').value = oneYearAgo.toISOString().split('T')[0];
+</script>
+
+</body>
+</html>

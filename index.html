@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalculaMX — Calculadoras Profesionales para México 2026</title>
+  <meta name="description" content="Calculadoras profesionales gratuitas para México: finiquito, ISR, liquidación, IVA, aguinaldo y más. Resultados actualizados con salario mínimo 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CalculaMX — Calculadoras Profesionales para México 2026">
+  <meta property="og:description" content="Calculadoras gratuitas: finiquito, ISR, IVA, aguinaldo, liquidación y más. Actualizadas 2026.">
+  <meta property="og:url" content="https://calculamx.com.mx/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --accent-light: #fff3ec;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    /* NAV */
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { color: white; font-size: 1.3rem; font-weight: 800; text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: white; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* AD SLOT HEADER */
+    .ad-header { background: var(--bg); border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 64px 24px 56px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .hero h1 span { color: #fbbf24; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 32px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 14px; font-size: 0.8rem; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+
+    /* CALCULADORAS GRID */
+    .section { padding: 56px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .section-subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 32px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+    .calc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-decoration: none; color: inherit; transition: all 0.2s; display: block; position: relative; overflow: hidden; }
+    .calc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.2s; }
+    .calc-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(232,101,10,0.12); transform: translateY(-2px); }
+    .calc-card:hover::before { transform: scaleX(1); }
+    .calc-card.star { border-color: #fbbf24; background: linear-gradient(135deg, #fffbeb 0%, #fff 100%); }
+    .calc-card.star::before { background: #f59e0b; transform: scaleX(1); }
+
+    .card-icon { font-size: 2rem; margin-bottom: 12px; }
+    .card-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #fef3c7; color: #92400e; border: 1px solid #fde68a; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .card-title { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-bottom: 16px; }
+    .card-cta { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+    .card-searches { font-size: 0.75rem; color: #9ca3af; margin-top: 8px; }
+
+    /* AD SLOT MID */
+    .ad-mid { background: var(--bg); padding: 20px 24px; display: flex; justify-content: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* TRUST */
+    .trust { background: var(--primary); color: white; padding: 48px 24px; }
+    .trust-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .trust h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+    .trust p { color: rgba(255,255,255,0.8); font-size: 0.92rem; max-width: 600px; margin: 0 auto 32px; }
+    .trust-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
+    .trust-item { text-align: center; }
+    .trust-item .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .trust-item strong { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+    .trust-item span { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+
+    /* DISCLAIMER */
+    .disclaimer { background: #fffbeb; border-top: 1px solid #fde68a; padding: 16px 24px; text-align: center; }
+    .disclaimer p { font-size: 0.78rem; color: #92400e; max-width: 800px; margin: 0 auto; }
+
+    /* FOOTER */
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 32px 24px; text-align: center; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: white; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 16px; flex-wrap: wrap; font-size: 0.85rem; }
+    .footer-copy { font-size: 0.8rem; }
+  </style>
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CalculaMX",
+    "url": "https://calculamx.com.mx",
+    "description": "Hub de calculadoras profesionales gratuitas para México — finiquito, ISR, IVA, aguinaldo, liquidación laboral y más.",
+    "inLanguage": "es-MX",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://calculamx.com.mx/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <ul class="nav-links">
+      <li><a href="/finiquito/">Finiquito</a></li>
+      <li><a href="/isr/">ISR</a></li>
+      <li><a href="/iva/">IVA</a></li>
+      <li><a href="/aguinaldo/">Aguinaldo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- AD HEADER -->
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✅ Actualizado con salario mínimo 2026: $248.93/día</div>
+  <h1>Calculadoras profesionales<br>para <span>México</span></h1>
+  <p>Herramientas gratuitas para calcular tu finiquito, ISR, IVA, aguinaldo y más — con explicación de resultados y base legal actualizada.</p>
+</section>
+
+<!-- CALCULADORAS -->
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Todas las calculadoras</h2>
+    <p class="section-subtitle">Haz click en la herramienta que necesitas — resultados instantáneos y explicados.</p>
+
+    <div class="grid">
+
+      <a href="/finiquito/" class="calc-card star">
+        <div class="card-icon">💼</div>
+        <div class="card-badge">⭐ Más usada</div>
+        <div class="card-title">Calculadora de Finiquito 2026</div>
+        <div class="card-desc">Calcula tu finiquito si renuncias o si te despiden. Incluye partes proporcionales de aguinaldo, vacaciones y prima vacacional.</div>
+        <div class="card-cta">Calcular ahora →</div>
+        <div class="card-searches">📊 +40,000 búsquedas/mes</div>
+      </a>
+
+      <a href="/isr/" class="calc-card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Calculadora de ISR 2026</div>
+        <div class="card-desc">Calcula el impuesto sobre la renta para personas físicas y morales. Tablas actualizadas SAT 2026.</div>
+        <div class="card-cta">Calcular ISR →</div>
+      </a>
+
+      <a href="/iva/" class="calc-card">
+        <div class="card-icon">🧾</div>
+        <div class="card-title">Calculadora de IVA</div>
+        <div class="card-desc">Suma o desglosá el IVA de cualquier cantidad al 16% o 8% (zona fronteriza). Ideal para facturas y cotizaciones.</div>
+        <div class="card-cta">Calcular IVA →</div>
+      </a>
+
+      <a href="/aguinaldo/" class="calc-card">
+        <div class="card-icon">🎄</div>
+        <div class="card-title">Calculadora de Aguinaldo 2026</div>
+        <div class="card-desc">Calcula cuánto te corresponde de aguinaldo según tu sueldo y tiempo trabajado. Mínimo legal: 15 días.</div>
+        <div class="card-cta">Calcular aguinaldo →</div>
+      </a>
+
+      <a href="/liquidacion/" class="calc-card">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">Calculadora de Liquidación</div>
+        <div class="card-desc">Si te despiden sin causa justificada: 3 meses + 20 días por año + prima de antigüedad. Calcula el total aquí.</div>
+        <div class="card-cta">Calcular liquidación →</div>
+      </a>
+
+      <a href="/uma/" class="calc-card">
+        <div class="card-icon">📐</div>
+        <div class="card-title">Valor UMA 2026</div>
+        <div class="card-desc">Unidad de Medida y Actualización vigente 2026. Diario, mensual y anual. Referencia para multas, créditos y prestaciones.</div>
+        <div class="card-cta">Ver UMA →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- AD MID -->
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-inner">
+    <h2>¿Por qué usar CalculaMX?</h2>
+    <p>Herramientas gratuitas, sin registro, actualizadas con la legislación vigente y el salario mínimo 2026.</p>
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="icon">⚡</div>
+        <strong>Resultados instantáneos</strong>
+        <span>Sin esperas, sin formularios</span>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📋</div>
+        <strong>Base legal actualizada</strong>
+        <span>LFT 2026, tablas SAT</span>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📱</div>
+        <strong>100% móvil</strong>
+        <span>Funciona en cualquier dispositivo</span>
+      </div>
+      <div class="trust-item">
+        <div class="icon">🔒</div>
+        <strong>Sin registro</strong>
+        <span>Tus datos no se guardan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>⚠️ Las calculadoras de CalculaMX son herramientas de referencia. Los resultados son estimados y no constituyen asesoría legal ni fiscal. Consulta a un contador público o abogado laboral certificado para tu situación específica.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+    <a href="/uma/">UMA</a>
+  </div>
+  <div class="footer-copy">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+</body>
+</html>
