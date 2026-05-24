@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Aguinaldo 2026 México — CalculaMX</title>
+  <meta name="description" content="Calcula tu aguinaldo 2026 en México gratis. Ingresa tu sueldo diario y tiempo trabajado. Calcula aguinaldo completo o proporcional. Mínimo legal: 15 días.">
+  <link rel="canonical" href="https://calculamx.com.mx/aguinaldo/">
+  <meta name="geo.region" content="MX">
+  <meta property="og:title" content="Calculadora de Aguinaldo 2026 México — CalculaMX">
+  <meta property="og:url" content="https://calculamx.com.mx/aguinaldo/">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#1e3a5f;--accent:#e8650a;--green:#059669;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--white:#fff;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+    nav{background:var(--primary);padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;height:56px;gap:16px}
+    .logo{color:#fff;font-size:1.2rem;font-weight:800;text-decoration:none}.logo span{color:#fbbf24}
+    .breadcrumb{color:rgba(255,255,255,.5);font-size:.85rem}.breadcrumb a{color:rgba(255,255,255,.7);text-decoration:none}
+    .ad-header{background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:center;align-items:center;min-height:90px;padding:8px}
+    .ad-placeholder{width:728px;max-width:100%;height:90px;background:#f3f4f6;border:1px dashed #d1d5db;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:.75rem}
+    @media(max-width:640px){.ad-placeholder{width:320px;height:50px}}
+    .page-header{background:linear-gradient(135deg,var(--primary) 0%,#2d5986 100%);color:#fff;padding:36px 24px 28px}
+    .page-header-inner{max-width:900px;margin:0 auto}
+    .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 11px;font-size:.73rem;margin-bottom:10px}
+    .page-header h1{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:800;margin-bottom:6px;letter-spacing:-.02em}
+    .page-header p{color:rgba(255,255,255,.8);font-size:.92rem}
+    .main{max-width:900px;margin:0 auto;padding:28px 24px;display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+    @media(max-width:720px){.main{grid-template-columns:1fr}}
+    .calc-box{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.06);overflow:hidden}
+    .calc-header{background:var(--primary);color:#fff;padding:14px 20px;font-size:.9rem;font-weight:600}
+    .calc-body{padding:24px}
+    .form-group{margin-bottom:18px}
+    label{display:block;font-size:.85rem;font-weight:600;color:var(--primary);margin-bottom:6px}
+    label .hint{font-weight:400;color:var(--muted);font-size:.78rem}
+    input,select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .2s}
+    input:focus,select:focus{outline:none;border-color:var(--accent)}
+    .input-prefix{position:relative}.input-prefix span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600}.input-prefix input{padding-left:28px}
+    .tipo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+    .tipo-btn{padding:10px;border:2px solid var(--border);border-radius:10px;background:var(--white);cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
+    .tipo-btn.active{border-color:var(--accent);background:#fff3ec}
+    .tipo-btn .t-label{font-size:.82rem;font-weight:700;color:var(--primary)}
+    .tipo-btn .t-sub{font-size:.72rem;color:var(--muted)}
+    .divider{height:1px;background:var(--border);margin:18px 0}
+    .btn-calc{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+    .btn-calc:hover{background:#d4580a;transform:translateY(-1px);box-shadow:0 4px 12px rgba(232,101,10,.3)}
+    .resultado{display:none;margin-top:22px}.resultado.show{display:block}
+    .total-box{background:linear-gradient(135deg,#059669,#047857);color:#fff;border-radius:10px;padding:18px;text-align:center;margin-bottom:14px}
+    .total-label{font-size:.8rem;opacity:.9;margin-bottom:3px}
+    .total-amount{font-size:2rem;font-weight:800;letter-spacing:-.02em}
+    .desglose{background:var(--bg);border-radius:10px;padding:14px}
+    .desglose-title{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .desglose-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);font-size:.86rem;gap:10px}
+    .desglose-row:last-child{border-bottom:none}
+    .desglose-concept small{display:block;color:var(--muted);font-size:.74rem;margin-top:1px}
+    .desglose-value{font-weight:700;color:var(--green);white-space:nowrap}
+    .legal-note{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:11px 13px;margin-top:14px;font-size:.76rem;color:#92400e}
+    .sidebar{display:flex;flex-direction:column;gap:18px}
+    .ad-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);display:flex;justify-content:center;align-items:center;min-height:260px}
+    .ad-placeholder-v{width:300px;height:250px;background:#f3f4f6;border:1px dashed #d1d5db;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:.75rem}
+    .info-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .info-box h3{font-size:.88rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+    .info-item{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:.8rem}
+    .info-item:last-child{border-bottom:none}
+    .info-item span:first-child{color:var(--muted)}.info-item span:last-child{font-weight:600;color:var(--primary)}
+    .content-section{max-width:900px;margin:0 auto;padding:0 24px 40px}
+    .content-section h2{font-size:1.2rem;font-weight:700;color:var(--primary);margin:28px 0 10px}
+    .content-section p{font-size:.9rem;color:var(--muted);margin-bottom:10px;line-height:1.7}
+    .faq-section{max-width:900px;margin:0 auto;padding:0 24px 48px}
+    .faq-section h2{font-size:1.2rem;font-weight:700;color:var(--primary);margin-bottom:16px}
+    .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;background:var(--white);border:none;padding:14px 18px;font-size:.88rem;font-weight:600;color:var(--primary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
+    .faq-q:hover{background:var(--bg)}
+    .faq-a{display:none;padding:0 18px 14px;font-size:.86rem;color:var(--muted);line-height:1.7;background:var(--white)}
+    .faq-a.open{display:block}
+    .faq-arrow{font-size:.72rem;transition:transform .2s}.faq-arrow.open{transform:rotate(180deg)}
+    footer{background:#111827;color:rgba(255,255,255,.6);padding:22px;text-align:center;font-size:.8rem}
+    footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 8px}
+    footer a:hover{color:#fff}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Aguinaldo 2026 México","url":"https://calculamx.com.mx/aguinaldo/","description":"Calcula tu aguinaldo 2026 en México gratis. Aguinaldo completo o proporcional según días trabajados. Actualizado con salario mínimo 2026.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"MXN"},"inLanguage":"es-MX"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuándo se paga el aguinaldo en México?","acceptedAnswer":{"@type":"Answer","text":"El aguinaldo debe pagarse antes del 20 de diciembre de cada año, según el artículo 87 de la Ley Federal del Trabajo. Algunos patrones adelantan el pago en la primera quincena de diciembre."}},{"@type":"Question","name":"¿Cuántos días de aguinaldo me corresponden?","acceptedAnswer":{"@type":"Answer","text":"El mínimo legal en México es 15 días de salario por año trabajado. Muchas empresas dan más días como prestación superior. Si no trabajaste el año completo, recibes la parte proporcional."}},{"@type":"Question","name":"¿Cómo se calcula el aguinaldo proporcional?","acceptedAnswer":{"@type":"Answer","text":"Se calcula dividiendo los días de aguinaldo entre 365 y multiplicando por los días trabajados en el año. Ejemplo: 15 días ÷ 365 × 180 días trabajados = 7.4 días de aguinaldo × salario diario."}},{"@type":"Question","name":"¿El aguinaldo paga ISR?","acceptedAnswer":{"@type":"Answer","text":"La parte del aguinaldo que no paga ISR equivale a 30 días del salario mínimo ($7,467.90 en 2026). El excedente es gravable. Para la mayoría de trabajadores con salario mínimo o cercano, el aguinaldo queda totalmente exento."}}]}
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Aguinaldo</span>
+  </div>
+</nav>
+
+<div class="ad-header"><div class="ad-placeholder">Publicidad</div></div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">✅ Actualizado con salario mínimo 2026: $248.93/día</div>
+    <h1>Calculadora de Aguinaldo 2026 México</h1>
+    <p>Calcula cuánto te corresponde de aguinaldo — completo o proporcional según tu tiempo trabajado.</p>
+  </div>
+</div>
+
+<div class="main">
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">🎄 Calcula tu aguinaldo</div>
+      <div class="calc-body">
+
+        <label style="margin-bottom:8px;display:block;">¿Qué tipo de aguinaldo calculas?</label>
+        <div class="tipo-grid">
+          <button class="tipo-btn active" onclick="setTipo('completo',this)">
+            <div class="t-label">📅 Año completo</div>
+            <div class="t-sub">Trabajé todo el año</div>
+          </button>
+          <button class="tipo-btn" onclick="setTipo('proporcional',this)">
+            <div class="t-label">⏱ Proporcional</div>
+            <div class="t-sub">Ingresé en el año</div>
+          </button>
+        </div>
+
+        <div class="form-group">
+          <label>Salario diario <span class="hint">(salario base)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="salario" placeholder="ej. 500" min="248.93" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Días de aguinaldo <span class="hint">(mínimo legal: 15)</span></label>
+          <input type="number" id="dias_aguinaldo" value="15" min="15" step="1">
+        </div>
+
+        <div class="form-group" id="grupo-proporcional" style="display:none;">
+          <label>Fecha de ingreso en este año <span class="hint">(si ingresaste en 2026)</span></label>
+          <input type="date" id="fecha_ingreso">
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular aguinaldo →</button>
+
+        <div class="resultado" id="resultado">
+          <div class="total-box">
+            <div class="total-label">Tu aguinaldo estimado es</div>
+            <div class="total-amount" id="total-amount">$0.00</div>
+            <div style="font-size:.74rem;opacity:.8;margin-top:3px" id="tipo-desc">Aguinaldo año completo</div>
+          </div>
+          <div class="desglose">
+            <div class="desglose-title">Desglose del cálculo</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Salario diario<small id="d-salario-desc"></small></div>
+              <div class="desglose-value" id="d-salario">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Días de aguinaldo<small id="d-dias-desc"></small></div>
+              <div class="desglose-value" id="d-dias">0 días</div>
+            </div>
+            <div class="desglose-row" id="row-prop" style="display:none;">
+              <div class="desglose-concept">Factor proporcional<small id="d-prop-desc"></small></div>
+              <div class="desglose-value" id="d-prop">0%</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept"><strong>Total aguinaldo</strong></div>
+              <div class="desglose-value" id="d-total">$0.00</div>
+            </div>
+          </div>
+          <div class="legal-note">⚠️ Calculadora de referencia. El aguinaldo puede variar según tu contrato colectivo o individual. Consulta a tu área de Recursos Humanos o a un contador certificado.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box"><div class="ad-placeholder-v">Publicidad 300×250</div></div>
+    <div class="info-box">
+      <h3>📋 Datos 2026</h3>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>Aguinaldo mínimo</span><span>15 días/año</span></div>
+      <div class="info-item"><span>Fecha límite de pago</span><span>20 de diciembre</span></div>
+      <div class="info-item"><span>Exención ISR</span><span>30 días salario mín.</span></div>
+      <div class="info-item"><span>Exención ISR 2026</span><span>$7,467.90</span></div>
+      <div class="info-item"><span>Base legal</span><span>Art. 87 LFT</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es el aguinaldo y cuánto te corresponde?</h2>
+  <p>El aguinaldo es una prestación obligatoria establecida en el <strong>artículo 87 de la Ley Federal del Trabajo</strong>. Todo trabajador que haya laborado durante el año tiene derecho a recibir un mínimo de <strong>15 días de salario</strong> como aguinaldo, pagado antes del 20 de diciembre.</p>
+  <p>Si no trabajaste el año completo — por ejemplo, si ingresaste en julio — recibes la parte proporcional: los días de aguinaldo que corresponden al tiempo trabajado desde tu ingreso hasta el 31 de diciembre.</p>
+
+  <h2>¿Cuándo paga ISR el aguinaldo?</h2>
+  <p>La parte exenta es equivalente a <strong>30 días de salario mínimo</strong> ($7,467.90 en 2026). El excedente de ese límite paga ISR. Para la mayoría de trabajadores con sueldo cercano al mínimo, el aguinaldo de 15 días queda totalmente exento.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el aguinaldo</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo se paga el aguinaldo en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El aguinaldo debe pagarse antes del 20 de diciembre de cada año. Algunos patrones lo pagan en la primera quincena de diciembre como prestación adicional.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si me despiden antes de diciembre? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Si te despiden antes del 20 de diciembre, tienes derecho al aguinaldo proporcional al tiempo trabajado en el año. Este monto debe incluirse en tu finiquito o liquidación.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Mi empresa puede darme menos de 15 días de aguinaldo? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No. Los 15 días son el mínimo legal obligatorio. Si tu empresa te paga menos, está violando la Ley Federal del Trabajo y puedes denunciarlo ante la STPS o el Centro de Conciliación Laboral.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Con qué salario se calcula el aguinaldo? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El aguinaldo se calcula con el salario diario base que percibes ordinariamente. No incluye horas extras, bonos eventuales ni comisiones variables, a menos que sean parte del salario integrado especificado en tu contrato.</div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/">CalculaMX</a><a href="/finiquito/">Finiquito</a><a href="/isr/">ISR</a><a href="/iva/">IVA</a><a href="/aguinaldo/">Aguinaldo</a></div>
+  <div style="margin-top:10px">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  let tipoActual='completo';
+  function setTipo(t,btn){
+    tipoActual=t;
+    document.querySelectorAll('.tipo-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+    document.getElementById('grupo-proporcional').style.display=t==='proporcional'?'block':'none';
+    const r=document.getElementById('resultado');if(r.classList.contains('show'))calcular();
+  }
+  function fmt(n){return'$'+n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2})}
+  function calcular(){
+    const salario=parseFloat(document.getElementById('salario').value)||0;
+    const diasAg=parseInt(document.getElementById('dias_aguinaldo').value)||15;
+    if(!salario){alert('Ingresa tu salario diario.');return}
+    let factor=1,diasTrabajados=365,desc='';
+    if(tipoActual==='proporcional'){
+      const fi=document.getElementById('fecha_ingreso').value;
+      if(!fi){alert('Ingresa tu fecha de ingreso.');return}
+      const ingreso=new Date(fi);
+      const finAnio=new Date(new Date().getFullYear(),11,31);
+      diasTrabajados=Math.min((finAnio-ingreso)/(1000*60*60*24),365);
+      if(diasTrabajados<=0){alert('La fecha de ingreso debe ser en el año actual.');return}
+      factor=diasTrabajados/365;
+      desc=`${diasTrabajados.toFixed(0)} días trabajados ÷ 365`;
+    }
+    const diasEfectivos=diasAg*factor;
+    const total=diasEfectivos*salario;
+    document.getElementById('total-amount').textContent=fmt(total);
+    document.getElementById('tipo-desc').textContent=tipoActual==='completo'?'Aguinaldo año completo':'Aguinaldo proporcional';
+    document.getElementById('d-salario').textContent=fmt(salario);
+    document.getElementById('d-salario-desc').textContent='Salario diario base';
+    document.getElementById('d-dias').textContent=diasEfectivos.toFixed(2)+' días';
+    document.getElementById('d-dias-desc').textContent=`${diasAg} días × factor ${factor.toFixed(4)}`;
+    document.getElementById('d-total').textContent=fmt(total);
+    const rowProp=document.getElementById('row-prop');
+    if(tipoActual==='proporcional'){
+      rowProp.style.display='flex';
+      document.getElementById('d-prop').textContent=(factor*100).toFixed(2)+'%';
+      document.getElementById('d-prop-desc').textContent=desc;
+    }else{rowProp.style.display='none'}
+    document.getElementById('resultado').classList.add('show');
+  }
+  function toggleFaq(btn){const a=btn.nextElementSibling,ar=btn.querySelector('.faq-arrow');a.classList.toggle('open');ar.classList.toggle('open')}
+  // Default date
+  const today=new Date();document.getElementById('fecha_ingreso').value=new Date(today.getFullYear(),0,1).toISOString().split('T')[0];
+</script>
+</body>
+</html>
