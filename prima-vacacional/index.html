@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Prima Vacacional México 2026 — CalculaMX</title>
+  <meta name="description" content="Calcula tu prima vacacional 2026. Ingresa tu sueldo y antigüedad. Mínimo legal 25% sobre días de vacaciones LFT. Incluye tabla actualizada y desglose. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/prima-vacacional/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/prima-vacacional/">
+  <meta property="og:title" content="Calculadora de Prima Vacacional México 2026 — CalculaMX">
+  <meta property="og:description" content="¿Cuánto te corresponde de prima vacacional? Calcula gratis con la tabla LFT 2026 actualizada.">
+  <meta property="og:url" content="https://calculamx.com.mx/prima-vacacional/">
+  <meta property="og:type" content="website">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7813499363415280" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .mode-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
+    .mode-btn { flex: 1; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-size: 0.82rem; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; transition: all 0.2s; text-align: center; }
+    .mode-btn.active { border-color: var(--accent); background: #fff3ec; color: var(--accent); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+    .input-suffix { position: relative; }
+    .input-suffix span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-suffix input { padding-right: 36px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+    .total-box { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 16px; }
+    .total-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+    .total-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+    .total-sub { font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 1px; }
+    .desglose-value { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .desglose-value.muted { color: var(--muted); font-weight: 400; }
+    .desglose-value.highlight { color: var(--accent); font-size: 1rem; }
+
+    .info-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #1e40af; }
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.78rem; color: #92400e; }
+
+    .tabla-vac { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 8px; }
+    .tabla-vac th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+    .tabla-vac td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+    .tabla-vac tr:last-child td { border-bottom: none; }
+    .tabla-vac tr.active-row td { background: #fff3ec; font-weight: 700; color: var(--accent); }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Prima Vacacional México 2026",
+    "url": "https://calculamx.com.mx/prima-vacacional/",
+    "description": "Calcula cuánto te corresponde de prima vacacional en México 2026. Mínimo legal 25% sobre días de vacaciones. Tabla LFT actualizada con reforma 2022.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuántos días de vacaciones me corresponden en México 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Según la reforma LFT 2022 (vigente desde 2023): 1 año = 12 días, 2 años = 14 días, 3 años = 16 días, 4 años = 18 días, 5 a 9 años = 20 días, 10 a 14 años = 22 días, 15 a 19 años = 24 días, y así incrementando 2 días cada 5 años adicionales." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es la prima vacacional y cuánto es el mínimo legal?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La prima vacacional es un pago adicional equivalente a al menos el 25% del salario que recibirías durante tus días de vacaciones, según el Artículo 80 de la LFT. Muchas empresas pagan porcentajes más altos como prestación superior." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo se paga la prima vacacional?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La prima vacacional debe pagarse antes de que el trabajador tome sus vacaciones. Si el trabajador sale de la empresa sin haber disfrutado sus vacaciones, recibe el pago proporcional de vacaciones más la prima vacacional como parte del finiquito." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La prima vacacional paga ISR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. La prima vacacional es ingreso gravable y se acumula al salario del mes en que se paga. El empleador retiene el ISR correspondiente según las tablas mensuales del SAT 2026." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Prima Vacacional</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">🏖️ Art. 80 LFT · Mínimo 25% · Tabla vacaciones actualizada 2026</div>
+    <h1>Calculadora de Prima Vacacional México 2026</h1>
+    <p>Calcula cuánto te corresponde de prima vacacional según tu antigüedad y sueldo — con la tabla de días de vacaciones LFT actualizada con la reforma 2022.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">🏖️ Ingresa tus datos</div>
+      <div class="calc-body">
+
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btn-completo" onclick="setMode('completo')">Año completo</button>
+          <button class="mode-btn" id="btn-proporcional" onclick="setMode('proporcional')">Proporcional</button>
+        </div>
+
+        <div class="form-group">
+          <label>Salario diario <span class="hint">(salario base ordinario sin bonos)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="salario" placeholder="ej. 500" min="248.93" step="0.01">
+          </div>
+        </div>
+
+        <!-- Modo año completo -->
+        <div id="panel-completo">
+          <div class="form-group">
+            <label>Años de antigüedad <span class="hint">(años completos trabajados)</span></label>
+            <input type="number" id="anios" placeholder="ej. 3" min="1" max="50" step="1">
+          </div>
+        </div>
+
+        <!-- Modo proporcional -->
+        <div id="panel-proporcional" style="display:none;">
+          <div class="form-group">
+            <label>Fecha de ingreso</label>
+            <input type="date" id="fecha_ingreso">
+          </div>
+          <div class="form-group">
+            <label>Fecha de salida o cálculo</label>
+            <input type="date" id="fecha_calculo">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Porcentaje de prima vacacional <span class="hint">(mínimo legal: 25%)</span></label>
+          <div class="input-suffix">
+            <input type="number" id="prima_pct" value="25" min="25" max="100" step="1">
+            <span>%</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular prima vacacional →</button>
+
+        <div class="resultado" id="resultado">
+          <div class="total-box">
+            <div class="total-label">Tu prima vacacional es</div>
+            <div class="total-amount" id="total-amount">$0.00</div>
+            <div class="total-sub" id="total-sub">Prima vacacional 2026</div>
+          </div>
+
+          <div class="desglose">
+            <div class="desglose-title">Desglose del cálculo</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Salario diario
+                <small>Base del cálculo</small>
+              </div>
+              <div class="desglose-value muted" id="val-salario">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Días de vacaciones que corresponden
+                <small id="desc-dias-vac">Según tabla LFT 2026</small>
+              </div>
+              <div class="desglose-value muted" id="val-dias-vac">0 días</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Valor de los días de vacaciones
+                <small id="desc-vac-valor">Días × salario diario</small>
+              </div>
+              <div class="desglose-value muted" id="val-vac-valor">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Prima vacacional (<span id="pct-label">25</span>%)
+                <small id="desc-prima">Valor vacaciones × 25%</small>
+              </div>
+              <div class="desglose-value highlight" id="val-prima">$0.00</div>
+            </div>
+            <div class="desglose-row" id="row-total-combo" style="display:none;">
+              <div class="desglose-concept">
+                Total (vacaciones + prima)
+                <small>Si no disfrutaste vacaciones</small>
+              </div>
+              <div class="desglose-value" id="val-total-combo">$0.00</div>
+            </div>
+          </div>
+
+          <div class="info-note" id="isr-note">
+            <strong>💡 ISR:</strong> <span id="isr-texto">La prima vacacional se acumula al ingreso del mes en que se paga y el patrón retiene ISR según las tablas mensuales SAT.</span>
+          </div>
+
+          <div class="legal-note">
+            ⚠️ <strong>Calculadora de referencia.</strong> Basada en Art. 76 y 80 LFT (reforma 2022) y tablas SAT 2026. Los resultados son estimados. Consulta a un contador o abogado laboral para tu caso específico.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📋 Tabla de vacaciones LFT 2026</h3>
+      <table class="tabla-vac" id="tabla-vac">
+        <thead>
+          <tr><th>Años</th><th>Días vac.</th></tr>
+        </thead>
+        <tbody>
+          <tr data-anios="1"><td>1 año</td><td>12 días</td></tr>
+          <tr data-anios="2"><td>2 años</td><td>14 días</td></tr>
+          <tr data-anios="3"><td>3 años</td><td>16 días</td></tr>
+          <tr data-anios="4"><td>4 años</td><td>18 días</td></tr>
+          <tr data-anios="5"><td>5–9 años</td><td>20 días</td></tr>
+          <tr data-anios="10"><td>10–14 años</td><td>22 días</td></tr>
+          <tr data-anios="15"><td>15–19 años</td><td>24 días</td></tr>
+          <tr data-anios="20"><td>20–24 años</td><td>26 días</td></tr>
+          <tr data-anios="25"><td>25–29 años</td><td>28 días</td></tr>
+          <tr data-anios="30"><td>30+ años</td><td>30+ días</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h3>📋 Datos de referencia 2026</h3>
+      <div class="info-item"><span>Prima mínima legal</span><span>25% (Art. 80 LFT)</span></div>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>Reforma LFT</span><span>Vigente desde 2023</span></div>
+      <div class="info-item"><span>Días mínimos año 1</span><span>12 días</span></div>
+    </div>
+
+    <div class="info-box">
+      <h3>🔗 Calculadoras relacionadas</h3>
+      <div class="info-item"><a href="/finiquito/" style="color:var(--accent);text-decoration:none;">Finiquito 2026</a><span>→</span></div>
+      <div class="info-item"><a href="/aguinaldo/" style="color:var(--accent);text-decoration:none;">Aguinaldo</a><span>→</span></div>
+      <div class="info-item"><a href="/liquidacion/" style="color:var(--accent);text-decoration:none;">Liquidación</a><span>→</span></div>
+      <div class="info-item"><a href="/isr/" style="color:var(--accent);text-decoration:none;">ISR 2026</a><span>→</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es la prima vacacional en México?</h2>
+  <p>La prima vacacional es una <strong>prestación obligatoria</strong> establecida en el Artículo 80 de la Ley Federal del Trabajo. Todo trabajador que tenga derecho a vacaciones también tiene derecho a recibir un pago adicional equivalente a <strong>al menos el 25% del salario</strong> que recibiría durante esos días de descanso.</p>
+  <p>Por ejemplo, si te corresponden 12 días de vacaciones y ganas $500 diarios, tu prima vacacional mínima sería: 12 × $500 × 25% = <strong>$1,500</strong>.</p>
+
+  <h2>Tabla de vacaciones LFT 2022 (vigente 2026)</h2>
+  <p>La reforma a la LFT publicada en 2022 duplicó los días mínimos de vacaciones. La nueva tabla es:</p>
+  <ul>
+    <li><strong>1 año:</strong> 12 días (antes: 6 días)</li>
+    <li><strong>2 años:</strong> 14 días</li>
+    <li><strong>3 años:</strong> 16 días</li>
+    <li><strong>4 años:</strong> 18 días</li>
+    <li><strong>5 a 9 años:</strong> 20 días</li>
+    <li><strong>10 a 14 años:</strong> 22 días</li>
+    <li><strong>15 a 19 años:</strong> 24 días</li>
+    <li>Y así, sumando 2 días por cada 5 años adicionales</li>
+  </ul>
+
+  <h2>¿Cómo se calcula la prima vacacional?</h2>
+  <p>La fórmula es: <strong>Días de vacaciones × Salario diario × Porcentaje de prima</strong>.</p>
+  <p>Si llevas un año parcial, el cálculo es proporcional: se toman los días que habrías ganado en ese año de vacaciones y se aplica la proporción del tiempo trabajado dentro de ese período.</p>
+
+  <h2>¿La prima vacacional se paga aunque no tome vacaciones?</h2>
+  <p>Sí. Si el trabajador no disfruta sus vacaciones (por ejemplo, al terminar la relación laboral), tiene derecho a recibir <strong>el valor de los días de vacaciones + la prima vacacional</strong> como parte del finiquito. El patrón no puede negar este pago argumentando que el trabajador no tomó vacaciones.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre la prima vacacional</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo se paga la prima vacacional? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La prima vacacional debe pagarse antes de que el trabajador inicie sus vacaciones, no al regreso. Si la empresa se retrasa en el pago, el trabajador puede reclamarla ante la STPS o el Centro de Conciliación Laboral.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Mi empresa puede pagar más del 25%? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí. El 25% es el mínimo legal. Muchas empresas ofrecen 40%, 50% o más como prestación superior. Si tu contrato o política interna establece un porcentaje mayor, la empresa está obligada a respetarlo. Para el cálculo usa el porcentaje real que te corresponde.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si renuncio sin haber tomado vacaciones? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Al terminar la relación laboral, tu finiquito debe incluir las vacaciones proporcionales no disfrutadas más la prima vacacional correspondiente. Esto aplica tanto para renuncia voluntaria como para despido. No puedes perder el derecho a vacaciones porque no las disfrutaste.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿La prima vacacional aplica para trabajadores por honorarios? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No. La prima vacacional es una prestación que aplica únicamente a trabajadores con relación laboral subordinada bajo la LFT. Los trabajadores independientes (honorarios, freelancers) no tienen derecho legal a prima vacacional, aunque el contratante puede otorgarla voluntariamente.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué salario se usa para calcular la prima vacacional? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Se usa el salario ordinario diario, que incluye las partes integrantes del salario (comisiones fijas, prestaciones en especie valuables). No incluye percepciones extraordinarias como horas extra ocasionales o bonos variables. Es el mismo salario base que se usa para aguinaldo y finiquito.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+    <a href="/uma/">UMA</a>
+    <a href="/ptu/">PTU</a>
+    <a href="/prima-vacacional/">Prima Vacacional</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  let modoActual = 'completo';
+
+  function setMode(modo) {
+    modoActual = modo;
+    document.getElementById('panel-completo').style.display = modo === 'completo' ? 'block' : 'none';
+    document.getElementById('panel-proporcional').style.display = modo === 'proporcional' ? 'block' : 'none';
+    document.getElementById('btn-completo').classList.toggle('active', modo === 'completo');
+    document.getElementById('btn-proporcional').classList.toggle('active', modo === 'proporcional');
+    document.getElementById('resultado').classList.remove('show');
+  }
+
+  function diasVacaciones(anios) {
+    if (anios < 1) return 0;
+    if (anios === 1) return 12;
+    if (anios === 2) return 14;
+    if (anios === 3) return 16;
+    if (anios === 4) return 18;
+    if (anios <= 9)  return 20;
+    if (anios <= 14) return 22;
+    if (anios <= 19) return 24;
+    if (anios <= 24) return 26;
+    if (anios <= 29) return 28;
+    return 30 + Math.floor((anios - 30) / 5) * 2;
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function destacarTabla(anios) {
+    const rows = document.querySelectorAll('#tabla-vac tbody tr');
+    rows.forEach(r => r.classList.remove('active-row'));
+    let activeKey = 1;
+    if (anios >= 30) activeKey = 30;
+    else if (anios >= 25) activeKey = 25;
+    else if (anios >= 20) activeKey = 20;
+    else if (anios >= 15) activeKey = 15;
+    else if (anios >= 10) activeKey = 10;
+    else if (anios >= 5)  activeKey = 5;
+    else activeKey = anios;
+    const target = document.querySelector(`#tabla-vac tbody tr[data-anios="${activeKey}"]`);
+    if (target) target.classList.add('active-row');
+  }
+
+  function calcular() {
+    const salario = parseFloat(document.getElementById('salario').value) || 0;
+    const primaPct = parseFloat(document.getElementById('prima_pct').value) || 25;
+
+    if (!salario || salario < 248.93) {
+      alert('Ingresa un salario diario válido (mínimo $248.93).');
+      return;
+    }
+    if (primaPct < 25) {
+      alert('El porcentaje mínimo legal de prima vacacional es 25%.');
+      return;
+    }
+
+    let diasVac, diasLabel, esProporcional = false;
+
+    if (modoActual === 'completo') {
+      const anios = parseInt(document.getElementById('anios').value) || 0;
+      if (!anios || anios < 1) { alert('Ingresa al menos 1 año de antigüedad.'); return; }
+      diasVac = diasVacaciones(anios);
+      diasLabel = `${diasVac} días (${anios} año${anios > 1 ? 's' : ''} de antigüedad)`;
+      destacarTabla(anios);
+      document.getElementById('total-sub').textContent = `Año completo — ${anios} año${anios > 1 ? 's' : ''} de antigüedad`;
+      document.getElementById('row-total-combo').style.display = 'none';
+
+    } else {
+      const ingreso = document.getElementById('fecha_ingreso').value;
+      const calculo = document.getElementById('fecha_calculo').value;
+      if (!ingreso || !calculo) { alert('Ingresa ambas fechas.'); return; }
+      const fi = new Date(ingreso);
+      const fc = new Date(calculo);
+      if (fc <= fi) { alert('La fecha de cálculo debe ser posterior a la de ingreso.'); return; }
+
+      const diasTotales = Math.round((fc - fi) / (1000 * 60 * 60 * 24));
+      const aniosCompletos = Math.floor(diasTotales / 365);
+      const diasVacAnio = diasVacaciones(Math.max(1, aniosCompletos + 1));
+      const inicioVacPeriodo = new Date(fi.getFullYear() + aniosCompletos, fi.getMonth(), fi.getDate());
+      const diasEnPeriodo = Math.round((fc - inicioVacPeriodo) / (1000 * 60 * 60 * 24));
+      diasVac = Math.max(0, (diasEnPeriodo / 365) * diasVacAnio);
+      diasLabel = `${diasVac.toFixed(2)} días proporcionales`;
+      esProporcional = true;
+      destacarTabla(Math.max(1, aniosCompletos + 1));
+      document.getElementById('total-sub').textContent = `Prima proporcional al tiempo trabajado`;
+      document.getElementById('row-total-combo').style.display = 'flex';
+    }
+
+    const valorVac = diasVac * salario;
+    const prima = valorVac * (primaPct / 100);
+    const totalCombo = valorVac + prima;
+
+    document.getElementById('val-salario').textContent = fmt(salario) + '/día';
+    document.getElementById('val-dias-vac').textContent = diasLabel;
+    document.getElementById('desc-dias-vac').textContent = esProporcional ? 'Proporcional al período trabajado' : 'Tabla LFT reforma 2022';
+    document.getElementById('val-vac-valor').textContent = fmt(valorVac);
+    document.getElementById('desc-vac-valor').textContent = `${typeof diasVac === 'number' ? diasVac.toFixed(2) : diasVac} días × ${fmt(salario)}`;
+    document.getElementById('val-prima').textContent = fmt(prima);
+    document.getElementById('pct-label').textContent = primaPct;
+    document.getElementById('desc-prima').textContent = `${fmt(valorVac)} × ${primaPct}%`;
+    document.getElementById('total-amount').textContent = fmt(prima);
+    document.getElementById('val-total-combo').textContent = fmt(totalCombo);
+
+    document.getElementById('resultado').classList.add('show');
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

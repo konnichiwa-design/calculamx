@@ -66,4 +66,12 @@
     <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/ptu/"/>
   </url>
 
+  <url>
+    <loc>https://calculamx.com.mx/prima-vacacional/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/prima-vacacional/"/>
+  </url>
+
 </urlset>
