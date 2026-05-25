@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de PTU México 2026 — CalculaMX</title>
+  <meta name="description" content="Calcula tu PTU 2026 (Participación de Utilidades). Ingresa el fondo de la empresa o tu monto directo. Incluye exención de ISR y desglose legal. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/ptu/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/ptu/">
+  <meta property="og:title" content="Calculadora de PTU México 2026 — CalculaMX">
+  <meta property="og:description" content="¿Cuánto PTU te corresponde? Calcula gratis con desglose de exención de ISR. Actualizado 2026.">
+  <meta property="og:url" content="https://calculamx.com.mx/ptu/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .mode-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
+    .mode-btn { flex: 1; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-size: 0.82rem; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; transition: all 0.2s; text-align: center; }
+    .mode-btn.active { border-color: var(--accent); background: #fff3ec; color: var(--accent); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+    .total-box { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 16px; }
+    .total-box.warning { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); }
+    .total-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+    .total-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+    .total-sub { font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 1px; }
+    .desglose-value { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .desglose-value.muted { color: var(--muted); font-weight: 400; }
+    .desglose-value.red { color: #dc2626; }
+
+    .exencion-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #1e40af; }
+    .no-aplica-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #991b1b; }
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.78rem; color: #92400e; }
+    .info-note { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #166534; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de PTU México 2026",
+    "url": "https://calculamx.com.mx/ptu/",
+    "description": "Calcula cuánto PTU te corresponde en México 2026. Participación de Trabajadores en las Utilidades según Art. 117-131 LFT. Incluye exención ISR.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuándo se paga el PTU en México 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Las personas morales deben pagar el PTU dentro de los 60 días siguientes a la presentación de su declaración anual, es decir, antes del 31 de mayo. Las personas físicas con actividad empresarial tienen hasta el 29 de junio." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántos días trabajados necesito para recibir PTU?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Se requiere un mínimo de 60 días trabajados en el ejercicio fiscal para tener derecho a PTU. Los trabajadores de confianza, directores y administradores también tienen derecho a PTU, pero su monto máximo está limitado al equivalente al PTU más alto recibido por un trabajador sindicalizado o de planta." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El PTU paga ISR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El PTU tiene una exención de ISR equivalente a 15 días de salario mínimo general (aproximadamente $3,733.95 en 2026). El excedente se acumula al ingreso del mes en que se recibe y el patrón retiene el ISR correspondiente." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se calcula el PTU individual?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El fondo total de PTU equivale al 10% de la utilidad fiscal de la empresa. Este fondo se divide en dos partes iguales: el 50% se distribuye proporcionalmente a los días trabajados por cada empleado, y el 50% restante se distribuye proporcionalmente al salario × días trabajados de cada empleado." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › PTU</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">💰 Art. 117-131 LFT · 10% utilidad fiscal · Pago antes del 31 mayo</div>
+    <h1>Calculadora de PTU México 2026</h1>
+    <p>Calcula tu Participación de Trabajadores en las Utilidades — con desglose de exención de ISR y base legal actualizada.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">💰 Ingresa tus datos</div>
+      <div class="calc-body">
+
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btn-directo" onclick="setMode('directo')">Ya sé mi PTU</button>
+          <button class="mode-btn" id="btn-estimar" onclick="setMode('estimar')">Estimar mi PTU</button>
+        </div>
+
+        <!-- Modo 1: Ya sé mi PTU -->
+        <div id="panel-directo">
+          <div class="form-group">
+            <label>Monto de PTU recibido <span class="hint">(o que te informó RRHH)</span></label>
+            <div class="input-prefix">
+              <span>$</span>
+              <input type="number" id="ptu_directo" placeholder="ej. 5000" min="0" step="0.01">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Días trabajados en el ejercicio <span class="hint">(mínimo 60 para tener derecho)</span></label>
+            <input type="number" id="dias_directo" placeholder="ej. 365" min="0" max="366" step="1" value="365">
+          </div>
+        </div>
+
+        <!-- Modo 2: Estimar -->
+        <div id="panel-estimar" style="display:none;">
+          <div class="form-group">
+            <label>Fondo total de PTU de la empresa <span class="hint">(publicado por HR en el centro de trabajo)</span></label>
+            <div class="input-prefix">
+              <span>$</span>
+              <input type="number" id="fondo_ptu" placeholder="ej. 200000" min="0" step="0.01">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tus días trabajados en el ejercicio <span class="hint">(mínimo 60)</span></label>
+            <input type="number" id="mis_dias" placeholder="ej. 365" min="0" max="366" step="1">
+          </div>
+          <div class="form-group">
+            <label>Total de días trabajados (todos los empleados) <span class="hint">(publicado por HR)</span></label>
+            <input type="number" id="total_dias" placeholder="ej. 5475" min="1" step="1">
+          </div>
+          <div class="form-group">
+            <label>Tu salario diario <span class="hint">(salario base ordinario)</span></label>
+            <div class="input-prefix">
+              <span>$</span>
+              <input type="number" id="mi_salario" placeholder="ej. 600" min="248.93" step="0.01">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Salario diario promedio de la empresa <span class="hint">(si no lo sabes, usa tu propio salario como aproximación)</span></label>
+            <div class="input-prefix">
+              <span>$</span>
+              <input type="number" id="salario_promedio" placeholder="ej. 500" min="248.93" step="0.01">
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular PTU →</button>
+
+        <div class="resultado" id="resultado">
+
+          <div id="no-aplica-msg" class="no-aplica-box" style="display:none;">
+            <strong>⚠️ Sin derecho a PTU:</strong> Se requieren mínimo 60 días trabajados para tener derecho a la Participación de Utilidades según el Art. 127 LFT.
+          </div>
+
+          <div id="resultado-detalle" style="display:none;">
+            <div class="total-box" id="total-box">
+              <div class="total-label">Tu PTU estimado es</div>
+              <div class="total-amount" id="total-amount">$0.00</div>
+              <div class="total-sub" id="total-sub">Participación de Utilidades 2026</div>
+            </div>
+
+            <div class="desglose">
+              <div class="desglose-title">Desglose del cálculo</div>
+
+              <div id="row-parte-dias" class="desglose-row" style="display:none;">
+                <div class="desglose-concept">
+                  Parte proporcional por días
+                  <small id="desc-parte-dias">50% del fondo × proporción de días</small>
+                </div>
+                <div class="desglose-value muted" id="val-parte-dias">$0.00</div>
+              </div>
+
+              <div id="row-parte-salario" class="desglose-row" style="display:none;">
+                <div class="desglose-concept">
+                  Parte proporcional por salario
+                  <small id="desc-parte-salario">50% del fondo × proporción salarial</small>
+                </div>
+                <div class="desglose-value muted" id="val-parte-salario">$0.00</div>
+              </div>
+
+              <div class="desglose-row">
+                <div class="desglose-concept">
+                  PTU bruto
+                  <small>Monto total antes de ISR</small>
+                </div>
+                <div class="desglose-value" id="val-ptu-bruto">$0.00</div>
+              </div>
+
+              <div class="desglose-row">
+                <div class="desglose-concept">
+                  Exención ISR
+                  <small>15 días × salario mínimo (Art. 93 LISR)</small>
+                </div>
+                <div class="desglose-value" id="val-exencion">$3,733.95</div>
+              </div>
+
+              <div class="desglose-row" id="row-gravado">
+                <div class="desglose-concept">
+                  Monto gravado
+                  <small>PTU − exención</small>
+                </div>
+                <div class="desglose-value red" id="val-gravado">$0.00</div>
+              </div>
+            </div>
+
+            <div class="exencion-box" id="exencion-box">
+              <strong>💡 ISR:</strong> <span id="exencion-texto">Calculando...</span>
+            </div>
+
+            <div class="legal-note">
+              ⚠️ <strong>Calculadora de referencia.</strong> Basada en Art. 117-131 LFT y Art. 93 frac. XIV LISR 2026. Los resultados son estimados — el cálculo final lo determina tu empresa con los datos reales de la nómina. Consulta a un contador para tu caso específico.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>📋 Datos de referencia 2026</h3>
+      <div class="info-item"><span>Porcentaje PTU</span><span>10% utilidad fiscal</span></div>
+      <div class="info-item"><span>Plazo (personas morales)</span><span>31 mayo 2026</span></div>
+      <div class="info-item"><span>Plazo (personas físicas)</span><span>29 junio 2026</span></div>
+      <div class="info-item"><span>Días mínimos</span><span>60 días/año</span></div>
+      <div class="info-item"><span>Exención ISR</span><span>15 × SMG</span></div>
+      <div class="info-item"><span>Exención aprox.</span><span>$3,733.95</span></div>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>Artículo LFT</span><span>Art. 117-131</span></div>
+    </div>
+    <div class="info-box">
+      <h3>🔗 Calculadoras relacionadas</h3>
+      <div class="info-item"><a href="/finiquito/" style="color:var(--accent);text-decoration:none;">Finiquito 2026</a><span>→</span></div>
+      <div class="info-item"><a href="/aguinaldo/" style="color:var(--accent);text-decoration:none;">Aguinaldo</a><span>→</span></div>
+      <div class="info-item"><a href="/liquidacion/" style="color:var(--accent);text-decoration:none;">Liquidación</a><span>→</span></div>
+      <div class="info-item"><a href="/isr/" style="color:var(--accent);text-decoration:none;">ISR 2026</a><span>→</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es el PTU en México?</h2>
+  <p>El PTU (Participación de Trabajadores en las Utilidades) es un <strong>derecho constitucional</strong> establecido en el Artículo 123 de la Constitución y regulado en los Artículos 117 a 131 de la Ley Federal del Trabajo. Las empresas que obtengan utilidades fiscales están obligadas a distribuir el <strong>10% de esas ganancias</strong> entre sus trabajadores.</p>
+  <p>Todo trabajador que haya laborado <strong>al menos 60 días</strong> en el ejercicio fiscal tiene derecho a recibir su parte proporcional de PTU.</p>
+
+  <h2>¿Cómo se calcula el PTU individual?</h2>
+  <p>El fondo total de PTU se divide en dos partes iguales:</p>
+  <ul>
+    <li><strong>50% por días trabajados:</strong> Se distribuye proporcionalmente según los días laborados por cada trabajador en relación al total de días trabajados por todos los empleados.</li>
+    <li><strong>50% por salarios:</strong> Se distribuye proporcionalmente según el salario diario × días trabajados de cada empleado en relación al total de salario × días de toda la empresa.</li>
+  </ul>
+  <p>La ley obliga al patrón a publicar en el centro de trabajo los datos necesarios para que los trabajadores verifiquen el cálculo: la utilidad fiscal, el fondo total y los días y salarios totales.</p>
+
+  <h2>¿El PTU paga ISR?</h2>
+  <p>El PTU tiene una <strong>exención de ISR equivalente a 15 días de salario mínimo general</strong> ($3,733.95 aproximadamente en 2026, según el Art. 93 fracción XIV de la LISR). El excedente se acumula al ingreso del mes en que se cobra y el patrón retiene el ISR correspondiente aplicando las tablas del SAT.</p>
+
+  <h2>¿Quiénes no tienen derecho a PTU?</h2>
+  <p>Según el Art. 127 LFT, <strong>no tienen derecho a PTU:</strong></p>
+  <ul>
+    <li>Trabajadores que hayan laborado menos de 60 días durante el ejercicio</li>
+    <li>Trabajadores domésticos</li>
+    <li>Trabajadores eventuales (con ciertas excepciones)</li>
+    <li>Directores, administradores y gerentes generales (tienen una regla especial de tope)</li>
+  </ul>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el PTU</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo se paga el PTU 2026? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Para personas morales (empresas), el PTU debe pagarse dentro de los 60 días posteriores a la presentación de la declaración anual, es decir, antes del <strong>31 de mayo de 2026</strong>. Las personas físicas con actividad empresarial tienen hasta el <strong>29 de junio de 2026</strong>.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si la empresa no paga el PTU? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El incumplimiento es una violación a la LFT. El trabajador puede interponer una queja ante la STPS, acudir a PROFEDET (Procuraduría Federal de la Defensa del Trabajo) de forma gratuita, o demandar ante el Centro de Conciliación Laboral. El patrón puede ser multado con 250 a 5,000 veces la UMA diaria ($27,142.50 a $542,850 en 2026).</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿El PTU se calcula sobre salario neto o bruto? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El PTU se calcula sobre el salario ordinario diario, que incluye las partes integrantes del salario (comisiones fijas, primas, etc.) pero <strong>no incluye</strong> las percepciones extraordinarias como horas extra ocasionales ni gastos de representación. Es similar a la base del aguinaldo y la liquidación.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo verifico el cálculo de PTU de mi empresa? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La ley obliga al patrón a publicar en lugar visible del centro de trabajo: (1) la utilidad fiscal del ejercicio, (2) el fondo total a repartir, (3) los días trabajados por todos los empleados, y (4) la suma de salarios × días de todos los trabajadores. Con esos datos puedes verificar tu proporción usando esta calculadora en modo "Estimar mi PTU".</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa con el PTU si renuncié a mitad del año? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Tienes derecho al PTU proporcional a los días que trabajaste durante ese ejercicio fiscal, siempre que hayas laborado al menos 60 días. La empresa debe pagarte tu parte correspondiente en el mismo plazo que a los empleados activos, aunque ya no trabajes ahí.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+    <a href="/uma/">UMA</a>
+    <a href="/ptu/">PTU</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  const SMG_DIARIO = 248.93;
+  const PTU_EXENCION = 15 * SMG_DIARIO; // $3,733.95
+
+  let modoActual = 'directo';
+
+  function setMode(modo) {
+    modoActual = modo;
+    document.getElementById('panel-directo').style.display = modo === 'directo' ? 'block' : 'none';
+    document.getElementById('panel-estimar').style.display = modo === 'estimar' ? 'block' : 'none';
+    document.getElementById('btn-directo').classList.toggle('active', modo === 'directo');
+    document.getElementById('btn-estimar').classList.toggle('active', modo === 'estimar');
+    document.getElementById('resultado').classList.remove('show');
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function mostrarResultadoISR(ptu, diasTrabajados, esEstimado) {
+    const noAplica = document.getElementById('no-aplica-msg');
+    const detalle = document.getElementById('resultado-detalle');
+
+    if (diasTrabajados < 60) {
+      noAplica.style.display = 'block';
+      detalle.style.display = 'none';
+      document.getElementById('resultado').classList.add('show');
+      return;
+    }
+
+    noAplica.style.display = 'none';
+    detalle.style.display = 'block';
+
+    document.getElementById('val-ptu-bruto').textContent = fmt(ptu);
+    document.getElementById('total-amount').textContent = fmt(ptu);
+    document.getElementById('total-sub').textContent = esEstimado ? 'PTU estimado 2026' : 'PTU informado 2026';
+
+    const exencion = Math.min(ptu, PTU_EXENCION);
+    const gravado = Math.max(0, ptu - PTU_EXENCION);
+
+    document.getElementById('val-exencion').textContent = fmt(exencion);
+    document.getElementById('val-gravado').textContent = fmt(gravado);
+    document.getElementById('row-gravado').style.display = gravado > 0 ? 'flex' : 'none';
+
+    if (gravado > 0) {
+      document.getElementById('exencion-texto').innerHTML =
+        `Los primeros <strong>${fmt(PTU_EXENCION)}</strong> están exentos. El excedente de <strong>${fmt(gravado)}</strong> se acumula a tu ingreso del mes y causará ISR — tu patrón lo retendrá.`;
+    } else {
+      document.getElementById('exencion-texto').innerHTML =
+        `Tu PTU completo está dentro del límite exento de <strong>${fmt(PTU_EXENCION)}</strong> — sin retención de ISR adicional.`;
+    }
+
+    document.getElementById('resultado').classList.add('show');
+  }
+
+  function calcular() {
+    if (modoActual === 'directo') {
+      const ptu = parseFloat(document.getElementById('ptu_directo').value) || 0;
+      const dias = parseInt(document.getElementById('dias_directo').value) || 0;
+
+      if (!ptu && dias >= 60) { alert('Ingresa el monto de PTU recibido.'); return; }
+      if (!dias) { alert('Ingresa los días trabajados.'); return; }
+
+      document.getElementById('row-parte-dias').style.display = 'none';
+      document.getElementById('row-parte-salario').style.display = 'none';
+      mostrarResultadoISR(ptu, dias, false);
+
+    } else {
+      const fondo = parseFloat(document.getElementById('fondo_ptu').value) || 0;
+      const misDias = parseInt(document.getElementById('mis_dias').value) || 0;
+      const totalDias = parseInt(document.getElementById('total_dias').value) || 0;
+      const miSalario = parseFloat(document.getElementById('mi_salario').value) || 0;
+      const salarioPromedio = parseFloat(document.getElementById('salario_promedio').value) || 0;
+
+      if (!fondo) { alert('Ingresa el fondo total de PTU de la empresa.'); return; }
+      if (!misDias) { alert('Ingresa tus días trabajados.'); return; }
+      if (!totalDias) { alert('Ingresa el total de días trabajados de la empresa.'); return; }
+      if (!miSalario) { alert('Ingresa tu salario diario.'); return; }
+      if (!salarioPromedio) { alert('Ingresa el salario promedio de la empresa.'); return; }
+
+      if (totalDias < misDias) { alert('El total de días de la empresa no puede ser menor que tus días trabajados.'); return; }
+
+      const parteDias = fondo * 0.5 * (misDias / totalDias);
+      const totalSalarioDias = salarioPromedio * totalDias;
+      const miSalarioDias = miSalario * misDias;
+      const parteSalario = fondo * 0.5 * (miSalarioDias / totalSalarioDias);
+      const ptuTotal = parteDias + parteSalario;
+
+      document.getElementById('row-parte-dias').style.display = 'flex';
+      document.getElementById('row-parte-salario').style.display = 'flex';
+      document.getElementById('val-parte-dias').textContent = fmt(parteDias);
+      document.getElementById('desc-parte-dias').textContent =
+        `50% × ${fmt(fondo)} × (${misDias}/${totalDias} días)`;
+      document.getElementById('val-parte-salario').textContent = fmt(parteSalario);
+      document.getElementById('desc-parte-salario').textContent =
+        `50% × ${fmt(fondo)} × (${fmt(miSalario)}×${misDias} / ${fmt(salarioPromedio)}×${totalDias})`;
+
+      mostrarResultadoISR(ptuTotal, misDias, true);
+    }
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
