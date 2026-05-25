@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Liquidación México 2026 — Despido Injustificado — CalculaMX</title>
+  <meta name="description" content="Calcula tu liquidación por despido injustificado en México 2026. 3 meses + 20 días por año + prima de antigüedad. Desglose completo con base legal LFT. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/liquidacion/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/liquidacion/">
+  <meta property="og:title" content="Calculadora de Liquidación por Despido 2026 — CalculaMX">
+  <meta property="og:description" content="¿Cuánto te corresponde de liquidación? Calcula los 3 meses, 20 días por año y prima de antigüedad. Actualizado 2026.">
+  <meta property="og:url" content="https://calculamx.com.mx/liquidacion/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+
+    .total-box { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 16px; }
+    .total-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+    .total-amount { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; }
+    .total-sub { font-size: 0.78rem; opacity: 0.8; margin-top: 4px; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-row.total-row { border-top: 2px solid var(--border); margin-top: 4px; padding-top: 12px; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 1px; }
+    .desglose-value { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .desglose-value.muted { color: var(--muted); font-weight: 400; }
+    .desglose-value.total { color: var(--green); font-size: 1.05rem; }
+
+    .alert-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; font-size: 0.82rem; color: #991b1b; }
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; font-size: 0.78rem; color: #92400e; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Liquidación por Despido México 2026",
+    "url": "https://calculamx.com.mx/liquidacion/",
+    "description": "Calcula tu liquidación por despido injustificado en México 2026. Incluye 3 meses de salario, 20 días por año, prima de antigüedad y finiquito. Base legal LFT.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto me corresponde de liquidación por despido en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Por despido injustificado tienes derecho a: 3 meses de salario (indemnización constitucional), más 20 días de salario por cada año trabajado, más 12 días de salario por año de antigüedad (máximo 2 UMAs diarias como tope de salario). Además del finiquito: aguinaldo proporcional, vacaciones proporcionales y prima vacacional." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre finiquito y liquidación?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El finiquito aplica en cualquier terminación laboral (renuncia o despido) e incluye partes proporcionales de aguinaldo, vacaciones y prima vacacional. La liquidación aplica solo cuando el trabajador es despedido sin causa justificada e incluye adicionalmente 3 meses de salario y 20 días por año trabajado." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Liquidación</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">⚖️ Art. 48 y 50 LFT · Despido injustificado · 3 meses + 20 días/año</div>
+    <h1>Calculadora de Liquidación 2026</h1>
+    <p>Si te despidieron sin causa justificada, calcula exactamente cuánto te corresponde — con desglose legal completo.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">⚖️ Ingresa tus datos</div>
+      <div class="calc-body">
+
+        <div class="form-group">
+          <label>Salario diario <span class="hint">(salario base, sin bonos variables)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="salario" placeholder="ej. 600" min="248.93" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha de ingreso</label>
+          <input type="date" id="fecha_ingreso">
+        </div>
+
+        <div class="form-group">
+          <label>Fecha de despido</label>
+          <input type="date" id="fecha_despido">
+        </div>
+
+        <div class="form-group">
+          <label>Días de aguinaldo que otorga tu empresa <span class="hint">(mínimo legal: 15)</span></label>
+          <input type="number" id="dias_aguinaldo" value="15" min="15" step="1">
+        </div>
+
+        <div class="form-group">
+          <label>Vacaciones no disfrutadas <span class="hint">(días pendientes, si aplica)</span></label>
+          <input type="number" id="vacaciones_extra" value="0" min="0" step="1">
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular liquidación →</button>
+
+        <div class="resultado" id="resultado">
+
+          <div class="total-box">
+            <div class="total-label">Tu liquidación total estimada es</div>
+            <div class="total-amount" id="total-amount">$0.00</div>
+            <div class="total-sub" id="total-sub">Liquidación + finiquito completo</div>
+          </div>
+
+          <!-- INDEMNIZACIÓN -->
+          <div class="desglose">
+            <div class="desglose-title">Indemnización constitucional</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                3 meses de salario
+                <small>Art. 123 Constitucional y Art. 48 LFT</small>
+              </div>
+              <div class="desglose-value" id="val-3meses">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                20 días por año trabajado
+                <small id="desc-20dias">X años × 20 días × salario diario</small>
+              </div>
+              <div class="desglose-value" id="val-20dias">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Prima de antigüedad (12 días/año)
+                <small id="desc-antiguedad">Art. 162 LFT · Tope: 2 UMAs/día</small>
+              </div>
+              <div class="desglose-value" id="val-antiguedad">$0.00</div>
+            </div>
+          </div>
+
+          <!-- FINIQUITO -->
+          <div class="desglose">
+            <div class="desglose-title">Finiquito proporcional</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Aguinaldo proporcional
+                <small id="desc-aguinaldo">Días aguinaldo × días trabajados año / 365</small>
+              </div>
+              <div class="desglose-value" id="val-aguinaldo">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Vacaciones proporcionales
+                <small id="desc-vacaciones">Días de vac. × días del periodo / 365</small>
+              </div>
+              <div class="desglose-value" id="val-vacaciones">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">
+                Prima vacacional (25%)
+                <small>25% sobre vacaciones proporcionales</small>
+              </div>
+              <div class="desglose-value" id="val-prima">$0.00</div>
+            </div>
+            <div class="desglose-row" id="row-vacextra" style="display:none;">
+              <div class="desglose-concept">
+                Vacaciones no disfrutadas
+                <small>Días pendientes × salario diario</small>
+              </div>
+              <div class="desglose-value" id="val-vacextra">$0.00</div>
+            </div>
+          </div>
+
+          <!-- RESUMEN -->
+          <div class="desglose">
+            <div class="desglose-title">Resumen total</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Indemnización constitucional</div>
+              <div class="desglose-value" id="sum-indemnizacion">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Finiquito proporcional</div>
+              <div class="desglose-value" id="sum-finiquito">$0.00</div>
+            </div>
+            <div class="desglose-row total-row">
+              <div class="desglose-concept" style="font-weight:700;color:var(--primary);">Total a recibir</div>
+              <div class="desglose-value total" id="sum-total">$0.00</div>
+            </div>
+          </div>
+
+          <div class="legal-note">
+            ⚠️ <strong>Calculadora de referencia.</strong> Basada en Arts. 48, 50, 76, 87 y 162 de la LFT y salario mínimo 2026 ($248.93/día). No incluye ISR ni cuotas de seguridad social. Los resultados son estimados — consulta a un abogado laboral para tu caso.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>📋 Datos de referencia 2026</h3>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>UMA diaria</span><span>$113.14</span></div>
+      <div class="info-item"><span>Tope prima antigüedad</span><span>2 UMAs/día</span></div>
+      <div class="info-item"><span>3 meses = días</span><span>90 días</span></div>
+      <div class="info-item"><span>20 días / año</span><span>Art. 50 LFT</span></div>
+      <div class="info-item"><span>Antiguedad mín.</span><span>12 días/año</span></div>
+    </div>
+    <div class="info-box">
+      <h3>🔗 Calculadoras relacionadas</h3>
+      <div class="info-item"><a href="/finiquito/" style="color:var(--accent);text-decoration:none;">Solo finiquito</a><span>→</span></div>
+      <div class="info-item"><a href="/aguinaldo/" style="color:var(--accent);text-decoration:none;">Aguinaldo</a><span>→</span></div>
+      <div class="info-item"><a href="/uma/" style="color:var(--accent);text-decoration:none;">Valor UMA 2026</a><span>→</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es la liquidación por despido en México?</h2>
+  <p>La liquidación es el pago que recibe un trabajador cuando es <strong>despedido sin causa justificada</strong> (despido injustificado). Está regulada principalmente por los Artículos 48, 50 y 162 de la <strong>Ley Federal del Trabajo (LFT)</strong>.</p>
+  <p>A diferencia del finiquito (que aplica en cualquier terminación), la liquidación incluye una <strong>indemnización constitucional</strong> compuesta por tres elementos: 3 meses de salario, 20 días por año trabajado y la prima de antigüedad.</p>
+
+  <h2>Componentes de la liquidación completa</h2>
+  <ul>
+    <li><strong>3 meses de salario (90 días):</strong> Indemnización constitucional prevista en el Art. 123 fracción XXII de la Constitución y Art. 48 LFT.</li>
+    <li><strong>20 días de salario por año trabajado:</strong> Se paga por cada año de servicio completo. Los años menores se pagan en proporción (Art. 50 LFT).</li>
+    <li><strong>Prima de antigüedad (12 días/año):</strong> Se calcula con 12 días de salario por año trabajado, con un tope de 2 veces la UMA diaria ($226.28 en 2026) como salario para este cálculo (Art. 162 LFT).</li>
+    <li><strong>Finiquito proporcional:</strong> Aguinaldo proporcional, vacaciones proporcionales y prima vacacional del período trabajado en el año.</li>
+  </ul>
+
+  <h2>¿Cuándo aplica la liquidación?</h2>
+  <p>La liquidación aplica cuando el patrón despide al trabajador <strong>sin causa justificada</strong>. Las causas justificadas de rescisión sin responsabilidad del patrón están listadas en el Artículo 47 de la LFT (robo, daños intencionales, actos inmorales, entre otros).</p>
+  <p>Si el despido es justificado, el trabajador solo recibe el finiquito (aguinaldo proporcional, vacaciones y prima vacacional), más la prima de antigüedad si tiene 15+ años de antigüedad.</p>
+
+  <h2>¿Cuánto tiempo tiene el patrón para pagar la liquidación?</h2>
+  <p>La LFT no establece un plazo específico para la liquidación, pero la práctica es que debe pagarse al momento de la separación o dentro de los días siguientes. Si el patrón no paga, el trabajador puede presentar demanda ante el Centro de Conciliación Laboral en el plazo de prescripción de <strong>2 años</strong> desde la fecha del despido.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre la liquidación</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué son los 3 meses de liquidación? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Los 3 meses (90 días de salario) son la "indemnización constitucional" prevista en el Artículo 123 de la Constitución Política de los Estados Unidos Mexicanos. Es el mínimo garantizado para cualquier trabajador despedido sin causa justificada, independientemente de su antigüedad.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Los 20 días por año se pagan siempre? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí, los 20 días por año (Art. 50 LFT) se pagan en todo despido injustificado. Si no tienes un año completo, se paga la parte proporcional. Por ejemplo, si trabajaste 6 meses, te corresponden 10 días de este concepto. Se calculan sobre el salario diario base.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué es la prima de antigüedad y cómo se calcula? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La prima de antigüedad es el pago de 12 días de salario por cada año de servicio (Art. 162 LFT). El salario base para este cálculo tiene un tope: no puede exceder el doble de la UMA diaria ($226.28 en 2026). Si tu salario diario supera ese tope, se usa $226.28 para calcular la prima, aunque el resto de la liquidación use tu salario real.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Puedo negociar una liquidación mayor a la legal? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí. Los montos calculados son los mínimos legales. Muchas empresas ofrecen liquidaciones superiores para evitar litigios o por políticas internas. También puedes negociar si el patrón quiere evitar que presentes una demanda. Cualquier acuerdo por encima del mínimo legal es válido y puede quedar en un convenio ante la autoridad laboral.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿La liquidación paga ISR? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La parte exenta de ISR en liquidaciones es de 90 veces la UMA diaria ($10,182.60 en 2026) por año de servicio. El monto exento puede ser considerable. El excedente causa ISR pero con un cálculo especial. Para liquidaciones importantes, consulta a un contador para optimizar el impacto fiscal.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Si firmo la renuncia pierdo el derecho a liquidación? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Si firmas una renuncia voluntaria, renuncias formalmente a la indemnización por despido (los 3 meses y 20 días por año). Solo conservas el finiquito y la prima de antigüedad si tienes 15+ años. Si el patrón te presionó a renunciar, puedes impugnar la renuncia ante el Centro de Conciliación. La carga de la prueba de que fue voluntaria es del patrón.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  const UMA_DIARIA = 113.14;
+  const TOPE_ANTIGUEDAD = UMA_DIARIA * 2;
+
+  function diasVacaciones(anios) {
+    if (anios < 1) return 0;
+    if (anios === 1) return 12;
+    if (anios === 2) return 14;
+    if (anios === 3) return 16;
+    if (anios === 4) return 18;
+    if (anios <= 9) return 20;
+    if (anios <= 14) return 22;
+    if (anios <= 19) return 24;
+    if (anios <= 24) return 26;
+    return 28;
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calcular() {
+    const salario = parseFloat(document.getElementById('salario').value) || 0;
+    const ingreso = document.getElementById('fecha_ingreso').value;
+    const despido = document.getElementById('fecha_despido').value;
+    const diasAgui = parseInt(document.getElementById('dias_aguinaldo').value) || 15;
+    const vacExtra = parseInt(document.getElementById('vacaciones_extra').value) || 0;
+
+    if (!salario || !ingreso || !despido) {
+      alert('Por favor completa todos los campos obligatorios.');
+      return;
+    }
+    if (salario < 248.93) {
+      alert('El salario diario no puede ser menor al salario mínimo ($248.93/día).');
+      return;
+    }
+
+    const fi = new Date(ingreso);
+    const fd = new Date(despido);
+    if (fd <= fi) { alert('La fecha de despido debe ser posterior a la de ingreso.'); return; }
+
+    const diasTotales = Math.round((fd - fi) / (1000 * 60 * 60 * 24));
+    const aniosTotales = diasTotales / 365;
+    const aniosCompletos = Math.floor(aniosTotales);
+
+    // --- INDEMNIZACIÓN ---
+    const ind3meses = salario * 90;
+
+    const ind20dias = salario * 20 * aniosTotales;
+
+    const salarioAntiguedad = Math.min(salario, TOPE_ANTIGUEDAD);
+    const antiguedad = salarioAntiguedad * 12 * aniosTotales;
+
+    const totalIndemnizacion = ind3meses + ind20dias + antiguedad;
+
+    // --- FINIQUITO ---
+    const inicioAnio = new Date(fd.getFullYear(), 0, 1);
+    const diasEnAnio = Math.round((fd - inicioAnio) / (1000 * 60 * 60 * 24));
+
+    const aguinaldoProp = salario * diasAgui * (diasEnAnio / 365);
+
+    const diasVac = diasVacaciones(aniosCompletos + 1);
+    const diasAnioVac = Math.round((fd - fi) / (1000 * 60 * 60 * 24));
+    const diasPeriodoVac = Math.min(diasAnioVac % 365, 365);
+    const vacProp = salario * diasVac * (diasPeriodoVac / 365);
+    const primaProp = vacProp * 0.25;
+
+    const totalFiniquito = aguinaldoProp + vacProp + primaProp + (vacExtra * salario);
+
+    const total = totalIndemnizacion + totalFiniquito;
+
+    // --- RENDER ---
+    document.getElementById('val-3meses').textContent = fmt(ind3meses);
+    document.getElementById('val-20dias').textContent = fmt(ind20dias);
+    document.getElementById('desc-20dias').textContent = `${aniosTotales.toFixed(2)} años × 20 días × ${fmt(salario)}/día`;
+    document.getElementById('val-antiguedad').textContent = fmt(antiguedad);
+    document.getElementById('desc-antiguedad').textContent =
+      `${aniosTotales.toFixed(2)} años × 12 días × ${fmt(salarioAntiguedad)}/día (tope $${TOPE_ANTIGUEDAD.toFixed(2)})`;
+
+    document.getElementById('val-aguinaldo').textContent = fmt(aguinaldoProp);
+    document.getElementById('desc-aguinaldo').textContent = `${diasAgui} días × ${diasEnAnio}/365 × ${fmt(salario)}/día`;
+
+    document.getElementById('val-vacaciones').textContent = fmt(vacProp);
+    document.getElementById('desc-vacaciones').textContent = `${diasVac} días × ${diasPeriodoVac}/365 × ${fmt(salario)}/día`;
+
+    document.getElementById('val-prima').textContent = fmt(primaProp);
+
+    if (vacExtra > 0) {
+      document.getElementById('row-vacextra').style.display = 'flex';
+      document.getElementById('val-vacextra').textContent = fmt(vacExtra * salario);
+    }
+
+    document.getElementById('sum-indemnizacion').textContent = fmt(totalIndemnizacion);
+    document.getElementById('sum-finiquito').textContent = fmt(totalFiniquito);
+    document.getElementById('sum-total').textContent = fmt(total);
+
+    document.getElementById('total-amount').textContent = fmt(total);
+    document.getElementById('total-sub').textContent =
+      `${aniosTotales.toFixed(1)} años de antigüedad · Indemnización + finiquito`;
+
+    document.getElementById('resultado').classList.add('show');
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

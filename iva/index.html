@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IVA México 2026 — CalculaMX</title>
+  <meta name="description" content="Calcula el IVA al 16% o 8% zona fronteriza en segundos. Suma o desglosa el impuesto de cualquier cantidad. Gratis y actualizado 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/iva/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/iva/">
+  <meta property="og:title" content="Calculadora de IVA México 2026 — CalculaMX">
+  <meta property="og:description" content="Suma o desglosa el IVA al 16% o 8%. Ideal para facturas, cotizaciones y compras. Gratis.">
+  <meta property="og:url" content="https://calculamx.com.mx/iva/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .mode-btn { padding: 14px 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--white); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit; }
+    .mode-btn:hover { border-color: var(--accent); }
+    .mode-btn.active { border-color: var(--accent); background: #fff3ec; }
+    .mode-btn .m-icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+    .mode-btn .m-label { font-size: 0.82rem; font-weight: 700; color: var(--primary); }
+    .mode-btn .m-sub { font-size: 0.72rem; color: var(--muted); }
+
+    .rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .rate-btn { padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--white); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit; }
+    .rate-btn:hover { border-color: var(--accent); }
+    .rate-btn.active { border-color: var(--accent); background: #fff3ec; }
+    .rate-btn .r-pct { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: block; }
+    .rate-btn .r-label { font-size: 0.72rem; color: var(--muted); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+
+    .res-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    @media (max-width: 480px) { .res-cards { grid-template-columns: 1fr; } }
+    .res-card { background: var(--bg); border-radius: 10px; padding: 14px 16px; text-align: center; border: 1px solid var(--border); }
+    .res-card.highlight { background: linear-gradient(135deg, #059669, #047857); border-color: transparent; }
+    .res-card .rc-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .res-card.highlight .rc-label { color: rgba(255,255,255,0.8); }
+    .res-card .rc-value { font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+    .res-card.highlight .rc-value { color: white; font-size: 1.6rem; }
+
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 16px; font-size: 0.78rem; color: #92400e; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; background: var(--white); }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de IVA México 2026",
+    "url": "https://calculamx.com.mx/iva/",
+    "description": "Calcula el IVA al 16% o 8% zona fronteriza. Suma o desglosa el impuesto de cualquier cantidad en México. Gratis y actualizado 2026.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la tasa del IVA en México 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La tasa general del IVA en México es 16%. En la zona fronteriza norte y sur aplica una tasa preferencial del 8%, establecida en 2019 por el gobierno federal." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué municipios tienen IVA del 8%?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La tasa del 8% aplica en municipios de la franja fronteriza norte: Tijuana, Mexicali, Nogales, Ciudad Juárez, Piedras Negras, Nuevo Laredo, Reynosa, Matamoros y otros. En el sur: Chetumal y Tapachula. Consulta el DOF para la lista completa." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se calcula el IVA en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Para agregar IVA: precio × 1.16 (o × 1.08 en frontera). Para desglosar el IVA de un precio que ya lo incluye: precio ÷ 1.16 (o ÷ 1.08) para obtener el precio base, y la diferencia es el IVA." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › IVA</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">🧾 IVA general 16% · Zona fronteriza 8%</div>
+    <h1>Calculadora de IVA México 2026</h1>
+    <p>Suma o desglosa el IVA de cualquier cantidad en segundos. Ideal para facturas, cotizaciones y compras.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">🧾 Ingresa el monto</div>
+      <div class="calc-body">
+
+        <div class="form-group">
+          <label>¿Qué necesitas hacer?</label>
+          <div class="mode-grid">
+            <button class="mode-btn active" onclick="setMode('agregar', this)">
+              <span class="m-icon">➕</span>
+              <div class="m-label">Agregar IVA</div>
+              <div class="m-sub">Al precio sin impuesto</div>
+            </button>
+            <button class="mode-btn" onclick="setMode('desglosar', this)">
+              <span class="m-icon">🔍</span>
+              <div class="m-label">Desglosar IVA</div>
+              <div class="m-sub">Del precio con impuesto</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tasa de IVA</label>
+          <div class="rate-grid">
+            <button class="rate-btn active" onclick="setRate(16, this)">
+              <span class="r-pct">16%</span>
+              <span class="r-label">Tasa general</span>
+            </button>
+            <button class="rate-btn" onclick="setRate(8, this)">
+              <span class="r-pct">8%</span>
+              <span class="r-label">Zona fronteriza</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label id="label-monto">Precio sin IVA <span class="hint">(monto base)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="monto" placeholder="ej. 1,000.00" min="0" step="0.01" oninput="calcularAuto()">
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular IVA →</button>
+
+        <div class="resultado" id="resultado">
+          <div class="res-cards">
+            <div class="res-card">
+              <div class="rc-label" id="label-base">Precio base</div>
+              <div class="rc-value" id="val-base">$0.00</div>
+            </div>
+            <div class="res-card">
+              <div class="rc-label" id="label-iva-card">IVA (16%)</div>
+              <div class="rc-value" id="val-iva">$0.00</div>
+            </div>
+            <div class="res-card highlight">
+              <div class="rc-label" id="label-total-card">Total con IVA</div>
+              <div class="rc-value" id="val-total">$0.00</div>
+            </div>
+          </div>
+          <div class="legal-note">
+            ℹ️ <strong>Calculadora de referencia.</strong> Para efectos fiscales y emisión de CFDI, verifica siempre con tu contador o el portal del SAT.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>📋 Tasas IVA vigentes 2026</h3>
+      <div class="info-item"><span>Tasa general</span><span>16%</span></div>
+      <div class="info-item"><span>Zona fronteriza</span><span>8%</span></div>
+      <div class="info-item"><span>Alimentos básicos</span><span>0% (exento)</span></div>
+      <div class="info-item"><span>Medicamentos</span><span>0% (exento)</span></div>
+      <div class="info-item"><span>Exportaciones</span><span>0% (tasa cero)</span></div>
+      <div class="info-item"><span>Vigencia</span><span>2026</span></div>
+    </div>
+    <div class="info-box">
+      <h3>🧮 Fórmulas rápidas</h3>
+      <div class="info-item"><span>Agregar 16%</span><span>× 1.16</span></div>
+      <div class="info-item"><span>Agregar 8%</span><span>× 1.08</span></div>
+      <div class="info-item"><span>Desglosar 16%</span><span>÷ 1.16</span></div>
+      <div class="info-item"><span>Desglosar 8%</span><span>÷ 1.08</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es el IVA en México?</h2>
+  <p>El <strong>Impuesto al Valor Agregado (IVA)</strong> es el principal impuesto al consumo en México, regulado por la Ley del IVA. Se aplica a la enajenación de bienes, prestación de servicios, uso o goce temporal de bienes, e importación de bienes.</p>
+  <p>La tasa general es <strong>16%</strong> y aplica en todo el territorio nacional, salvo en la zona fronteriza donde la tasa es de <strong>8%</strong> desde 2019, como parte de un estímulo fiscal para impulsar la competitividad en esas regiones.</p>
+
+  <h2>¿Cuándo aplica el IVA del 8%?</h2>
+  <p>La tasa fronteriza del 8% aplica en los siguientes municipios, siempre que el acto o actividad se realice efectivamente en esa zona:</p>
+  <ul>
+    <li><strong>Frontera norte:</strong> Tijuana, Mexicali, Nogales, Agua Prieta, Ciudad Juárez, Acuña, Piedras Negras, Guerrero, Nuevo Laredo, Reynosa, Matamoros y otros.</li>
+    <li><strong>Frontera sur:</strong> Chetumal (Othón P. Blanco) y Tapachula.</li>
+  </ul>
+
+  <h2>¿Qué está exento de IVA?</h2>
+  <ul>
+    <li><strong>Tasa 0%:</strong> Alimentos sin elaborar o de consumo básico, medicamentos, exportaciones de bienes y servicios.</li>
+    <li><strong>Exentos:</strong> Servicios médicos, educación, transporte público terrestre de personas, arrendamiento de vivienda.</li>
+  </ul>
+
+  <h2>¿Cómo calculo el IVA manualmente?</h2>
+  <p>Para <strong>agregar IVA</strong> a un precio base: multiplica por 1.16 (tasa general) o por 1.08 (zona fronteriza). Por ejemplo, $500 × 1.16 = $580 total.</p>
+  <p>Para <strong>desglosar el IVA</strong> de un precio que ya lo incluye: divide entre 1.16 (o 1.08) para obtener el precio base. Por ejemplo, $580 ÷ 1.16 = $500 base, y $580 - $500 = $80 de IVA.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el IVA</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la tasa del IVA en México 2026? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La tasa general vigente es 16%. En la zona fronteriza norte y sur aplica 8%. No hubo cambios en las tasas para 2026; se mantienen las establecidas desde 2019 para la franja fronteriza.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿El IVA se calcula sobre el precio con o sin IVA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El IVA siempre se calcula sobre el precio base (sin IVA). Si tienes un precio que ya incluye el impuesto, primero debes "desglosarlo" dividiendo entre 1.16 (o 1.08) para obtener el precio base, y luego la diferencia es el IVA.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Los alimentos pagan IVA en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La mayoría de los alimentos sin elaborar pagan IVA a tasa 0%, lo que permite el acreditamiento. Los alimentos con elaboración o procesamiento industrial sí pueden pagar 16%. Refrescos, botanas y alimentos "no esenciales" pagan 16%.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo se declara el IVA ante el SAT? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Las personas morales y físicas con actividad empresarial presentan declaración mensual de IVA ante el SAT a más tardar el día 17 del mes siguiente. Las personas físicas con RESICO y Régimen de Plataformas Tecnológicas tienen esquemas simplificados. Las personas físicas asalariadas no declaran IVA.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la diferencia entre tasa 0% y exento en IVA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">En tasa 0% el contribuyente puede acreditar el IVA que pagó en sus gastos e insumos (IVA acreditable), lo que puede generar un saldo a favor del contribuyente. En los actos exentos, no se puede acreditar el IVA de los insumos relacionados, lo que representa un costo adicional.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  let modoActual = 'agregar';
+  let tasaActual = 16;
+
+  function setMode(modo, btn) {
+    modoActual = modo;
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const lbl = document.getElementById('label-monto');
+    if (modo === 'agregar') {
+      lbl.innerHTML = 'Precio sin IVA <span class="hint">(monto base)</span>';
+    } else {
+      lbl.innerHTML = 'Precio con IVA incluido <span class="hint">(monto total)</span>';
+    }
+    if (document.getElementById('resultado').classList.contains('show')) calcular();
+  }
+
+  function setRate(tasa, btn) {
+    tasaActual = tasa;
+    document.querySelectorAll('.rate-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (document.getElementById('resultado').classList.contains('show')) calcular();
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calcularAuto() {
+    const m = parseFloat(document.getElementById('monto').value);
+    if (m > 0) calcular();
+  }
+
+  function calcular() {
+    const monto = parseFloat(document.getElementById('monto').value) || 0;
+    if (!monto || monto <= 0) { alert('Ingresa un monto válido.'); return; }
+
+    let base, iva, total;
+    const factor = tasaActual / 100;
+
+    if (modoActual === 'agregar') {
+      base = monto;
+      iva = monto * factor;
+      total = monto + iva;
+    } else {
+      total = monto;
+      base = monto / (1 + factor);
+      iva = monto - base;
+    }
+
+    document.getElementById('val-base').textContent = fmt(base);
+    document.getElementById('val-iva').textContent = fmt(iva);
+    document.getElementById('val-total').textContent = fmt(total);
+
+    document.getElementById('label-iva-card').textContent = `IVA (${tasaActual}%)`;
+    if (modoActual === 'agregar') {
+      document.getElementById('label-base').textContent = 'Precio base';
+      document.getElementById('label-total-card').textContent = 'Total con IVA';
+    } else {
+      document.getElementById('label-base').textContent = 'Precio sin IVA';
+      document.getElementById('label-total-card').textContent = 'Total pagado';
+    }
+
+    document.getElementById('resultado').classList.add('show');
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

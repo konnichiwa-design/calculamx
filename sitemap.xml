@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://calculamx.com.mx/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/finiquito/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/finiquito/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/liquidacion/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/liquidacion/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/isr/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/isr/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/aguinaldo/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/aguinaldo/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/iva/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/iva/"/>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/uma/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/uma/"/>
+  </url>
+
+</urlset>

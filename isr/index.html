@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ISR 2026 México — Salarios y Honorarios — CalculaMX</title>
+  <meta name="description" content="Calcula el ISR 2026 de tu salario mensual o anual. Tablas SAT actualizadas. Personas físicas asalariadas y honorarios. Retención mensual y tasa efectiva. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/isr/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/isr/">
+  <meta property="og:title" content="Calculadora de ISR 2026 México — CalculaMX">
+  <meta property="og:description" content="Calcula el ISR mensual y anual 2026 con las tablas SAT vigentes. Tasa efectiva, retención y salario neto. Gratis.">
+  <meta property="og:url" content="https://calculamx.com.mx/isr/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --red: #dc2626;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .tipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .tipo-btn { padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--white); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit; }
+    .tipo-btn:hover { border-color: var(--accent); }
+    .tipo-btn.active { border-color: var(--accent); background: #fff3ec; }
+    .tipo-btn .t-icon { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+    .tipo-btn .t-label { font-size: 0.8rem; font-weight: 700; color: var(--primary); }
+    .tipo-btn .t-sub { font-size: 0.7rem; color: var(--muted); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+
+    .res-top { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .res-card { border-radius: 10px; padding: 16px; text-align: center; }
+    .res-card.isr { background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; }
+    .res-card.neto { background: linear-gradient(135deg, #059669, #047857); color: white; }
+    .res-card .rc-label { font-size: 0.78rem; opacity: 0.9; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .res-card .rc-value { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
+    .res-card .rc-sub { font-size: 0.72rem; opacity: 0.8; margin-top: 2px; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.86rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.74rem; }
+    .desglose-value { font-weight: 700; white-space: nowrap; }
+    .desglose-value.positive { color: var(--green); }
+    .desglose-value.negative { color: var(--red); }
+    .desglose-value.muted { color: var(--muted); font-weight: 400; }
+
+    .tasa-badge { display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; color: #1e40af; margin-bottom: 12px; }
+    .tasa-badge strong { font-size: 1.1rem; }
+
+    .legal-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; font-size: 0.78rem; color: #92400e; }
+
+    .tabla-isr { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .tabla-isr th { background: var(--primary); color: white; padding: 8px 10px; text-align: right; font-weight: 600; }
+    .tabla-isr th:first-child { text-align: left; }
+    .tabla-isr td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: right; }
+    .tabla-isr td:first-child { text-align: left; }
+    .tabla-isr tr.active-row td { background: #fff3ec; font-weight: 700; color: var(--accent); }
+    .tabla-isr tr:last-child td { border-bottom: none; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de ISR México 2026",
+    "url": "https://calculamx.com.mx/isr/",
+    "description": "Calcula el ISR mensual y anual 2026 con tablas SAT vigentes. Personas físicas asalariadas. Tasa efectiva, retención y salario neto.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto ISR se paga en México 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El ISR en México va del 1.92% al 35% dependiendo del nivel de ingresos, según las tablas del SAT. Un trabajador con salario de $15,000 mensuales paga aproximadamente $1,600-1,800 de ISR. La tasa efectiva real depende del bracket en que cae el ingreso mensual." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se calcula el ISR de nómina?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El ISR de nómina se calcula con la tabla mensual del SAT: se localiza el bracket de ingreso, se resta el límite inferior, el resultado se multiplica por la tasa marginal y se suma la cuota fija. El empleador retiene y entera el ISR mensualmente ante el SAT." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › ISR 2026</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">📊 Tablas SAT 2026 · Personas físicas · Tasa 1.92%–35%</div>
+    <h1>Calculadora de ISR 2026</h1>
+    <p>Calcula el Impuesto Sobre la Renta de tu salario mensual o anual — con desglose del bracket, tasa efectiva y salario neto.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">📊 Ingresa tu ingreso</div>
+      <div class="calc-body">
+
+        <div class="form-group">
+          <label>Tipo de contribuyente</label>
+          <div class="tipo-grid">
+            <button class="tipo-btn active" onclick="setTipo('asalariado', this)">
+              <span class="t-icon">👔</span>
+              <div class="t-label">Asalariado</div>
+              <div class="t-sub">Relación laboral</div>
+            </button>
+            <button class="tipo-btn" onclick="setTipo('honorarios', this)">
+              <span class="t-icon">📄</span>
+              <div class="t-label">Honorarios / RESICO</div>
+              <div class="t-sub">Actividad empresarial</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Período del ingreso</label>
+          <select id="periodo">
+            <option value="mensual">Mensual (salario mensual bruto)</option>
+            <option value="quincenal">Quincenal (por quincena)</option>
+            <option value="anual">Anual (ingreso total anual)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="lbl-ingreso">Salario mensual bruto <span class="hint">(antes de descuentos)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="ingreso" placeholder="ej. 15,000" min="0" step="0.01">
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular ISR →</button>
+
+        <div class="resultado" id="resultado">
+
+          <div class="tasa-badge">
+            📈 Tasa efectiva: <strong id="tasa-efectiva">0%</strong> &nbsp;·&nbsp; Bracket: <strong id="bracket-label">—</strong>
+          </div>
+
+          <div class="res-top">
+            <div class="res-card isr">
+              <div class="rc-label">ISR a retener</div>
+              <div class="rc-value" id="val-isr">$0.00</div>
+              <div class="rc-sub" id="val-isr-sub">Mensual</div>
+            </div>
+            <div class="res-card neto">
+              <div class="rc-label">Salario neto</div>
+              <div class="rc-value" id="val-neto">$0.00</div>
+              <div class="rc-sub" id="val-neto-sub">Solo ISR (sin IMSS)</div>
+            </div>
+          </div>
+
+          <div class="desglose">
+            <div class="desglose-title">Desglose del cálculo</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Ingreso mensual bruto<small>Base del cálculo</small></div>
+              <div class="desglose-value muted" id="d-ingreso-mensual">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Límite inferior del bracket<small>Tabla SAT 2026</small></div>
+              <div class="desglose-value muted" id="d-lim-inf">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Excedente del límite inferior<small>Ingreso − límite inferior</small></div>
+              <div class="desglose-value muted" id="d-excedente">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">ISR sobre excedente<small id="d-tasa-label">Excedente × tasa marginal</small></div>
+              <div class="desglose-value muted" id="d-isr-excedente">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Cuota fija del bracket<small>Tabla SAT 2026</small></div>
+              <div class="desglose-value muted" id="d-cuota">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">ISR mensual total<small>Excedente + cuota fija</small></div>
+              <div class="desglose-value negative" id="d-isr-total">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Salario neto (solo ISR)<small>Bruto − ISR</small></div>
+              <div class="desglose-value positive" id="d-neto">$0.00</div>
+            </div>
+          </div>
+
+          <div class="desglose" style="margin-top:12px;">
+            <div class="desglose-title">Proyección anual</div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Ingreso anual bruto</div>
+              <div class="desglose-value muted" id="d-anual-bruto">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">ISR anual estimado</div>
+              <div class="desglose-value negative" id="d-anual-isr">$0.00</div>
+            </div>
+            <div class="desglose-row">
+              <div class="desglose-concept">Ingreso neto anual</div>
+              <div class="desglose-value positive" id="d-anual-neto">$0.00</div>
+            </div>
+          </div>
+
+          <div class="legal-note" style="margin-top:12px;">
+            ⚠️ <strong>Calculadora de referencia.</strong> No incluye cuotas IMSS, INFONAVIT ni deducciones personales. Para personas físicas asalariadas. Consulta a tu contador para tu declaración anual.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TABLA ISR -->
+    <div class="calc-box" style="margin-top:24px;">
+      <div class="calc-header">📋 Tabla ISR mensual 2026 — SAT</div>
+      <div class="calc-body" style="padding:16px;overflow-x:auto;">
+        <table class="tabla-isr" id="tabla-isr">
+          <thead>
+            <tr>
+              <th>Límite inferior</th>
+              <th>Límite superior</th>
+              <th>Cuota fija</th>
+              <th>Tasa s/excedente</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>📋 Datos clave ISR 2026</h3>
+      <div class="info-item"><span>Tasa mínima</span><span>1.92%</span></div>
+      <div class="info-item"><span>Tasa máxima</span><span>35%</span></div>
+      <div class="info-item"><span>Salario mínimo</span><span>$248.93/día</span></div>
+      <div class="info-item"><span>UMA diaria</span><span>$113.14</span></div>
+      <div class="info-item"><span>Exención finiquito</span><span>90 UMAs</span></div>
+      <div class="info-item"><span>Exención aguinaldo</span><span>30 SMG</span></div>
+    </div>
+    <div class="info-box">
+      <h3>🔗 Calculadoras relacionadas</h3>
+      <div class="info-item"><a href="/finiquito/" style="color:var(--accent);text-decoration:none;">Finiquito 2026</a><span>→</span></div>
+      <div class="info-item"><a href="/aguinaldo/" style="color:var(--accent);text-decoration:none;">Aguinaldo</a><span>→</span></div>
+      <div class="info-item"><a href="/uma/" style="color:var(--accent);text-decoration:none;">UMA 2026</a><span>→</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es el ISR en México?</h2>
+  <p>El <strong>Impuesto Sobre la Renta (ISR)</strong> es el impuesto federal que grava los ingresos de personas físicas y morales en México, regulado por la Ley del ISR. Para los trabajadores asalariados, el <strong>empleador retiene y entera</strong> el ISR mensualmente ante el SAT, por lo que el trabajador no tiene que pagar directamente.</p>
+  <p>El ISR en México es <strong>progresivo</strong>: a mayor ingreso, mayor tasa. Las tasas van del 1.92% para los ingresos más bajos hasta el 35% para ingresos superiores a $375,975 mensuales.</p>
+
+  <h2>¿Cómo se calcula el ISR de nómina?</h2>
+  <p>El cálculo usa la <strong>tabla mensual de retención del SAT</strong>:</p>
+  <ul>
+    <li>Localiza el <strong>bracket</strong> en que cae tu ingreso mensual</li>
+    <li>Resta el <strong>límite inferior</strong> del bracket a tu ingreso</li>
+    <li>Multiplica el resultado por la <strong>tasa marginal</strong> del bracket</li>
+    <li>Suma la <strong>cuota fija</strong> del bracket</li>
+    <li>El resultado es tu ISR mensual a retener</li>
+  </ul>
+
+  <h2>¿El ISR se aplica sobre el salario bruto o neto?</h2>
+  <p>El ISR se calcula sobre el <strong>ingreso gravable</strong>, que para asalariados es el salario ordinario menos las partes exentas (como la parte exenta del aguinaldo, horas extra hasta cierto límite, etc.). Para simplificar, esta calculadora usa el salario bruto total como base de cálculo.</p>
+
+  <h2>Diferencia entre tasa marginal y tasa efectiva</h2>
+  <p>La <strong>tasa marginal</strong> es la que aplica al último peso que ganas (el bracket donde cae tu ingreso). La <strong>tasa efectiva</strong> es el porcentaje real de ISR sobre tu ingreso total — siempre es menor que la marginal porque los primeros pesos de tu ingreso tributan a tasas más bajas.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el ISR</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto ISR se descuenta del salario en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Depende del salario. Con $10,000 mensuales, el ISR es aproximadamente $800–900. Con $20,000 es aproximadamente $2,500–2,800. Con $50,000 mensuales puede llegar a $9,000–11,000. Usa la calculadora arriba para tu ingreso exacto.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Por qué el ISR que me descuentan varía cada mes? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El ISR mensual puede variar si tu ingreso varía (horas extra, bonos, comisiones). También puede cambiar porque el empleador hace ajustes para que la retención anual sea exacta. En diciembre es común ver ajustes importantes (a favor o en contra del trabajador).</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Tengo que hacer declaración anual si soy asalariado? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Si tienes un solo empleo y tu ingreso anual no supera $400,000, generalmente estás exento de presentar declaración anual. Si tienes más de un empleo, ingresos por otros conceptos, o tuviste cambio de empleo, sí debes presentarla. Siempre vale la pena porque puedes tener saldo a favor por deducciones personales.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Las deducciones personales reducen el ISR? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí. En tu declaración anual puedes deducir: honorarios médicos y dentales, gastos hospitalarios, colegiaturas, primas de seguros de gastos médicos, intereses hipotecarios, donativos, aportaciones voluntarias al AFORE y transporte escolar (si es obligatorio). Estas deducciones pueden generar un saldo a favor de ISR.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué es el RESICO y cuánto ISR paga? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El Régimen Simplificado de Confianza (RESICO) es para personas físicas con actividad empresarial o profesional con ingresos hasta $3.5 millones anuales. Las tasas van del 1% al 2.5% sobre ingresos cobrados — significativamente menor que el ISR regular. Los pagos son mensuales y definitivos.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  const TABLA_ISR_MENSUAL = [
+    { li: 0.01,      ls: 746.04,      cuota: 0.00,      tasa: 0.0192 },
+    { li: 746.05,    ls: 6332.05,     cuota: 14.32,     tasa: 0.0640 },
+    { li: 6332.06,   ls: 11128.01,    cuota: 371.83,    tasa: 0.1088 },
+    { li: 11128.02,  ls: 12935.82,    cuota: 893.63,    tasa: 0.1600 },
+    { li: 12935.83,  ls: 15487.71,    cuota: 1182.88,   tasa: 0.1792 },
+    { li: 15487.72,  ls: 31236.49,    cuota: 1640.18,   tasa: 0.2136 },
+    { li: 31236.50,  ls: 49233.00,    cuota: 5004.12,   tasa: 0.2352 },
+    { li: 49233.01,  ls: 93993.90,    cuota: 9236.89,   tasa: 0.3000 },
+    { li: 93993.91,  ls: 125325.20,   cuota: 22665.17,  tasa: 0.3200 },
+    { li: 125325.21, ls: 375975.61,   cuota: 32691.18,  tasa: 0.3400 },
+    { li: 375975.62, ls: Infinity,    cuota: 118218.19, tasa: 0.3500 },
+  ];
+
+  let tipoActual = 'asalariado';
+
+  function setTipo(tipo, btn) {
+    tipoActual = tipo;
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function fmtPct(n) {
+    return (n * 100).toFixed(2) + '%';
+  }
+
+  function calcularISR(mensual) {
+    const bracket = TABLA_ISR_MENSUAL.find(b => mensual >= b.li && mensual <= b.ls);
+    if (!bracket) return { isr: 0, bracket: null };
+    const excedente = mensual - bracket.li;
+    const isrExcedente = excedente * bracket.tasa;
+    const isr = isrExcedente + bracket.cuota;
+    return { isr, bracket, excedente, isrExcedente };
+  }
+
+  function calcular() {
+    const raw = parseFloat(document.getElementById('ingreso').value) || 0;
+    const periodo = document.getElementById('periodo').value;
+
+    if (!raw || raw <= 0) { alert('Ingresa un ingreso válido.'); return; }
+
+    let mensual;
+    if (periodo === 'mensual') mensual = raw;
+    else if (periodo === 'quincenal') mensual = raw * 2;
+    else mensual = raw / 12;
+
+    const { isr, bracket, excedente, isrExcedente } = calcularISR(mensual);
+    if (!bracket) { alert('Ingreso fuera de rango.'); return; }
+
+    const neto = mensual - isr;
+    const tasaEfectiva = isr / mensual;
+    const bracketIdx = TABLA_ISR_MENSUAL.indexOf(bracket) + 1;
+
+    document.getElementById('tasa-efectiva').textContent = fmtPct(tasaEfectiva);
+    document.getElementById('bracket-label').textContent = `Bracket ${bracketIdx} (${fmtPct(bracket.tasa)} marginal)`;
+
+    document.getElementById('val-isr').textContent = fmt(isr);
+    document.getElementById('val-isr-sub').textContent = 'Mensual';
+    document.getElementById('val-neto').textContent = fmt(neto);
+    document.getElementById('val-neto-sub').textContent = 'Solo ISR (sin cuotas IMSS)';
+
+    document.getElementById('d-ingreso-mensual').textContent = fmt(mensual);
+    document.getElementById('d-lim-inf').textContent = fmt(bracket.li);
+    document.getElementById('d-excedente').textContent = fmt(excedente);
+    document.getElementById('d-tasa-label').textContent = `Excedente × ${fmtPct(bracket.tasa)}`;
+    document.getElementById('d-isr-excedente').textContent = fmt(isrExcedente);
+    document.getElementById('d-cuota').textContent = fmt(bracket.cuota);
+    document.getElementById('d-isr-total').textContent = fmt(isr);
+    document.getElementById('d-neto').textContent = fmt(neto);
+
+    document.getElementById('d-anual-bruto').textContent = fmt(mensual * 12);
+    document.getElementById('d-anual-isr').textContent = fmt(isr * 12);
+    document.getElementById('d-anual-neto').textContent = fmt(neto * 12);
+
+    resaltarBracket(bracketIdx - 1);
+    document.getElementById('resultado').classList.add('show');
+  }
+
+  function resaltarBracket(idx) {
+    document.querySelectorAll('#tabla-body tr').forEach((tr, i) => {
+      tr.classList.toggle('active-row', i === idx);
+    });
+  }
+
+  function renderTabla() {
+    const tbody = document.getElementById('tabla-body');
+    tbody.innerHTML = TABLA_ISR_MENSUAL.map((b, i) => `
+      <tr>
+        <td>${fmt(b.li)}</td>
+        <td>${b.ls === Infinity ? 'En adelante' : fmt(b.ls)}</td>
+        <td>${fmt(b.cuota)}</td>
+        <td>${fmtPct(b.tasa)}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('periodo').addEventListener('change', function() {
+    const labels = {
+      mensual: 'Salario mensual bruto',
+      quincenal: 'Salario quincenal bruto',
+      anual: 'Ingreso anual bruto'
+    };
+    document.getElementById('lbl-ingreso').innerHTML = labels[this.value] + ' <span class="hint">(antes de descuentos)</span>';
+  });
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  renderTabla();
+</script>
+</body>
+</html>

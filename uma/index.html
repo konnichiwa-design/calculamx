@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMA 2026 — Valor Diario, Mensual y Anual — CalculaMX</title>
+  <meta name="description" content="Valor de la UMA 2026 en México: $113.14 diario, $3,439.35 mensual, $41,272.20 anual. Tablas históricas, usos y calculadora de múltiplos de UMA.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/uma/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/uma/">
+  <meta property="og:title" content="UMA 2026 — Valor Diario, Mensual y Anual — CalculaMX">
+  <meta property="og:description" content="Consulta el valor de la UMA 2026: $113.14/día, $3,439.35/mes, $41,272.20/año. Calculadora de múltiplos incluida.">
+  <meta property="og:url" content="https://calculamx.com.mx/uma/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a5f;
+      --accent: #e8650a;
+      --green: #059669;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5986 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .uma-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    @media (max-width: 560px) { .uma-cards { grid-template-columns: 1fr; } }
+    .uma-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .uma-card.main-card { border-color: var(--accent); background: linear-gradient(135deg, #fff8f5 0%, #fff 100%); }
+    .uma-card .uc-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+    .uma-card .uc-value { font-size: 1.8rem; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+    .uma-card.main-card .uc-value { color: var(--accent); font-size: 2.2rem; }
+    .uma-card .uc-sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-calc:hover { background: #d4580a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,101,10,0.3); }
+
+    .resultado { display: none; margin-top: 20px; }
+    .resultado.show { display: block; }
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    @media (max-width: 480px) { .res-grid { grid-template-columns: 1fr; } }
+    .res-card { background: var(--bg); border-radius: 10px; padding: 14px 16px; text-align: center; border: 1px solid var(--border); }
+    .res-card .rc-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; }
+    .res-card .rc-value { font-size: 1.2rem; font-weight: 800; color: var(--primary); }
+
+    .hist-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .hist-table th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-size: 0.82rem; }
+    .hist-table td { padding: 10px 14px; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+    .hist-table tr:last-child td { border-bottom: none; }
+    .hist-table tr:hover td { background: var(--bg); }
+    .hist-table .year-current { font-weight: 700; color: var(--accent); }
+
+    .usos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    @media (max-width: 560px) { .usos-grid { grid-template-columns: 1fr; } }
+    .uso-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .uso-item .uso-title { font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .uso-item .uso-desc { font-size: 0.8rem; color: var(--muted); }
+    .uso-item .uso-valor { font-size: 0.88rem; font-weight: 600; color: var(--accent); margin-top: 6px; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Valor de la UMA 2026 — México",
+    "url": "https://calculamx.com.mx/uma/",
+    "description": "Consulta el valor oficial de la UMA 2026: $113.14 diario, $3,439.35 mensual, $41,272.20 anual. Actualizado con decreto INEGI.",
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto vale la UMA en 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El valor de la UMA en 2026 es: $113.14 diario, $3,439.35 mensual y $41,272.20 anual, según el decreto publicado por el INEGI en el Diario Oficial de la Federación." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Para qué sirve la UMA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La UMA (Unidad de Medida y Actualización) es la referencia económica para determinar obligaciones, sanciones, multas y prestaciones en México. Reemplazó al salario mínimo como unidad de referencia en 2016 para evitar que el aumento del salario mínimo impactara a multas, créditos y prestaciones." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › UMA 2026</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">📐 Actualizado con decreto INEGI · Vigente 2026</div>
+    <h1>Valor de la UMA 2026</h1>
+    <p>Unidad de Medida y Actualización vigente — referencia para multas, créditos hipotecarios, pensiones y prestaciones en México.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div>
+    <!-- VALORES UMA 2026 -->
+    <div class="uma-cards">
+      <div class="uma-card main-card">
+        <div class="uc-label">UMA Diaria</div>
+        <div class="uc-value">$113.14</div>
+        <div class="uc-sub">Por día</div>
+      </div>
+      <div class="uma-card">
+        <div class="uc-label">UMA Mensual</div>
+        <div class="uc-value">$3,439.35</div>
+        <div class="uc-sub">Por mes</div>
+      </div>
+      <div class="uma-card">
+        <div class="uc-label">UMA Anual</div>
+        <div class="uc-value">$41,272.20</div>
+        <div class="uc-sub">Por año</div>
+      </div>
+    </div>
+
+    <!-- CALCULADORA DE MÚLTIPLOS -->
+    <div class="calc-box" style="margin-bottom:24px;">
+      <div class="calc-header">🧮 Calcula múltiplos de UMA</div>
+      <div class="calc-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="form-group" style="margin-bottom:0">
+            <label>Número de UMAs</label>
+            <input type="number" id="num-umas" placeholder="ej. 90" min="1" step="0.5" oninput="calcUma()">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label>Período</label>
+            <select id="periodo-uma" onchange="calcUma()">
+              <option value="diario">Diario</option>
+              <option value="mensual">Mensual</option>
+              <option value="anual">Anual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="resultado" id="resultado-uma">
+          <div class="res-grid" style="margin-top:16px;">
+            <div class="res-card">
+              <div class="rc-label">Resultado</div>
+              <div class="rc-value" id="res-uma-valor">$0.00</div>
+            </div>
+            <div class="res-card">
+              <div class="rc-label">Período</div>
+              <div class="rc-value" id="res-uma-periodo">—</div>
+            </div>
+            <div class="res-card">
+              <div class="rc-label">UMA base</div>
+              <div class="rc-value" id="res-uma-base">$113.14</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USOS COMUNES -->
+    <div class="calc-box">
+      <div class="calc-header">📋 Usos comunes de la UMA 2026</div>
+      <div class="calc-body">
+        <div class="usos-grid">
+          <div class="uso-item">
+            <div class="uso-title">Finiquito exento ISR</div>
+            <div class="uso-desc">90 UMAs diarias = exención ISR en finiquito/liquidación</div>
+            <div class="uso-valor">$10,182.60</div>
+          </div>
+          <div class="uso-item">
+            <div class="uso-title">Aguinaldo exento ISR</div>
+            <div class="uso-desc">30 días de SMG (no UMA) — $248.93 × 30</div>
+            <div class="uso-valor">$7,467.90</div>
+          </div>
+          <div class="uso-item">
+            <div class="uso-title">Prima antigüedad SAT</div>
+            <div class="uso-desc">Tope: 2 UMAs diarias por día trabajado</div>
+            <div class="uso-valor">$226.28/día tope</div>
+          </div>
+          <div class="uso-item">
+            <div class="uso-title">Crédito hipotecario INFONAVIT</div>
+            <div class="uso-desc">Límite VSM expresado en UMAs</div>
+            <div class="uso-valor">Base: UMA mensual</div>
+          </div>
+          <div class="uso-item">
+            <div class="uso-title">Multas SAT / IMSS</div>
+            <div class="uso-desc">Sanciones fiscales expresadas en múltiplos de UMA</div>
+            <div class="uso-valor">1–5,000 UMAs</div>
+          </div>
+          <div class="uso-item">
+            <div class="uso-title">Pensiones IMSS</div>
+            <div class="uso-desc">Topes de cotización en número de UMAs</div>
+            <div class="uso-valor">25 UMAs/día tope</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad 300×250</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📅 Histórico UMA</h3>
+      <div class="info-item"><span>2026</span><span style="color:var(--accent);font-weight:800;">$113.14</span></div>
+      <div class="info-item"><span>2025</span><span>$108.57</span></div>
+      <div class="info-item"><span>2024</span><span>$103.74</span></div>
+      <div class="info-item"><span>2023</span><span>$103.74</span></div>
+      <div class="info-item"><span>2022</span><span>$96.22</span></div>
+      <div class="info-item"><span>2021</span><span>$89.62</span></div>
+      <div class="info-item"><span>2020</span><span>$86.88</span></div>
+    </div>
+
+    <div class="info-box">
+      <h3>🔗 Calculadoras relacionadas</h3>
+      <div class="info-item"><a href="/finiquito/" style="color:var(--accent);text-decoration:none;">Finiquito 2026</a><span>→</span></div>
+      <div class="info-item"><a href="/liquidacion/" style="color:var(--accent);text-decoration:none;">Liquidación</a><span>→</span></div>
+      <div class="info-item"><a href="/isr/" style="color:var(--accent);text-decoration:none;">ISR 2026</a><span>→</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="content-section">
+  <h2>¿Qué es la UMA?</h2>
+  <p>La <strong>Unidad de Medida y Actualización (UMA)</strong> es la referencia económica en pesos para determinar la cuantía de obligaciones y supuestos previstos en leyes federales, de las entidades federativas y del Distrito Federal. Fue creada por el Congreso de la Unión en 2016 a través de una reforma constitucional al Artículo 26.</p>
+  <p>Antes de la UMA, el salario mínimo se usaba como unidad de referencia para multas, créditos y prestaciones. El problema era que aumentar el salario mínimo automáticamente aumentaba las multas y los créditos hipotecarios. Con la UMA, el salario mínimo puede subir libremente sin afectar esas obligaciones.</p>
+
+  <h2>¿Cómo se actualiza la UMA?</h2>
+  <p>El INEGI publica el valor de la UMA en el Diario Oficial de la Federación cada año, el 10 de enero, con entrada en vigor el 1 de febrero. El cálculo se basa en la variación del <strong>Índice Nacional de Precios al Consumidor (INPC)</strong> del año anterior.</p>
+  <ul>
+    <li>La UMA diaria 2026 es <strong>$113.14</strong></li>
+    <li>La UMA mensual 2026 es <strong>$3,439.35</strong> (diaria × 30.4)</li>
+    <li>La UMA anual 2026 es <strong>$41,272.20</strong> (mensual × 12)</li>
+  </ul>
+
+  <h2>Diferencia entre UMA y Salario Mínimo</h2>
+  <p>El <strong>salario mínimo general 2026</strong> es $248.93 por día — muy diferente a la UMA de $113.14. Son dos unidades distintas con propósitos diferentes:</p>
+  <ul>
+    <li><strong>Salario mínimo:</strong> retribución mínima que debe pagarse a un trabajador. Se usa para aguinaldo, prima vacacional y algunos cálculos de ISR.</li>
+    <li><strong>UMA:</strong> unidad de referencia para multas, créditos, topes de cotización IMSS, exenciones fiscales en liquidaciones y otros supuestos legales.</li>
+  </ul>
+</div>
+
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre la UMA</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto vale la UMA diaria 2026? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La UMA diaria 2026 es <strong>$113.14</strong>, la UMA mensual es <strong>$3,439.35</strong> y la UMA anual es <strong>$41,272.20</strong>. Estos valores fueron publicados por el INEGI en el DOF y están vigentes desde el 1° de febrero de 2026.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Para qué se usa la UMA en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La UMA se usa como referencia en: multas del SAT, IMSS e INFONAVIT; topes de cotización al IMSS (25 UMAs diarias máximo); exención de ISR en liquidaciones y finiquitos (90 UMAs); montos de créditos hipotecarios; pensiones; y sanciones administrativas en leyes federales y estatales.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Por qué la UMA es diferente al salario mínimo? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La UMA se separó del salario mínimo en 2016 para permitir que el salario mínimo pudiera incrementarse sin que eso automáticamente subiera multas, créditos hipotecarios y topes de cotización. El salario mínimo 2026 es $248.93/día (más del doble de la UMA $113.14) precisamente porque ha crecido sin esa restricción.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo se actualiza la UMA cada año? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El INEGI publica el nuevo valor de la UMA el 10 de enero de cada año en el Diario Oficial de la Federación. El nuevo valor entra en vigor el 1° de febrero. El incremento se basa en la variación del INPC de octubre a octubre del año anterior.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo calculo cuánto es 90 UMAs en 2026? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">90 UMAs diarias equivalen a $113.14 × 90 = <strong>$10,182.60</strong>. Este monto es importante porque es la exención de ISR en finiquitos y liquidaciones. Si tu pago por terminación no supera $10,182.60, no pagas ISR sobre ese concepto.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/">CalculaMX</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  const UMA_DIARIA = 113.14;
+  const UMA_MENSUAL = 3439.35;
+  const UMA_ANUAL = 41272.20;
+
+  function calcUma() {
+    const n = parseFloat(document.getElementById('num-umas').value) || 0;
+    const periodo = document.getElementById('periodo-uma').value;
+    if (!n || n <= 0) return;
+
+    let base, label, resultado;
+    if (periodo === 'diario') { base = UMA_DIARIA; label = 'Diario'; }
+    else if (periodo === 'mensual') { base = UMA_MENSUAL; label = 'Mensual'; }
+    else { base = UMA_ANUAL; label = 'Anual'; }
+
+    resultado = n * base;
+    document.getElementById('res-uma-valor').textContent = fmt(resultado);
+    document.getElementById('res-uma-periodo').textContent = label;
+    document.getElementById('res-uma-base').textContent = fmt(base);
+    document.getElementById('resultado-uma').classList.add('show');
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
