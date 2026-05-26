@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Divorcio en México 2026 — ¿Qué tipo de divorcio me corresponde? — CalculaMX</title>
+  <meta name="description" content="Responde 5 preguntas y descubre qué tipo de divorcio aplica a tu caso en México: administrativo, voluntario o incausado. Pasos, documentos, costos y tiempos. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/divorcio/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/divorcio/">
+  <meta property="og:title" content="Guía de Divorcio México 2026 — ¿Qué tipo me corresponde? — CalculaMX">
+  <meta property="og:description" content="Responde 5 preguntas y obtén tu guía personalizada de divorcio en México: pasos, documentos, costos y tiempos reales.">
+  <meta property="og:url" content="https://calculamx.com.mx/divorcio/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0D2137;
+      --accent: #F04E1A;
+      --green: #059669;
+      --blue: #2563EB;
+      --amber: #D97706;
+      --red: #DC2626;
+      --text: #111827;
+      --muted: #4B5563;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #ffffff;
+      --radius: 14px;
+    }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, #0D2137 0%, #1A3F6F 50%, #0D2137 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    /* CUESTIONARIO */
+    .quiz-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 12px rgba(13,33,55,0.08); }
+    .quiz-header { background: var(--primary); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .quiz-header-title { font-size: 0.9rem; font-weight: 600; }
+    .quiz-header-step { font-size: 0.78rem; opacity: 0.7; }
+    .quiz-body { padding: 24px; }
+
+    /* PROGRESS */
+    .progress-bar { height: 4px; background: #E2E8F0; border-radius: 0; margin-bottom: 0; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 0; transition: width 0.4s ease; }
+
+    /* PREGUNTA */
+    .question-step { display: none; animation: fadeIn 0.3s ease; }
+    .question-step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .question-label { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; line-height: 1.4; }
+    .question-sub { font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-weight: 400; }
+
+    .opciones-grid { display: grid; gap: 10px; }
+    .opciones-grid.two-col { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 480px) { .opciones-grid.two-col { grid-template-columns: 1fr; } }
+
+    .opcion-btn { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; background: var(--white); cursor: pointer; text-align: left; transition: all 0.18s; font-family: inherit; display: flex; align-items: center; gap: 12px; }
+    .opcion-btn:hover { border-color: var(--accent); background: #fff3ec; }
+    .opcion-btn.selected { border-color: var(--accent); background: #fff3ec; }
+    .opcion-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .opcion-label { font-size: 0.88rem; font-weight: 700; color: var(--primary); display: block; }
+    .opcion-sub { font-size: 0.75rem; color: var(--muted); display: block; margin-top: 2px; }
+
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .btn-back { background: none; border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 16px; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-back:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-siguiente { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.2s; opacity: 0.4; pointer-events: none; }
+    .btn-siguiente.enabled { opacity: 1; pointer-events: auto; }
+    .btn-siguiente.enabled:hover { background: #D93F0E; transform: translateY(-1px); }
+
+    /* RESULTADO */
+    .resultado { display: none; }
+    .resultado.show { display: block; animation: fadeIn 0.4s ease; }
+
+    .resultado-tipo { border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .resultado-tipo.verde { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; }
+    .resultado-tipo.azul { background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%); color: white; }
+    .resultado-tipo.naranja { background: linear-gradient(135deg, #D97706 0%, #B45309 100%); color: white; }
+
+    .resultado-badge { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; margin-bottom: 6px; }
+    .resultado-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.01em; }
+    .resultado-desc { font-size: 0.85rem; opacity: 0.9; line-height: 1.5; }
+
+    .resultado-pills { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+    .pill { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; }
+    .pill strong { color: var(--primary); font-weight: 700; }
+    .pill span { color: var(--muted); }
+
+    .pasos-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+    .pasos-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .paso-item { display: flex; gap: 12px; align-items: flex-start; }
+    .paso-num { width: 26px; height: 26px; border-radius: 50%; background: var(--primary); color: white; font-size: 0.72rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .paso-text { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+    .paso-text strong { color: var(--primary); font-weight: 700; display: block; margin-bottom: 1px; }
+    .paso-text small { color: var(--muted); font-size: 0.78rem; }
+
+    .docs-box { background: var(--bg); border-radius: 10px; padding: 16px; margin-top: 18px; }
+    .docs-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+    .docs-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    @media (max-width: 480px) { .docs-list { grid-template-columns: 1fr; } }
+    .docs-list li { font-size: 0.82rem; color: var(--text); display: flex; align-items: center; gap: 6px; }
+    .docs-list li::before { content: '📄'; font-size: 0.75rem; }
+
+    .aviso-legal { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 16px; font-size: 0.78rem; color: #92400e; line-height: 1.5; }
+
+    .btn-reiniciar { width: 100%; margin-top: 16px; background: none; border: 1.5px solid var(--border); border-radius: 8px; padding: 10px; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-reiniciar:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+    .tip-box { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius); padding: 16px; }
+    .tip-box h3 { font-size: 0.85rem; font-weight: 700; color: #1D4ED8; margin-bottom: 8px; }
+    .tip-box p { font-size: 0.8rem; color: #1E40AF; line-height: 1.6; }
+
+    /* CONTENIDO SEO */
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .tipo-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 16px 0; }
+    @media (max-width: 640px) { .tipo-cards { grid-template-columns: 1fr; } }
+    .tipo-card { border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+    .tipo-card.verde { border-left: 4px solid var(--green); }
+    .tipo-card.azul { border-left: 4px solid var(--blue); }
+    .tipo-card.naranja { border-left: 4px solid var(--amber); }
+    .tipo-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .tipo-card p { font-size: 0.8rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    .tipo-card .tipo-meta { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    /* FAQ */
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; background: var(--white); }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Guía de Divorcio en México 2026",
+    "url": "https://calculamx.com.mx/divorcio/",
+    "description": "Responde 5 preguntas y descubre qué tipo de divorcio aplica a tu caso en México: pasos, documentos, costos y tiempos reales.",
+    "applicationCategory": "LegalApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta un divorcio en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El costo varía según el tipo: el divorcio administrativo ante el Registro Civil cuesta entre $2,000 y $5,000 MXN en derechos y gestión. El divorcio voluntario judicial tiene un costo de $8,000 a $20,000 MXN incluyendo honorarios de abogado. El divorcio incausado o contencioso puede costar de $20,000 a $60,000 MXN o más dependiendo de la complejidad del caso." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se puede divorciar sin abogado en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, en el divorcio administrativo ante el Registro Civil (para parejas sin hijos y sin bienes en común) no es obligatorio contratar abogado. Para el divorcio voluntario judicial o incausado sí se recomienda contar con asesoría legal, aunque en CDMX existen servicios de asesoría gratuita en los juzgados familiares." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo tarda un divorcio voluntario en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El divorcio administrativo ante el Registro Civil tarda aproximadamente 1 a 2 meses. El divorcio voluntario judicial ante un Juzgado Familiar tarda entre 2 y 4 meses. El divorcio incausado o contencioso puede tardar de 3 meses hasta más de 1 año dependiendo de los acuerdos sobre bienes, custodia y alimentos." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué documentos necesito para divorciarme en México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Los documentos básicos para cualquier tipo de divorcio son: acta de matrimonio original (con apostilla si se casaron en el extranjero), identificación oficial de ambos cónyuges (INE/pasaporte), CURP de ambos, comprobante de domicilio. Si tienen hijos: actas de nacimiento. Si tienen bienes: escrituras, facturas o contratos de los bienes a dividir." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El divorcio administrativo aplica en todos los estados de México?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. El divorcio administrativo ante el Registro Civil aplica principalmente en la Ciudad de México (CDMX) y algunos otros estados que han adoptado esta figura. En muchos estados aún se requiere proceso judicial incluso para divorcios de mutuo acuerdo sin hijos ni bienes. Es recomendable consultar con el Registro Civil de tu estado." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa con la pensión alimenticia en el divorcio?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La pensión alimenticia para los hijos es obligatoria y se establece en el convenio de divorcio. El monto mínimo sugerido es el 40% del salario del padre o madre que no tenga la custodia, aunque puede variar según las necesidades de los hijos y la capacidad económica del obligado. Esta obligación subsiste hasta que los hijos lleguen a la mayoría de edad o concluyan sus estudios." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre divorcio voluntario e incausado?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El divorcio voluntario es cuando ambos cónyuges están de acuerdo en divorciarse y en las condiciones (custodia, bienes, alimentos). El divorcio incausado es cuando solo uno quiere el divorcio — cualquier cónyuge puede solicitarlo sin dar razones (desde la reforma de 2008 en CDMX y estados que la adoptaron). El proceso incausado es más largo porque los términos se resuelven en juicio." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cómo saber qué tipo de divorcio me corresponde en México",
+    "description": "Cuestionario diagnóstico para determinar la vía de divorcio más adecuada según tu situación personal en México.",
+    "totalTime": "PT3M",
+    "step": [
+      {"@type": "HowToStep", "position": 1, "name": "Responde las 5 preguntas del cuestionario", "text": "Contesta las preguntas sobre acuerdo mutuo, hijos, bienes, deudas y estado donde viven."},
+      {"@type": "HowToStep", "position": 2, "name": "Identifica tu tipo de divorcio", "text": "La guía determina si tu caso aplica para divorcio administrativo, voluntario judicial o incausado."},
+      {"@type": "HowToStep", "position": 3, "name": "Revisa tu ruta personalizada", "text": "Lee los pasos específicos, documentos necesarios, costos estimados y tiempos para tu situación."},
+      {"@type": "HowToStep", "position": 4, "name": "Reúne la documentación", "text": "Prepara los documentos indicados antes de acudir al Registro Civil o Juzgado Familiar correspondiente."}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Guía de Divorcio en México 2026",
+    "url": "https://calculamx.com.mx/divorcio/",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".page-header", ".content-section"]
+    }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7813499363415280" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Divorcio</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">⚖️ Actualizado con leyes vigentes 2026 — CDMX y estados</div>
+    <h1>¿Qué tipo de divorcio me corresponde?</h1>
+    <p>Responde 5 preguntas y obtén tu guía personalizada: tipo de divorcio, pasos exactos, documentos y costos reales.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- CUESTIONARIO -->
+  <div>
+    <div class="quiz-box">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="quiz-header">
+        <span class="quiz-header-title">Diagnóstico de divorcio</span>
+        <span class="quiz-header-step" id="stepLabel">Pregunta 1 de 5</span>
+      </div>
+      <div class="quiz-body">
+
+        <!-- P1: Acuerdo mutuo -->
+        <div class="question-step active" id="q1">
+          <div class="question-label">¿Ambos están de acuerdo con el divorcio?
+            <div class="question-sub">Esto es lo más importante para determinar el tipo de proceso.</div>
+          </div>
+          <div class="opciones-grid two-col">
+            <button class="opcion-btn" onclick="seleccionarOpcion('acuerdo', 'si', this)">
+              <span class="opcion-icon">🤝</span>
+              <span>
+                <span class="opcion-label">Sí, ambos</span>
+                <span class="opcion-sub">Están de acuerdo en divorciarse</span>
+              </span>
+            </button>
+            <button class="opcion-btn" onclick="seleccionarOpcion('acuerdo', 'no', this)">
+              <span class="opcion-icon">⚡</span>
+              <span>
+                <span class="opcion-label">Solo uno</span>
+                <span class="opcion-sub">No hay acuerdo entre ambas partes</span>
+              </span>
+            </button>
+          </div>
+          <div class="quiz-nav">
+            <div></div>
+            <button class="btn-siguiente" id="btn1" onclick="siguiente(1)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- P2: Hijos -->
+        <div class="question-step" id="q2">
+          <div class="question-label">¿Tienen hijos menores de 18 años?
+            <div class="question-sub">Los hijos requieren acuerdos de custodia y pensión alimenticia en el convenio.</div>
+          </div>
+          <div class="opciones-grid two-col">
+            <button class="opcion-btn" onclick="seleccionarOpcion('hijos', 'si', this)">
+              <span class="opcion-icon">👨‍👩‍👧</span>
+              <span>
+                <span class="opcion-label">Sí, tenemos hijos</span>
+                <span class="opcion-sub">Menores de 18 años</span>
+              </span>
+            </button>
+            <button class="opcion-btn" onclick="seleccionarOpcion('hijos', 'no', this)">
+              <span class="opcion-icon">👫</span>
+              <span>
+                <span class="opcion-label">No tenemos hijos</span>
+                <span class="opcion-sub">O todos son mayores de edad</span>
+              </span>
+            </button>
+          </div>
+          <div class="quiz-nav">
+            <button class="btn-back" onclick="anterior(2)">← Atrás</button>
+            <button class="btn-siguiente" id="btn2" onclick="siguiente(2)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- P3: Bienes -->
+        <div class="question-step" id="q3">
+          <div class="question-label">¿Tienen bienes en común?
+            <div class="question-sub">Casa, departamento, automóvil, cuentas bancarias u otros activos.</div>
+          </div>
+          <div class="opciones-grid two-col">
+            <button class="opcion-btn" onclick="seleccionarOpcion('bienes', 'si', this)">
+              <span class="opcion-icon">🏠</span>
+              <span>
+                <span class="opcion-label">Sí, tenemos bienes</span>
+                <span class="opcion-sub">Casa, auto, cuentas, etc.</span>
+              </span>
+            </button>
+            <button class="opcion-btn" onclick="seleccionarOpcion('bienes', 'no', this)">
+              <span class="opcion-icon">✓</span>
+              <span>
+                <span class="opcion-label">No tenemos bienes</span>
+                <span class="opcion-sub">O tienen separación de bienes</span>
+              </span>
+            </button>
+          </div>
+          <div class="quiz-nav">
+            <button class="btn-back" onclick="anterior(3)">← Atrás</button>
+            <button class="btn-siguiente" id="btn3" onclick="siguiente(3)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- P4: Deudas -->
+        <div class="question-step" id="q4">
+          <div class="question-label">¿Tienen deudas en común?
+            <div class="question-sub">Hipoteca, crédito automotriz, deudas compartidas en instituciones financieras.</div>
+          </div>
+          <div class="opciones-grid two-col">
+            <button class="opcion-btn" onclick="seleccionarOpcion('deudas', 'si', this)">
+              <span class="opcion-icon">💳</span>
+              <span>
+                <span class="opcion-label">Sí, hay deudas</span>
+                <span class="opcion-sub">Hipoteca, créditos, etc.</span>
+              </span>
+            </button>
+            <button class="opcion-btn" onclick="seleccionarOpcion('deudas', 'no', this)">
+              <span class="opcion-icon">✓</span>
+              <span>
+                <span class="opcion-label">No hay deudas</span>
+                <span class="opcion-sub">Sin obligaciones financieras compartidas</span>
+              </span>
+            </button>
+          </div>
+          <div class="quiz-nav">
+            <button class="btn-back" onclick="anterior(4)">← Atrás</button>
+            <button class="btn-siguiente" id="btn4" onclick="siguiente(4)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- P5: Estado -->
+        <div class="question-step" id="q5">
+          <div class="question-label">¿En qué estado viven actualmente?
+            <div class="question-sub">El proceso varía según la entidad — CDMX tiene trámites más ágiles.</div>
+          </div>
+          <div class="opciones-grid">
+            <button class="opcion-btn" onclick="seleccionarOpcion('estado', 'cdmx', this)">
+              <span class="opcion-icon">🏙️</span>
+              <span>
+                <span class="opcion-label">Ciudad de México (CDMX)</span>
+                <span class="opcion-sub">Cuenta con divorcio administrativo y juzgados especializados</span>
+              </span>
+            </button>
+            <button class="opcion-btn" onclick="seleccionarOpcion('estado', 'otro', this)">
+              <span class="opcion-icon">🗺️</span>
+              <span>
+                <span class="opcion-label">Otro estado de la República</span>
+                <span class="opcion-sub">Jalisco, NL, Veracruz, Puebla u otro</span>
+              </span>
+            </button>
+          </div>
+          <div class="quiz-nav">
+            <button class="btn-back" onclick="anterior(5)">← Atrás</button>
+            <button class="btn-siguiente enabled" id="btn5" onclick="calcular()">Ver mi guía →</button>
+          </div>
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="resultado" id="resultado">
+          <div id="resultadoTipo"></div>
+          <div class="resultado-pills" id="resultadoPills"></div>
+          <div class="pasos-title">PASOS A SEGUIR</div>
+          <ol class="pasos-list" id="pasosList"></ol>
+          <div class="docs-box">
+            <div class="docs-title">DOCUMENTOS QUE NECESITAS</div>
+            <ul class="docs-list" id="docsList"></ul>
+          </div>
+          <div class="aviso-legal" id="avisoLegal"></div>
+          <button class="btn-reiniciar" onclick="reiniciar()">↩ Hacer el diagnóstico de nuevo</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>Tipos de divorcio en México</h3>
+      <div class="info-item"><span>Administrativo</span><span>1–2 meses</span></div>
+      <div class="info-item"><span>Voluntario judicial</span><span>2–4 meses</span></div>
+      <div class="info-item"><span>Incausado</span><span>3–12 meses</span></div>
+      <div class="info-item"><span>Contencioso</span><span>6–24 meses</span></div>
+    </div>
+    <div class="tip-box">
+      <h3>💡 ¿Sabías que?</h3>
+      <p>Desde 2008 en CDMX puedes divorciarte sin dar ninguna razón ni demostrar una causa. Cualquiera de los dos cónyuges puede iniciar el proceso.</p>
+    </div>
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTENIDO SEO -->
+<div class="content-section">
+  <h2>¿Qué tipos de divorcio existen en México?</h2>
+  <p>En México existen tres vías principales para disolver un matrimonio, y la que te corresponde depende principalmente de si ambos cónyuges están de acuerdo y si tienen hijos o bienes en común.</p>
+
+  <div class="tipo-cards">
+    <div class="tipo-card verde">
+      <h4>✅ Divorcio Administrativo</h4>
+      <p>Ante el Registro Civil. Solo disponible si no hay hijos menores, no hay bienes comunes y ambos están de acuerdo.</p>
+      <div class="tipo-meta">⏱ 1–2 meses &nbsp;·&nbsp; 💰 $2,000–$5,000</div>
+    </div>
+    <div class="tipo-card azul">
+      <h4>📋 Divorcio Voluntario</h4>
+      <p>Ante el Juzgado Familiar. Ambos acuerdan divorciarse y firman un convenio sobre bienes, custodia y alimentos.</p>
+      <div class="tipo-meta">⏱ 2–4 meses &nbsp;·&nbsp; 💰 $8,000–$20,000</div>
+    </div>
+    <div class="tipo-card naranja">
+      <h4>⚖️ Divorcio Incausado</h4>
+      <p>Cuando solo uno quiere el divorcio. No necesita dar razones. El juez resuelve los desacuerdos sobre bienes y custodia.</p>
+      <div class="tipo-meta">⏱ 3–12+ meses &nbsp;·&nbsp; 💰 $20,000–$60,000+</div>
+    </div>
+  </div>
+
+  <h2>El divorcio administrativo: la vía más rápida</h2>
+  <p>El divorcio administrativo se tramita directamente ante el Registro Civil, sin necesidad de un juez. En CDMX fue implementado en 1971 y hoy es la opción más rápida y económica. <strong>Requisitos:</strong></p>
+  <ul>
+    <li>Ambos cónyuges deben estar de acuerdo.</li>
+    <li>No tener hijos menores de 18 años o con discapacidad.</li>
+    <li>No tener bienes en común bajo régimen de sociedad conyugal.</li>
+    <li>Ambos mayores de edad.</li>
+  </ul>
+  <p>Si cumples todos los requisitos, puedes solicitar cita en el Registro Civil de tu alcaldía. En CDMX el trámite se puede iniciar en línea a través del portal de la Secretaría de Gobierno.</p>
+
+  <h2>El convenio regulador: qué debe incluir</h2>
+  <p>En el divorcio voluntario judicial o cuando hay hijos o bienes, deben presentar un <strong>convenio regulador</strong> que establezca:</p>
+  <ul>
+    <li><strong>Custodia:</strong> quién tendrá la guarda y custodia de los hijos menores.</li>
+    <li><strong>Convivencias:</strong> régimen de visitas del padre o madre no custodio.</li>
+    <li><strong>Pensión alimenticia:</strong> monto y forma de pago para los hijos.</li>
+    <li><strong>Liquidación de bienes:</strong> cómo se dividirán propiedades y activos.</li>
+    <li><strong>Domicilio conyugal:</strong> quién permanece en la casa familiar durante el proceso.</li>
+  </ul>
+
+  <h2>Costos reales de un divorcio en México 2026</h2>
+  <p>Los costos varían significativamente según el tipo de proceso y si contratan abogado:</p>
+  <ul>
+    <li><strong>Derechos del Registro Civil (CDMX):</strong> aproximadamente $1,200–$2,500 MXN.</li>
+    <li><strong>Honorarios de abogado (voluntario):</strong> $6,000–$15,000 MXN por trámite completo.</li>
+    <li><strong>Honorarios de abogado (incausado/contencioso):</strong> $15,000–$50,000+ MXN.</li>
+    <li><strong>Asesoría legal gratuita:</strong> disponible en los Juzgados Familiares de CDMX y en el CEJUR.</li>
+  </ul>
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre el divorcio en México</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta un divorcio en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El costo varía según el tipo: el divorcio administrativo ante el Registro Civil cuesta entre $2,000 y $5,000 MXN. El divorcio voluntario judicial tiene un costo de $8,000 a $20,000 MXN incluyendo honorarios de abogado. El divorcio incausado o contencioso puede costar de $20,000 a $60,000 MXN o más.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Se puede divorciar sin abogado en México? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí, en el divorcio administrativo ante el Registro Civil no es obligatorio contratar abogado. Para el divorcio voluntario judicial o incausado sí se recomienda asesoría legal. En CDMX existen servicios de asesoría gratuita en los juzgados familiares y en el CEJUR (Centro de Justicia Alternativa).</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda un divorcio voluntario? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El divorcio administrativo tarda aproximadamente 1 a 2 meses. El divorcio voluntario judicial ante un Juzgado Familiar tarda entre 2 y 4 meses. El divorcio incausado puede tardar de 3 meses hasta más de 1 año.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué documentos necesito para divorciarme? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Los documentos básicos son: acta de matrimonio original, identificación oficial de ambos (INE/pasaporte), CURP de ambos y comprobante de domicilio. Si tienen hijos: actas de nacimiento. Si tienen bienes: escrituras o documentos del bien a dividir.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿El divorcio administrativo aplica en todos los estados? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No. Aplica principalmente en CDMX y algunos estados que adoptaron la figura. En muchos estados aún se requiere proceso judicial. Es recomendable consultar con el Registro Civil de tu estado para confirmar si está disponible.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa con la pensión alimenticia en el divorcio? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">La pensión alimenticia para los hijos es obligatoria y se establece en el convenio de divorcio. El monto mínimo sugerido es el 40% del ingreso del padre o madre no custodio. Esta obligación subsiste hasta que los hijos sean mayores de edad o concluyan sus estudios.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la diferencia entre divorcio voluntario e incausado? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El divorcio voluntario es cuando ambos cónyuges están de acuerdo en divorciarse y en las condiciones. El divorcio incausado es cuando solo uno quiere el divorcio — cualquier cónyuge puede solicitarlo sin dar razones. El proceso incausado es más largo porque los términos se resuelven ante el juez.</div>
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:8px">© 2026 CalculaMX — Información con fines orientativos, no constituye asesoría legal.</p>
+  <a href="/">CalculaMX</a>
+  <a href="/finiquito/">Finiquito</a>
+  <a href="/isr/">ISR</a>
+  <a href="/iva/">IVA</a>
+  <a href="/aguinaldo/">Aguinaldo</a>
+  <a href="/liquidacion/">Liquidación</a>
+  <a href="/uma/">UMA</a>
+  <a href="/ptu/">PTU</a>
+  <a href="/prima-vacacional/">Prima Vacacional</a>
+  <a href="/divorcio/">Divorcio</a>
+</footer>
+
+<script>
+  const respuestas = {};
+  const total = 5;
+
+  function seleccionarOpcion(campo, valor, btn) {
+    respuestas[campo] = valor;
+    const grupo = btn.closest('.opciones-grid');
+    grupo.querySelectorAll('.opcion-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const pregNum = parseInt(btn.closest('.question-step').id.replace('q',''));
+    const btnSig = document.getElementById('btn' + pregNum);
+    if (btnSig) btnSig.classList.add('enabled');
+    // P5 auto-avanza al calcular al seleccionar
+    if (campo === 'estado') {
+      document.getElementById('btn5').classList.add('enabled');
+    }
+  }
+
+  function siguiente(num) {
+    const btn = document.getElementById('btn' + num);
+    if (!btn.classList.contains('enabled')) return;
+    document.getElementById('q' + num).classList.remove('active');
+    document.getElementById('q' + (num + 1)).classList.add('active');
+    actualizarProgreso(num + 1);
+  }
+
+  function anterior(num) {
+    document.getElementById('q' + num).classList.remove('active');
+    document.getElementById('q' + (num - 1)).classList.add('active');
+    actualizarProgreso(num - 1);
+  }
+
+  function actualizarProgreso(paso) {
+    const pct = ((paso - 1) / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('stepLabel').textContent = 'Pregunta ' + paso + ' de ' + total;
+  }
+
+  function calcular() {
+    if (!respuestas.estado) return;
+
+    const { acuerdo, hijos, bienes, deudas, estado } = respuestas;
+
+    let tipo, color, pasos, docs, tiempo, costo, aviso;
+
+    // Lógica de decisión
+    if (acuerdo === 'no') {
+      tipo = 'incausado';
+    } else if (hijos === 'no' && bienes === 'no' && deudas === 'no') {
+      tipo = estado === 'cdmx' ? 'administrativo' : 'voluntario';
+    } else {
+      tipo = 'voluntario';
+    }
+
+    if (tipo === 'administrativo') {
+      color = 'verde';
+      tiempo = '1 a 2 meses';
+      costo = '$2,000 – $5,000 MXN';
+      pasos = [
+        { title: 'Obtén el acta de matrimonio original', desc: 'Solicítala en el Registro Civil donde se celebró el matrimonio o en línea si es CDMX.' },
+        { title: 'Agenda tu cita en el Registro Civil', desc: 'En CDMX puedes hacerlo en línea en tramites.cdmx.gob.mx. Ambos cónyuges deben asistir.' },
+        { title: 'Reúne y verifica los documentos', desc: 'IDs vigentes, CURP, acta de matrimonio y comprobante de domicilio de ambos.' },
+        { title: 'Asistir a la cita y firmar el convenio', desc: 'El oficial del Registro Civil levanta el convenio de divorcio. Ambos deben firmar de conformidad.' },
+        { title: 'Recibe tu acta de divorcio', desc: 'El Registro Civil expide el acta en aproximadamente 3 a 4 semanas después de la firma.' }
+      ];
+      docs = ['Acta de matrimonio original', 'INE o pasaporte vigente (ambos)', 'CURP de ambos cónyuges', 'Comprobante de domicilio', 'Solicitud de divorcio (formato oficial)'];
+      aviso = '✅ <strong>Buenas noticias:</strong> Tu caso aplica para el proceso más rápido y económico. No necesitas abogado, pero puedes contratar uno si lo deseas. Este trámite solo está disponible en CDMX y algunos estados — confirma disponibilidad en tu Registro Civil local.';
+    } else if (tipo === 'voluntario') {
+      color = 'azul';
+      tiempo = '2 a 4 meses';
+      costo = '$8,000 – $20,000 MXN';
+      pasos = [
+        { title: 'Contraten asesoría legal', desc: 'Recomendado: un abogado familiar para redactar el convenio. En CDMX hay asesoría gratuita en el CEJUR.' },
+        { title: 'Redacten el convenio regulador', desc: 'Debe incluir: custodia de hijos, pensión alimenticia, régimen de visitas y reparto de bienes/deudas.' },
+        { title: 'Presenten la demanda de divorcio voluntario', desc: 'Ante el Juzgado Familiar de su domicilio. Ambos firman la demanda conjunta con el convenio adjunto.' },
+        { title: 'Audiencia de ratificación', desc: 'El juez cita a ambas partes para confirmar que el acuerdo es voluntario y libre. Duración aprox. 30 min.' },
+        { title: 'El juez emite la sentencia', desc: 'Si el convenio cumple los requisitos legales, el juez dicta sentencia de divorcio en 2–3 meses.' },
+        { title: 'Inscripción en el Registro Civil', desc: 'Con la sentencia ejecutoriada, inscribe el divorcio en el Registro Civil para obtener tu acta oficial.' }
+      ];
+      docs = ['Acta de matrimonio original', 'INE o pasaporte (ambos)', 'CURP de ambos cónyuges', 'Comprobante de domicilio', 'Actas de nacimiento de hijos (si aplica)', 'Escrituras o documentos de bienes (si aplica)', 'Estados de cuenta o documentos de deudas', 'Convenio regulador firmado por ambos'];
+      aviso = '📋 <strong>Proceso judicial, pero de mutuo acuerdo:</strong> Al estar ambos de acuerdo, el proceso es relativamente ágil. Se recomienda asesoría legal para redactar correctamente el convenio. En CDMX puedes obtener asesoría gratuita en el CEJUR (55 5133 5030).';
+    } else {
+      color = 'naranja';
+      tiempo = '3 a 12+ meses';
+      costo = '$20,000 – $60,000+ MXN';
+      pasos = [
+        { title: 'Contrata un abogado familiar', desc: 'Indispensable para el proceso incausado. Busca un abogado especializado en derecho familiar.' },
+        { title: 'Presenta la demanda de divorcio', desc: 'Solo uno de los cónyuges presenta la demanda. No se necesita dar causa ni motivo desde la reforma de 2008 (CDMX y estados que la adoptaron).' },
+        { title: 'Notificación al otro cónyuge', desc: 'El juzgado notifica al otro cónyuge quien tiene un plazo para responder y presentar su posición.' },
+        { title: 'Audiencia de mediación obligatoria', desc: 'El juzgado convoca a mediación para intentar llegar a acuerdos sobre bienes, custodia y alimentos antes del juicio.' },
+        { title: 'Etapa probatoria (si no hay acuerdo)', desc: 'Cada parte presenta pruebas sobre bienes, ingresos, situación de los hijos. Esta etapa puede durar varios meses.' },
+        { title: 'Sentencia del juez', desc: 'El juez resuelve sobre todos los puntos en disputa: divorcio, custodia, pensión y bienes. Puede haber apelaciones.' },
+        { title: 'Inscripción en el Registro Civil', desc: 'Una vez firme la sentencia, se inscribe el divorcio y se obtiene el acta oficial.' }
+      ];
+      docs = ['Acta de matrimonio original', 'INE o pasaporte', 'CURP', 'Comprobante de domicilio', 'Actas de nacimiento de hijos', 'Escrituras y documentos de todos los bienes', 'Documentos de deudas e hipotecas', 'Comprobantes de ingresos de ambas partes', 'Cualquier documento relevante para la custodia'];
+      aviso = '⚖️ <strong>Proceso contencioso — busca asesoría legal:</strong> Este es el proceso más largo y costoso. Te recomendamos consultar con un abogado familiar antes de iniciar. Si no puedes pagar abogado, en CDMX puedes acudir al CEJUR (55 5133 5030) o al DIF de tu municipio para orientación gratuita.';
+    }
+
+    // Nombres según tipo
+    const nombres = {
+      administrativo: { badge: 'VÍA MÁS RÁPIDA', title: 'Divorcio Administrativo', desc: 'Tu caso aplica para el trámite más sencillo: directamente ante el Registro Civil, sin juez ni abogado obligatorio.' },
+      voluntario: { badge: 'PROCESO JUDICIAL VOLUNTARIO', title: 'Divorcio Voluntario', desc: 'Ambos están de acuerdo. El proceso va ante un Juzgado Familiar pero es relativamente ágil al tener un convenio firmado.' },
+      incausado: { badge: 'PROCESO JUDICIAL', title: 'Divorcio Incausado', desc: 'Cualquier cónyuge puede solicitar el divorcio sin expresar causa. El juez resolverá los puntos en disputa sobre bienes, custodia y alimentos.' }
+    };
+
+    const n = nombres[tipo];
+
+    // Render resultado
+    document.getElementById('resultadoTipo').innerHTML = `
+      <div class="resultado-tipo ${color}">
+        <div class="resultado-badge">${n.badge}</div>
+        <div class="resultado-title">${n.title}</div>
+        <div class="resultado-desc">${n.desc}</div>
+      </div>
+    `;
+
+    document.getElementById('resultadoPills').innerHTML = `
+      <div class="pill"><span>⏱ Tiempo estimado:</span>&nbsp;<strong>${tiempo}</strong></div>
+      <div class="pill"><span>💰 Costo estimado:</span>&nbsp;<strong>${costo}</strong></div>
+    `;
+
+    document.getElementById('pasosList').innerHTML = pasos.map((p, i) => `
+      <li class="paso-item">
+        <div class="paso-num">${i + 1}</div>
+        <div class="paso-text"><strong>${p.title}</strong><small>${p.desc}</small></div>
+      </li>
+    `).join('');
+
+    document.getElementById('docsList').innerHTML = docs.map(d => `<li>${d}</li>`).join('');
+    document.getElementById('avisoLegal').innerHTML = aviso;
+
+    // Mostrar resultado, ocultar preguntas
+    document.getElementById('q5').classList.remove('active');
+    document.getElementById('resultado').classList.add('show');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('stepLabel').textContent = 'Tu diagnóstico';
+  }
+
+  function reiniciar() {
+    Object.keys(respuestas).forEach(k => delete respuestas[k]);
+    document.getElementById('resultado').classList.remove('show');
+    document.querySelectorAll('.question-step').forEach(q => q.classList.remove('active'));
+    document.querySelectorAll('.opcion-btn').forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.btn-siguiente').forEach(b => b.classList.remove('enabled'));
+    document.getElementById('btn5').classList.remove('enabled');
+    document.getElementById('q1').classList.add('active');
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('stepLabel').textContent = 'Pregunta 1 de 5';
+  }
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
