@@ -83,4 +83,12 @@
     <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/divorcio/"/>
   </url>
 
+  <url>
+    <loc>https://calculamx.com.mx/tenencia/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/tenencia/"/>
+  </url>
+
 </urlset>

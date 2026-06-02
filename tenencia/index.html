@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Tenencia CDMX 2026 — Gratis | CalculaMX</title>
+  <meta name="description" content="Calcula tu tenencia vehicular CDMX 2026 gratis. Autos, motos, camionetas y taxis. Conoce cuánto debes pagar con descuentos por antigüedad incluidos.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/tenencia/">
+  <meta name="geo.region" content="MX-DIF">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/tenencia/">
+  <meta property="og:title" content="Calculadora de Tenencia CDMX 2026 — CalculaMX">
+  <meta property="og:description" content="¿Cuánto pagas de tenencia en CDMX? Calcula gratis para autos, motos, camionetas y taxis. Descuentos por antigüedad incluidos.">
+  <meta property="og:url" content="https://calculamx.com.mx/tenencia/">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0D2137;
+      --accent: #F04E1A;
+      --green: #059669;
+      --text: #111827;
+      --muted: #4B5563;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #ffffff;
+      --radius: 14px;
+    }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, #0D2137 0%, #1A3F6F 50%, #0D2137 100%); color: white; padding: 40px 24px 32px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .calc-box { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 12px rgba(13,33,55,0.08); }
+    .calc-header { background: var(--primary); color: white; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; }
+    .calc-body { padding: 24px; }
+
+    .tipo-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 20px; }
+    .tipo-btn { padding: 8px 4px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-size: 0.75rem; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; transition: all 0.2s; text-align: center; line-height: 1.3; }
+    .tipo-btn .tipo-icon { font-size: 1.1rem; display: block; margin-bottom: 2px; }
+    .tipo-btn.active { border-color: var(--accent); background: #fff3ec; color: var(--accent); }
+
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    label .hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+    input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color 0.2s; }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; }
+    .input-prefix input { padding-left: 32px; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .btn-calc { width: 100%; background: var(--accent); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .btn-calc:hover { background: #D93F0E; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(240,78,26,0.3); }
+
+    .resultado { display: none; margin-top: 24px; }
+    .resultado.show { display: block; }
+    .total-box { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 16px; }
+    .total-box.zero { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+    .total-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 4px; }
+    .total-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+    .total-sub { font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
+
+    .desglose { background: var(--bg); border-radius: 10px; padding: 16px; }
+    .desglose-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .desglose-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; gap: 12px; }
+    .desglose-row:last-child { border-bottom: none; }
+    .desglose-concept { color: var(--text); }
+    .desglose-concept small { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 1px; }
+    .desglose-value { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .desglose-value.red { color: #dc2626; }
+    .desglose-value.muted { color: var(--muted); font-weight: 400; }
+
+    .info-note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.78rem; color: #92400e; }
+    .exencion-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #1e40af; }
+    .success-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82rem; color: #166534; }
+
+    .fechas-box { background: var(--bg); border-radius: 10px; padding: 16px; margin-top: 12px; }
+    .fechas-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+    .fecha-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.82rem; border-bottom: 1px solid var(--border); }
+    .fecha-row:last-child { border-bottom: none; }
+    .fecha-mes { color: var(--muted); }
+    .fecha-desc { font-weight: 600; color: var(--primary); }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .related-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .related-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .related-link { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; text-decoration: none; font-size: 0.85rem; color: var(--text); transition: color 0.2s; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link:hover { color: var(--accent); }
+    .related-link .r-icon { font-size: 1rem; }
+    .related-link .r-label { font-weight: 500; }
+
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 48px; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 32px 0 12px; }
+    .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .content-section ul { margin: 8px 0 12px 20px; }
+    .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin-bottom: 12px; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "CalculaMX", "item": "https://calculamx.com.mx/"},
+      {"@type": "ListItem", "position": 2, "name": "Tenencia CDMX 2026", "item": "https://calculamx.com.mx/tenencia/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Tenencia CDMX 2026",
+    "url": "https://calculamx.com.mx/tenencia/",
+    "description": "Calcula tu tenencia vehicular en la Ciudad de México 2026. Cubre autos particulares, motocicletas, camionetas y taxis con descuentos por antigüedad.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "inLanguage": "es-MX"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta la tenencia en CDMX 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La tenencia vehicular en CDMX 2026 se calcula aplicando el 3% sobre el valor catálogo del vehículo para el año vigente. Los vehículos con 10 o más años de antigüedad reciben un descuento del 20%. Los vehículos eléctricos e híbridos están exentos. El valor catálogo es determinado por la Secretaría de Finanzas de la CDMX." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo vence el plazo para pagar la tenencia CDMX 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La tenencia en CDMX se puede pagar durante todo el año, pero si pagas en enero y febrero obtienes descuento del 10%, en marzo 5% y de abril en adelante pagas el monto completo. El plazo máximo sin recargo es el 31 de diciembre de 2026." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Los vehículos eléctricos pagan tenencia en CDMX?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Los vehículos eléctricos e híbridos están exentos del pago de tenencia vehicular en la Ciudad de México, según el Código Fiscal de la CDMX vigente." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se calcula el valor catálogo de mi vehículo para tenencia?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El valor catálogo es publicado anualmente por la Secretaría de Finanzas de la CDMX. Se basa en el valor de mercado del vehículo ajustado por el año modelo. Para efectos del cálculo de tenencia, puedes usar el valor de factura del vehículo o el valor de mercado actual." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Las motocicletas pagan tenencia en CDMX?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, las motocicletas pagan tenencia en CDMX. El cálculo es igual que para automóviles: 3% sobre el valor catálogo, con descuento del 20% para motos con 10 o más años de antigüedad." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cómo calcular la tenencia vehicular en CDMX 2026",
+    "description": "Pasos para calcular el impuesto de tenencia vehicular en la Ciudad de México.",
+    "totalTime": "PT2M",
+    "tool": [{"@type": "HowToTool", "name": "Calculadora de Tenencia CalculaMX"}],
+    "step": [
+      {"@type": "HowToStep", "position": 1, "name": "Selecciona el tipo de vehículo", "text": "Elige si tu vehículo es auto particular, motocicleta, camioneta o taxi/transporte de pasajeros."},
+      {"@type": "HowToStep", "position": 2, "name": "Ingresa el año de tu vehículo", "text": "Escribe el año modelo de tu vehículo. Si tiene 10 o más años de antigüedad se aplica automáticamente el descuento del 20%."},
+      {"@type": "HowToStep", "position": 3, "name": "Ingresa el valor de tu vehículo", "text": "Escribe el valor factura o valor de mercado actual de tu vehículo en pesos mexicanos."},
+      {"@type": "HowToStep", "position": 4, "name": "Obtén el monto de tenencia", "text": "La calculadora te muestra el monto a pagar con desglose: tasa aplicada, descuentos y total, más los descuentos por pago anticipado."}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calculadora de Tenencia CDMX 2026",
+    "url": "https://calculamx.com.mx/tenencia/",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".page-header", ".content-section"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Tenencia CDMX 2026</span>
+  </div>
+</nav>
+
+<!-- AD HEADER -->
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">🚗 Ciudad de México · 2026</div>
+    <h1>Calculadora de Tenencia CDMX 2026</h1>
+    <p>Conoce cuánto pagas de tenencia vehicular en la Ciudad de México. Autos, motos, camionetas y taxis. Descuentos por antigüedad incluidos.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div>
+    <div class="calc-box">
+      <div class="calc-header">🚗 Datos del vehículo</div>
+      <div class="calc-body">
+
+        <!-- Tipo de vehículo -->
+        <div class="form-group">
+          <label>Tipo de vehículo</label>
+          <div class="tipo-tabs">
+            <button class="tipo-btn active" data-tipo="auto" onclick="setTipo('auto', this)">
+              <span class="tipo-icon">🚗</span>Auto particular
+            </button>
+            <button class="tipo-btn" data-tipo="moto" onclick="setTipo('moto', this)">
+              <span class="tipo-icon">🏍️</span>Motocicleta
+            </button>
+            <button class="tipo-btn" data-tipo="camioneta" onclick="setTipo('camioneta', this)">
+              <span class="tipo-icon">🚐</span>Camioneta
+            </button>
+            <button class="tipo-btn" data-tipo="taxi" onclick="setTipo('taxi', this)">
+              <span class="tipo-icon">🚕</span>Taxi / Transporte
+            </button>
+          </div>
+        </div>
+
+        <!-- Año modelo -->
+        <div class="form-group">
+          <label for="anio">Año modelo del vehículo</label>
+          <select id="anio">
+            <option value="">— Selecciona el año —</option>
+          </select>
+        </div>
+
+        <!-- Tipo de combustible -->
+        <div class="form-group">
+          <label for="combustible">Tipo de vehículo / combustible</label>
+          <select id="combustible">
+            <option value="gasolina">Gasolina / Diésel</option>
+            <option value="electrico">Eléctrico o Híbrido</option>
+          </select>
+        </div>
+
+        <!-- Valor -->
+        <div class="form-group">
+          <label for="valor">Valor del vehículo <span class="hint">(factura o valor de mercado actual)</span></label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="valor" placeholder="Ej. 350000" min="0" step="1000">
+          </div>
+        </div>
+
+        <!-- Cilindrada para moto -->
+        <div class="form-group" id="grupo-cilindrada" style="display:none;">
+          <label for="cilindrada">Cilindrada <span class="hint">(cc)</span></label>
+          <select id="cilindrada">
+            <option value="hasta150">Hasta 150 cc</option>
+            <option value="151a250">151 – 250 cc</option>
+            <option value="251a500">251 – 500 cc</option>
+            <option value="mas500" selected>Más de 500 cc</option>
+          </select>
+        </div>
+
+        <div class="divider"></div>
+        <button class="btn-calc" onclick="calcular()">Calcular tenencia →</button>
+
+        <!-- RESULTADO -->
+        <div class="resultado" id="resultado">
+          <div class="total-box" id="total-box">
+            <div class="total-label" id="total-label">Tenencia a pagar 2026</div>
+            <div class="total-amount" id="total-amount">$0</div>
+            <div class="total-sub" id="total-sub">Ciudad de México</div>
+          </div>
+
+          <div class="desglose" id="desglose">
+            <div class="desglose-title">Desglose del cálculo</div>
+            <div id="desglose-rows"></div>
+          </div>
+
+          <div id="descuento-info"></div>
+          <div id="exencion-info"></div>
+
+          <div class="fechas-box">
+            <div class="fechas-title">📅 Descuentos por pago oportuno 2026</div>
+            <div class="fecha-row"><span class="fecha-mes">Enero – Febrero</span><span class="fecha-desc">10% de descuento</span></div>
+            <div class="fecha-row"><span class="fecha-mes">Marzo</span><span class="fecha-desc">5% de descuento</span></div>
+            <div class="fecha-row"><span class="fecha-mes">Abril – Diciembre</span><span class="fecha-desc">Sin descuento adicional</span></div>
+          </div>
+
+          <div class="info-note" style="margin-top:12px;">⚠️ Esta es una estimación de referencia. El monto oficial se calcula con el valor catálogo publicado por la Secretaría de Finanzas CDMX. Verifica en finanzas.cdmx.gob.mx</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📋 Tasas 2026 CDMX</h3>
+      <div class="info-item"><span>Tasa base</span><span>3% valor catálogo</span></div>
+      <div class="info-item"><span>Vehículos ≥ 10 años</span><span>20% descuento</span></div>
+      <div class="info-item"><span>Eléctricos / híbridos</span><span>Exentos</span></div>
+      <div class="info-item"><span>Pago enero–feb</span><span>10% adicional</span></div>
+      <div class="info-item"><span>Pago marzo</span><span>5% adicional</span></div>
+      <div class="info-item"><span>Dónde pagar</span><span>SAT / Kioscos CDMX</span></div>
+    </div>
+
+    <div class="related-box">
+      <h3>Calculadoras relacionadas</h3>
+      <a href="/isr/" class="related-link">
+        <span class="r-icon">📊</span>
+        <span class="r-label">Calculadora de ISR</span>
+      </a>
+      <a href="/iva/" class="related-link">
+        <span class="r-icon">🧾</span>
+        <span class="r-label">Calculadora de IVA</span>
+      </a>
+      <a href="/finiquito/" class="related-link">
+        <span class="r-icon">📄</span>
+        <span class="r-label">Calculadora de Finiquito</span>
+      </a>
+      <a href="/uma/" class="related-link">
+        <span class="r-icon">📐</span>
+        <span class="r-label">Valor UMA 2026</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- AD MID -->
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-section">
+  <h2>¿Qué es la tenencia vehicular en CDMX?</h2>
+  <p>La tenencia vehicular (oficialmente <em>Impuesto sobre Tenencia o Uso de Vehículos</em>) es un impuesto local que se cobra anualmente en la Ciudad de México por ser propietario de un vehículo. Aunque el gobierno federal eliminó la tenencia federal en 2012, la CDMX mantiene su propio impuesto de tenencia local regulado por el Código Fiscal de la Ciudad de México.</p>
+  <p>En 2026, la tasa aplicable es del <strong>3% sobre el valor catálogo del vehículo</strong>, publicado anualmente por la Secretaría de Finanzas de la CDMX.</p>
+
+  <h2>¿Quiénes están exentos de tenencia en CDMX?</h2>
+  <ul>
+    <li>Vehículos eléctricos e híbridos (exención total)</li>
+    <li>Vehículos de personas con discapacidad (un vehículo por titular)</li>
+    <li>Vehículos del gobierno federal, estatal y municipal</li>
+    <li>Vehículos con valor catálogo igual a cero en las tablas oficiales</li>
+  </ul>
+
+  <h2>Descuento por antigüedad del vehículo</h2>
+  <p>Los vehículos con <strong>10 o más años de antigüedad</strong> (modelo 2016 o anterior en 2026) reciben un descuento del 20% sobre el monto calculado de tenencia. Esto beneficia a propietarios de vehículos usados con valor de mercado todavía significativo.</p>
+
+  <h2>¿Dónde se paga la tenencia en CDMX?</h2>
+  <ul>
+    <li>Portal en línea: <strong>finanzas.cdmx.gob.mx</strong></li>
+    <li>Kioscos multifuncionales del gobierno de la CDMX</li>
+    <li>Módulos de atención ciudadana</li>
+    <li>Instituciones bancarias autorizadas</li>
+    <li>Verificentros (pago simultáneo con verificación)</li>
+  </ul>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre tenencia CDMX 2026</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cuánto cuesta la tenencia en CDMX 2026?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">La tenencia en CDMX 2026 es el 3% del valor catálogo de tu vehículo. Los vehículos con 10 o más años de antigüedad tienen un descuento del 20%. Los eléctricos e híbridos están exentos. Si pagas en enero o febrero obtienes un 10% adicional de descuento; en marzo, 5%.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cuándo vence el plazo para pagar tenencia CDMX?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">Puedes pagar la tenencia durante todo el año. Sin embargo, los descuentos por pago oportuno solo aplican en enero-febrero (10%) y marzo (5%). El vencimiento anual es el 31 de diciembre de 2026.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Los vehículos eléctricos pagan tenencia en CDMX?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">No. Los vehículos eléctricos e híbridos están completamente exentos del pago de tenencia vehicular en la Ciudad de México según el Código Fiscal de la CDMX vigente.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Las motocicletas pagan tenencia en CDMX?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">Sí. Las motocicletas pagan tenencia en CDMX con la misma tasa del 3% sobre su valor catálogo. También aplican los descuentos por antigüedad (20% para motos de 10+ años) y los descuentos por pago oportuno.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Qué es el valor catálogo para tenencia?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">El valor catálogo es el precio de referencia que la Secretaría de Finanzas de la CDMX asigna a cada vehículo según su modelo, año y características. Se publica anualmente. Para estimar tu tenencia puedes usar el valor de factura o el valor de mercado actual de tu vehículo.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Inicio</a>
+    <a href="/finiquito/">Finiquito</a>
+    <a href="/isr/">ISR</a>
+    <a href="/iva/">IVA</a>
+    <a href="/aguinaldo/">Aguinaldo</a>
+    <a href="/liquidacion/">Liquidación</a>
+    <a href="/uma/">UMA</a>
+    <a href="/ptu/">PTU</a>
+    <a href="/prima-vacacional/">Prima Vacacional</a>
+    <a href="/divorcio/">Divorcio</a>
+  </div>
+  <div style="margin-top:8px;">© 2026 CalculaMX — Calculadoras profesionales para México</div>
+</footer>
+
+<script>
+  const AÑO_ACTUAL = 2026;
+  let tipoActual = 'auto';
+
+  // Poblar selector de años
+  const selectAnio = document.getElementById('anio');
+  for (let y = AÑO_ACTUAL; y >= 1990; y--) {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    selectAnio.appendChild(opt);
+  }
+
+  function setTipo(tipo, btn) {
+    tipoActual = tipo;
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('grupo-cilindrada').style.display = tipo === 'moto' ? 'block' : 'none';
+    document.getElementById('resultado').classList.remove('show');
+  }
+
+  function fmt(n) {
+    return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function calcular() {
+    const anio = parseInt(document.getElementById('anio').value);
+    const combustible = document.getElementById('combustible').value;
+    const valor = parseFloat(document.getElementById('valor').value);
+
+    if (!anio || isNaN(valor) || valor <= 0) {
+      alert('Por favor completa todos los campos.');
+      return;
+    }
+
+    const res = document.getElementById('resultado');
+    res.classList.add('show');
+
+    // Exención eléctrico/híbrido
+    if (combustible === 'electrico') {
+      document.getElementById('total-box').className = 'total-box zero';
+      document.getElementById('total-label').textContent = 'Tenencia 2026';
+      document.getElementById('total-amount').textContent = '$0.00';
+      document.getElementById('total-sub').textContent = 'Vehículo exento — eléctrico/híbrido';
+      document.getElementById('desglose').style.display = 'none';
+      document.getElementById('descuento-info').innerHTML = '';
+      document.getElementById('exencion-info').innerHTML = '<div class="success-box">✅ Tu vehículo eléctrico o híbrido está <strong>exento del pago de tenencia</strong> en la Ciudad de México según el Código Fiscal de la CDMX vigente.</div>';
+      return;
+    }
+
+    document.getElementById('desglose').style.display = 'block';
+
+    const TASA_BASE = 0.03;
+    const antigüedad = AÑO_ACTUAL - anio;
+    const tieneDescuentoAntigüedad = antigüedad >= 10;
+
+    // Factor adicional por tipo de vehículo
+    let factorTipo = 1.0;
+    let labelTipo = 'Auto particular';
+    if (tipoActual === 'moto') { factorTipo = 0.85; labelTipo = 'Motocicleta'; }
+    else if (tipoActual === 'camioneta') { factorTipo = 1.1; labelTipo = 'Camioneta'; }
+    else if (tipoActual === 'taxi') { factorTipo = 1.15; labelTipo = 'Taxi / Transporte'; }
+
+    const tasaEfectiva = TASA_BASE * factorTipo;
+    let tenenciaBase = valor * tasaEfectiva;
+    let descuentoAnt = 0;
+
+    if (tieneDescuentoAntigüedad) {
+      descuentoAnt = tenenciaBase * 0.20;
+    }
+
+    const tenenciaNeta = tenenciaBase - descuentoAnt;
+    const tenenciaConDesc10 = tenenciaNeta * 0.90;
+    const tenenciaConDesc5  = tenenciaNeta * 0.95;
+
+    // UI
+    document.getElementById('total-box').className = 'total-box';
+    document.getElementById('total-label').textContent = 'Tenencia a pagar 2026';
+    document.getElementById('total-amount').textContent = fmt(tenenciaNeta);
+    document.getElementById('total-sub').textContent = labelTipo + ' · ' + anio + ' · ' + antigüedad + ' años de antigüedad';
+
+    const rows = document.getElementById('desglose-rows');
+    rows.innerHTML = `
+      <div class="desglose-row">
+        <div class="desglose-concept">Valor del vehículo<small>Valor factura / mercado ingresado</small></div>
+        <div class="desglose-value muted">${fmt(valor)}</div>
+      </div>
+      <div class="desglose-row">
+        <div class="desglose-concept">Tasa aplicable<small>${labelTipo} · ${(tasaEfectiva * 100).toFixed(2)}% sobre valor</small></div>
+        <div class="desglose-value muted">${(tasaEfectiva * 100).toFixed(2)}%</div>
+      </div>
+      <div class="desglose-row">
+        <div class="desglose-concept">Tenencia base calculada</div>
+        <div class="desglose-value">${fmt(tenenciaBase)}</div>
+      </div>
+      ${tieneDescuentoAntigüedad ? `
+      <div class="desglose-row">
+        <div class="desglose-concept">Descuento por antigüedad<small>Vehículo con ${antigüedad} años (≥10 años = 20% dto.)</small></div>
+        <div class="desglose-value red">− ${fmt(descuentoAnt)}</div>
+      </div>` : ''}
+      <div class="desglose-row" style="background:#f0fdf4; border-radius:6px; padding:10px 8px;">
+        <div class="desglose-concept"><strong>Total a pagar (sin descuento adicional)</strong></div>
+        <div class="desglose-value" style="font-size:1rem;">${fmt(tenenciaNeta)}</div>
+      </div>
+      <div class="desglose-row">
+        <div class="desglose-concept">Si pagas en enero o febrero<small>10% de descuento adicional</small></div>
+        <div class="desglose-value">${fmt(tenenciaConDesc10)}</div>
+      </div>
+      <div class="desglose-row">
+        <div class="desglose-concept">Si pagas en marzo<small>5% de descuento adicional</small></div>
+        <div class="desglose-value">${fmt(tenenciaConDesc5)}</div>
+      </div>
+    `;
+
+    document.getElementById('exencion-info').innerHTML = '';
+    document.getElementById('descuento-info').innerHTML = tieneDescuentoAntigüedad
+      ? `<div class="exencion-box">📅 Tu vehículo tiene <strong>${antigüedad} años de antigüedad</strong>. Se aplica el descuento del <strong>20%</strong> sobre el monto base.</div>`
+      : '';
+  }
+
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    ans.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
