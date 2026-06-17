@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Me pueden despedir por IA? Derechos laborales en Mexico 2026 | CalculaMX</title>
+  <meta name="description" content="Descubre si tu patron puede despedirte para reemplazarte con inteligencia artificial. Conoce tus derechos laborales, que dice la Ley Federal del Trabajo y cuanto te corresponde si te despiden.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calculamx.com.mx/despido-ia/">
+  <meta name="geo.region" content="MX">
+  <link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/despido-ia/">
+  <meta property="og:title" content="Me pueden despedir por IA? Tus derechos laborales en Mexico 2026">
+  <meta property="og:description" content="Si te quieren reemplazar con inteligencia artificial, conoce tus derechos. La ley te protege y tienes derecho a liquidacion completa.">
+  <meta property="og:url" content="https://calculamx.com.mx/despido-ia/">
+  <meta property="og:type" content="article">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0D2137;
+      --accent: #F04E1A;
+      --green: #059669;
+      --blue: #2563EB;
+      --amber: #D97706;
+      --red: #DC2626;
+      --purple: #7C3AED;
+      --text: #111827;
+      --muted: #4B5563;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #ffffff;
+      --radius: 14px;
+    }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav { background: var(--primary); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 16px; }
+    .logo { color: white; font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: #fbbf24; }
+    .breadcrumb { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    .ad-header { background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; min-height: 90px; padding: 8px; }
+    .ad-placeholder { width: 728px; max-width: 100%; height: 90px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+    @media (max-width: 640px) { .ad-placeholder { width: 320px; height: 50px; } }
+
+    .page-header { background: linear-gradient(135deg, #0D2137 0%, #1A3F6F 50%, #7C3AED 100%); color: white; padding: 48px 24px 40px; }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; margin-bottom: 14px; }
+    .page-header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.2; }
+    .page-header p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 680px; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
+    @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+    .article { display: flex; flex-direction: column; gap: 28px; }
+
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: 0 2px 12px rgba(13,33,55,0.06); }
+    .card h2 { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; letter-spacing: -0.01em; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin: 18px 0 10px; }
+    .card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.75; }
+    .card ul, .card ol { margin: 8px 0 14px 20px; }
+    .card li { font-size: 0.92rem; color: var(--muted); margin-bottom: 8px; line-height: 1.65; }
+    .card li strong { color: var(--text); }
+
+    .highlight-box { border-radius: 10px; padding: 18px 20px; margin: 16px 0; font-size: 0.9rem; line-height: 1.7; }
+    .highlight-box.verde { background: #ECFDF5; border-left: 4px solid var(--green); color: #065F46; }
+    .highlight-box.rojo { background: #FEF2F2; border-left: 4px solid var(--red); color: #991B1B; }
+    .highlight-box.azul { background: #EFF6FF; border-left: 4px solid var(--blue); color: #1E40AF; }
+    .highlight-box.morado { background: #F5F3FF; border-left: 4px solid var(--purple); color: #5B21B6; }
+    .highlight-box.amarillo { background: #FFFBEB; border-left: 4px solid var(--amber); color: #92400E; }
+    .highlight-box strong { font-weight: 700; }
+
+    .escenario-grid { display: grid; gap: 14px; margin: 16px 0; }
+    .escenario { border-radius: 12px; padding: 18px 20px; border: 1px solid var(--border); background: var(--white); }
+    .escenario-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .escenario-icon { font-size: 1.5rem; }
+    .escenario-title { font-size: 0.95rem; font-weight: 700; color: var(--primary); }
+    .escenario-tag { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .escenario-tag.legal { background: #ECFDF5; color: #059669; }
+    .escenario-tag.ilegal { background: #FEF2F2; color: #DC2626; }
+    .escenario-tag.gris { background: #FEF3C7; color: #D97706; }
+    .escenario p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    .calculo-box { background: linear-gradient(135deg, #0D2137, #1A3F6F); border-radius: 12px; padding: 22px; color: white; margin: 16px 0; }
+    .calculo-box h3 { color: white; font-size: 1rem; font-weight: 700; margin: 0 0 14px; }
+    .calculo-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; }
+    .calculo-row:last-child { border-bottom: none; }
+    .calculo-row span:first-child { opacity: 0.8; }
+    .calculo-row span:last-child { font-weight: 700; }
+    .calculo-total { display: flex; justify-content: space-between; padding: 12px 0 0; margin-top: 8px; border-top: 2px solid rgba(255,255,255,0.3); font-size: 1.05rem; font-weight: 800; }
+
+    .cta-calcular { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.2s; font-family: inherit; }
+    .cta-btn.primary { background: var(--accent); color: white; }
+    .cta-btn.primary:hover { background: #D93F0E; transform: translateY(-1px); }
+    .cta-btn.secondary { background: var(--white); color: var(--primary); border: 1.5px solid var(--border); }
+    .cta-btn.secondary:hover { border-color: var(--primary); }
+
+    .timeline { position: relative; padding-left: 28px; margin: 16px 0; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--white); }
+    .timeline-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .timeline-item p { font-size: 0.84rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .ad-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .ad-box-inner { display: flex; justify-content: center; align-items: center; min-height: 250px; }
+    .ad-placeholder-v { width: 300px; height: 250px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.75rem; }
+
+    .info-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .info-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .info-item { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.82rem; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item span:first-child { color: var(--muted); }
+    .info-item span:last-child { font-weight: 600; color: var(--primary); }
+
+    .tip-box { background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: var(--radius); padding: 16px; }
+    .tip-box h3 { font-size: 0.85rem; font-weight: 700; color: #5B21B6; margin-bottom: 8px; }
+    .tip-box p { font-size: 0.8rem; color: #6D28D9; line-height: 1.6; }
+
+    .related-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .related-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .related-link { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; text-decoration: none; font-size: 0.85rem; color: var(--text); transition: color 0.2s; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link:hover { color: var(--accent); }
+    .related-link .r-icon { font-size: 1rem; }
+    .related-link .r-label { font-weight: 500; }
+
+    .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0; }
+
+    .faq-section { max-width: 900px; margin: 0 auto; padding: 32px 24px 56px; }
+    .faq-section h2 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; padding: 16px 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; background: var(--white); }
+    .faq-a.open { display: block; }
+    .faq-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    footer { background: #111827; color: rgba(255,255,255,0.6); padding: 24px; text-align: center; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Me pueden despedir para reemplazarme con inteligencia artificial en Mexico?",
+    "description": "Guia completa sobre tus derechos laborales si tu patron quiere sustituirte con IA. Ley Federal del Trabajo, liquidacion y escenarios reales.",
+    "url": "https://calculamx.com.mx/despido-ia/",
+    "datePublished": "2026-06-17",
+    "dateModified": "2026-06-17",
+    "author": {"@type": "Organization", "name": "CalculaMX"},
+    "publisher": {"@type": "Organization", "name": "CalculaMX", "url": "https://calculamx.com.mx"},
+    "inLanguage": "es-MX",
+    "mainEntityOfPage": "https://calculamx.com.mx/despido-ia/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Me pueden despedir para reemplazarme con inteligencia artificial?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Legalmente si, tu patron puede reestructurar la empresa e introducir IA. Pero NO es despido justificado, por lo que tienes derecho a liquidacion completa: 3 meses de salario + 20 dias por ano trabajado + partes proporcionales de aguinaldo, vacaciones y prima vacacional." }
+      },
+      {
+        "@type": "Question",
+        "name": "Cuanto me toca de liquidacion si me reemplazan con IA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Te corresponde liquidacion completa conforme al articulo 50 de la Ley Federal del Trabajo: indemnizacion constitucional (3 meses de salario integrado), prima de antiguedad (12 dias por ano trabajado con tope de 2 UMA), 20 dias de salario por ano de servicio, y partes proporcionales de aguinaldo, vacaciones y prima vacacional." }
+      },
+      {
+        "@type": "Question",
+        "name": "El patron puede obligarme a usar IA en mi trabajo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Si, el patron tiene derecho a introducir nuevas herramientas y tecnologias. Sin embargo, tiene la obligacion de capacitarte segun el articulo 153-A de la LFT. No te pueden despedir por no saber usar una herramienta nueva sin haberte dado capacitacion adecuada primero." }
+      },
+      {
+        "@type": "Question",
+        "name": "Hay alguna ley en Mexico que proteja contra el despido por IA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Actualmente no existe una ley especifica que prohiba reemplazar trabajadores con IA. Sin embargo, la Ley Federal del Trabajo ya protege a los trabajadores a traves del derecho a liquidacion, capacitacion obligatoria, y la prohibicion de despido injustificado. En 2025-2026 hay iniciativas de reforma en el Congreso para regular especificamente la IA en el ambito laboral." }
+      },
+      {
+        "@type": "Question",
+        "name": "Que hago si me despiden por sustitucion de IA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "1) No firmes la renuncia voluntaria. 2) Exige tu carta de despido por escrito. 3) Calcula tu liquidacion completa. 4) Si no te pagan lo justo, acude a PROFEDET (telefono 800 911 7877, gratuito) o al Centro de Conciliacion Laboral de tu estado. 5) Tienes 2 meses para demandar despido injustificado." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "CalculaMX", "item": "https://calculamx.com.mx/"},
+      {"@type": "ListItem", "position": 2, "name": "Despido por IA", "item": "https://calculamx.com.mx/despido-ia/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Me pueden despedir por IA? Derechos laborales Mexico 2026",
+    "url": "https://calculamx.com.mx/despido-ia/",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".page-header", ".card"]
+    }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7813499363415280" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHV6JMBHNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XHV6JMBHNR');
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Calcula<span>MX</span></a>
+    <span class="breadcrumb"><a href="/">Inicio</a> › Despido por IA</span>
+  </div>
+</nav>
+
+<div class="ad-header">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="badge">🤖 Actualizado junio 2026 — Ley Federal del Trabajo vigente</div>
+    <h1>Me pueden despedir para reemplazarme con inteligencia artificial?</h1>
+    <p>La respuesta corta: si pueden, pero tienes derechos. Conoce que dice la ley, cuanto te corresponde de liquidacion y que hacer paso a paso.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="article">
+
+    <!-- SECCION 1: La respuesta directa -->
+    <div class="card">
+      <h2>La realidad: si te pueden despedir, pero NO sin pagarte</h2>
+      <p>En Mexico, la Ley Federal del Trabajo (LFT) no prohibe que una empresa implemente inteligencia artificial ni que reestructure puestos de trabajo. Tu patron <strong>puede decidir que un sistema de IA haga tu trabajo</strong>.</p>
+      <p>Sin embargo, hay algo fundamental que debes saber:</p>
+
+      <div class="highlight-box verde">
+        <strong>Tu proteccion:</strong> Reemplazarte con IA no es una "causa justificada" de despido. Esto significa que la empresa esta obligada a pagarte una <strong>liquidacion completa</strong>, no solo un finiquito. La diferencia puede ser de decenas de miles de pesos.
+      </div>
+
+      <p>En otras palabras: tu patron puede tomar la decision empresarial de usar IA, pero <strong>no puede simplemente correrte sin consecuencias legales</strong>. La ley te protege economicamente.</p>
+
+      <div class="highlight-box rojo">
+        <strong>Ojo:</strong> Si te presionan para firmar una "renuncia voluntaria", estas renunciando a tu liquidacion. <strong>Nunca firmes la renuncia si te estan despidiendo.</strong> Solo tendrias derecho al finiquito (mucho menos dinero).
+      </div>
+    </div>
+
+    <!-- SECCION 2: Escenarios -->
+    <div class="card">
+      <h2>Los 4 escenarios mas comunes</h2>
+      <p>No todos los casos de "IA reemplazandote" son iguales. Estos son los escenarios que estamos viendo en Mexico:</p>
+
+      <div class="escenario-grid">
+        <div class="escenario">
+          <div class="escenario-header">
+            <span class="escenario-icon">🔄</span>
+            <span class="escenario-title">Te despiden y meten IA en tu lugar</span>
+            <span class="escenario-tag ilegal">Despido injustificado</span>
+          </div>
+          <p>La empresa elimina tu puesto e implementa un sistema de IA. Te corresponde <strong>liquidacion completa</strong>: 3 meses + 20 dias por ano + proporcionales.</p>
+        </div>
+
+        <div class="escenario">
+          <div class="escenario-header">
+            <span class="escenario-icon">📚</span>
+            <span class="escenario-title">Te piden usar IA como herramienta</span>
+            <span class="escenario-tag legal">Legal con condiciones</span>
+          </div>
+          <p>Tu patron puede exigirte usar nuevas herramientas, pero <strong>debe capacitarte primero</strong> (Art. 153-A LFT). No te pueden despedir por no saber usar algo sin capacitacion.</p>
+        </div>
+
+        <div class="escenario">
+          <div class="escenario-header">
+            <span class="escenario-icon">📉</span>
+            <span class="escenario-title">Reducen tu sueldo porque "la IA hace parte de tu trabajo"</span>
+            <span class="escenario-tag ilegal">Ilegal</span>
+          </div>
+          <p>El patron <strong>no puede reducir tu salario unilateralmente</strong> (Art. 51 LFT). Si lo hace, puedes demandar rescision de contrato con derecho a liquidacion como si fuera despido injustificado.</p>
+        </div>
+
+        <div class="escenario">
+          <div class="escenario-header">
+            <span class="escenario-icon">🏢</span>
+            <span class="escenario-title">Reestructura masiva: despiden a muchos y automatizan</span>
+            <span class="escenario-tag gris">Zona gris</span>
+          </div>
+          <p>Si la empresa demuestra "causas de fuerza mayor" o implantacion de maquinaria nueva ante la Junta de Conciliacion, podria reducir la indemnizacion. Pero aun asi te corresponde compensacion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 3: Cuanto te corresponde -->
+    <div class="card">
+      <h2>Cuanto te corresponde si te despiden por IA</h2>
+      <p>Cuando el despido es <strong>injustificado</strong> (como lo es la sustitucion por IA), la Ley Federal del Trabajo establece que te corresponde:</p>
+
+      <div class="calculo-box">
+        <h3>Ejemplo: Salario $15,000/mes, 5 anos de antiguedad</h3>
+        <div class="calculo-row"><span>Indemnizacion constitucional (3 meses)</span><span>$45,000</span></div>
+        <div class="calculo-row"><span>20 dias por ano trabajado (5 anos)</span><span>$50,000</span></div>
+        <div class="calculo-row"><span>Prima de antiguedad (12 dias/ano)</span><span>$30,000</span></div>
+        <div class="calculo-row"><span>Aguinaldo proporcional</span><span>~$6,250</span></div>
+        <div class="calculo-row"><span>Vacaciones + prima vacacional</span><span>~$4,500</span></div>
+        <div class="calculo-total"><span>Total aproximado:</span><span>~$135,750</span></div>
+      </div>
+
+      <div class="highlight-box azul">
+        <strong>Compara:</strong> Si firmas renuncia voluntaria, solo te corresponderia el finiquito (~$10,750). La diferencia son mas de <strong>$125,000 pesos</strong>. Por eso nunca debes firmar la renuncia si te estan despidiendo.
+      </div>
+
+      <div class="cta-calcular">
+        <a href="/liquidacion/" class="cta-btn primary">Calcula tu liquidacion exacta</a>
+        <a href="/finiquito/" class="cta-btn secondary">Calcula tu finiquito</a>
+      </div>
+    </div>
+
+    <!-- SECCION 4: Que hacer paso a paso -->
+    <div class="card">
+      <h2>Que hacer si te despiden: guia paso a paso</h2>
+      <p>Si tu empresa anuncia que va a reemplazar tu puesto con IA, sigue estos pasos para proteger tus derechos:</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>1. No firmes nada bajo presion</h4>
+          <p>Ni renuncia, ni convenio, ni "carta de terminacion". Pide tiempo para revisar cualquier documento. Tienes derecho a llevartelo y consultarlo con un abogado antes de firmar.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>2. Exige tu carta de despido</h4>
+          <p>Pide por escrito la notificacion de despido con la causa. Si no te la dan, es despido injustificado automaticamente. Guarda copia de todo: correos, mensajes, comunicados internos.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>3. Calcula lo que te corresponde</h4>
+          <p>Usa nuestras calculadoras para tener claro el monto de tu liquidacion. Asi sabras si lo que te ofrecen es justo o te estan pagando de menos.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>4. Acude a PROFEDET (es gratis)</h4>
+          <p>La Procuraduria Federal de la Defensa del Trabajo te asesora y representa gratis. Telefono: <strong>800 911 7877</strong> o acude a la delegacion mas cercana. Tambien puedes ir al Centro de Conciliacion Laboral de tu estado.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>5. Tienes 2 meses para actuar</h4>
+          <p>El plazo para demandar despido injustificado es de <strong>2 meses</strong> a partir de la fecha de despido (Art. 518 LFT). No dejes pasar el tiempo.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box amarillo">
+        <strong>Dato importante:</strong> Segun la Encuesta Nacional de Ocupacion y Empleo (ENOE), en 2025-2026 se han registrado incrementos en las reclamaciones por despido vinculadas a automatizacion en sectores como banca, manufactura y servicios al cliente.
+      </div>
+    </div>
+
+    <!-- SECCION 5: La ley que te protege -->
+    <div class="card">
+      <h2>Que dice la Ley Federal del Trabajo</h2>
+      <p>Aunque no existe (todavia) una ley especifica sobre IA y empleo en Mexico, la LFT ya tiene articulos que te protegen:</p>
+
+      <h3>Articulos clave</h3>
+      <ul>
+        <li><strong>Art. 48 — Indemnizacion por despido injustificado:</strong> 3 meses de salario integrado como base. Es tu derecho constitucional.</li>
+        <li><strong>Art. 50 — Indemnizacion adicional:</strong> 20 dias de salario por cada ano de servicio. Aplica cuando el despido es sin causa justificada.</li>
+        <li><strong>Art. 51 — Rescision sin responsabilidad para el trabajador:</strong> Si te reducen el salario, cambian las condiciones de trabajo, o te hostigan para que renuncies, puedes demandar como si fuera despido.</li>
+        <li><strong>Art. 153-A — Derecho a la capacitacion:</strong> El patron tiene la obligacion de capacitarte cuando introduce nuevas tecnologias. No te pueden despedir por no dominar algo sin entrenamiento.</li>
+        <li><strong>Art. 439 — Implantacion de maquinaria:</strong> Si la empresa introduce maquinaria o procedimientos nuevos, debe avisar con anticipacion y cumplir con el procedimiento ante la autoridad laboral.</li>
+      </ul>
+
+      <div class="highlight-box morado">
+        <strong>En el Congreso:</strong> Desde 2025 hay al menos 3 iniciativas de reforma en el Congreso de la Union para regular el uso de IA en el trabajo, incluyendo la obligacion de recapacitar trabajadores antes de sustituirlos y crear un fondo de transicion laboral. Hasta junio de 2026, ninguna ha sido aprobada.
+      </div>
+    </div>
+
+    <!-- SECCION 6: Sectores mas afectados -->
+    <div class="card">
+      <h2>Sectores mas afectados en Mexico</h2>
+      <p>Estas son las industrias donde la sustitucion por IA esta sucediendo con mayor frecuencia en Mexico:</p>
+
+      <ul>
+        <li><strong>Call centers y atencion al cliente:</strong> Chatbots y voicebots estan reemplazando operadores. Empresas como Teleperformance y Atento han reducido plantillas.</li>
+        <li><strong>Banca y servicios financieros:</strong> Analistas de credito, cajeros y ejecutivos de cuenta estan siendo sustituidos por sistemas automatizados.</li>
+        <li><strong>Manufactura:</strong> Robots y vision artificial en lineas de produccion, especialmente en automotriz y electronica en el Bajio y norte del pais.</li>
+        <li><strong>Contabilidad y administracion:</strong> Software de IA para facturacion, nomina y contabilidad esta reduciendo la necesidad de auxiliares contables.</li>
+        <li><strong>Traduccion y contenido:</strong> Traductores e interpretes ven reduccion de trabajo por herramientas de traduccion automatica.</li>
+        <li><strong>Logistica y transporte:</strong> Sistemas de ruteo automatizado y almacenes robotizados en empresas de e-commerce.</li>
+      </ul>
+
+      <div class="highlight-box azul">
+        <strong>No todo es negativo:</strong> La IA tambien esta creando nuevos puestos en Mexico. Roles como "prompt engineer", supervisor de IA, entrenador de modelos y analista de datos estan en alta demanda. La clave esta en capacitarte y adaptarte.
+      </div>
+    </div>
+
+    <!-- SECCION 7: Consejos -->
+    <div class="card">
+      <h2>Como protegerte: 5 acciones concretas</h2>
+      <ol>
+        <li><strong>Aprende a usar las herramientas de IA de tu industria.</strong> El trabajador que usa IA es mas valioso que el que la ignora. ChatGPT, Copilot, herramientas especificas de tu sector — familiarizate antes de que sea obligatorio.</li>
+        <li><strong>Documenta todo tu trabajo.</strong> Guarda evidencia de tus logros, evaluaciones positivas, y contribuciones. Si te despiden, esto fortalece tu caso laboral.</li>
+        <li><strong>Conoce tu contrato y prestaciones.</strong> Lee tu contrato individual y el contrato colectivo (si lo hay). Muchos trabajadores no saben exactamente que prestaciones tienen.</li>
+        <li><strong>Ahorra un fondo de emergencia.</strong> Aunque te corresponda liquidacion, los procesos laborales pueden tardar meses. Ten al menos 3 meses de gastos ahorrados.</li>
+        <li><strong>Desarrolla habilidades complementarias.</strong> Las habilidades que la IA no reemplaza facilmente: liderazgo, negociacion, pensamiento critico, creatividad, atencion al cliente presencial, y oficios especializados.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>Datos clave</h3>
+      <div class="info-item"><span>Plazo para demandar</span><span>2 meses</span></div>
+      <div class="info-item"><span>PROFEDET telefono</span><span>800 911 7877</span></div>
+      <div class="info-item"><span>Costo de asesoria</span><span>Gratis</span></div>
+      <div class="info-item"><span>Indemnizacion base</span><span>3 meses</span></div>
+    </div>
+
+    <div class="tip-box">
+      <h3>Dato 2026</h3>
+      <p>Segun el IMCO, el 23% de los empleos en Mexico tienen alto riesgo de automatizacion por IA en los proximos 5 anos. Los mas vulnerables son los trabajos repetitivos y administrativos.</p>
+    </div>
+
+    <div class="ad-box">
+      <div class="ad-box-inner">
+        <div class="ad-placeholder-v">Publicidad</div>
+      </div>
+    </div>
+
+    <div class="related-box">
+      <h3>Calcula tus derechos</h3>
+      <a href="/liquidacion/" class="related-link"><span class="r-icon">⚖️</span><span class="r-label">Liquidacion 2026</span></a>
+      <a href="/finiquito/" class="related-link"><span class="r-icon">📄</span><span class="r-label">Finiquito 2026</span></a>
+      <a href="/aguinaldo/" class="related-link"><span class="r-icon">🎄</span><span class="r-label">Aguinaldo 2026</span></a>
+      <a href="/prima-vacacional/" class="related-link"><span class="r-icon">🏖️</span><span class="r-label">Prima vacacional</span></a>
+      <a href="/isr/" class="related-link"><span class="r-icon">📊</span><span class="r-label">ISR 2026</span></a>
+    </div>
+
+    <div class="info-box">
+      <h3>Donde pedir ayuda</h3>
+      <div class="info-item"><span>PROFEDET</span><span>800 911 7877</span></div>
+      <div class="info-item"><span>Centro Conciliacion</span><span>Tu estado</span></div>
+      <div class="info-item"><span>STPS</span><span>stps.gob.mx</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-mid">
+  <div class="ad-placeholder">Publicidad</div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Preguntas frecuentes sobre despido por inteligencia artificial</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Me pueden despedir para reemplazarme con IA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Si, tu patron puede decidir implementar IA. Pero no es despido justificado, por lo que tienes derecho a liquidacion completa: 3 meses de salario + 20 dias por ano trabajado + partes proporcionales de aguinaldo, vacaciones y prima vacacional.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Cuanto me toca si me reemplazan con inteligencia artificial? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Te corresponde liquidacion completa: indemnizacion constitucional (3 meses de salario integrado), 20 dias de salario por cada ano de servicio, prima de antiguedad (12 dias por ano con tope de 2 UMA), y partes proporcionales de aguinaldo, vacaciones y prima vacacional.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Pueden obligarme a usar IA en mi trabajo? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Si, pero tu patron tiene la obligacion de capacitarte primero (Art. 153-A LFT). No te pueden despedir por no saber usar una herramienta nueva sin haberte proporcionado entrenamiento adecuado.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Que hago si me quieren hacer firmar la renuncia? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No firmes. Si te despiden y firmas renuncia voluntaria, pierdes tu derecho a liquidacion y solo recibes finiquito (mucho menos dinero). Pide tu carta de despido por escrito y acude a PROFEDET (800 911 7877) para asesoria gratuita.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Pueden reducir mi sueldo porque la IA hace parte de mi trabajo? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No. El patron no puede reducir tu salario unilateralmente. Si lo hace, puedes demandar rescision de contrato con derecho a liquidacion como si fuera despido injustificado (Art. 51 LFT).</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Hay una ley en Mexico que prohiba reemplazar trabajadores con IA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">No existe una ley especifica todavia. Sin embargo, hay al menos 3 iniciativas en el Congreso desde 2025. La Ley Federal del Trabajo actual ya te protege con el derecho a liquidacion, capacitacion obligatoria y la prohibicion de despido injustificado.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Cuanto tiempo tengo para demandar si me despiden? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Tienes 2 meses a partir de la fecha de despido para presentar una demanda por despido injustificado ante el Centro de Conciliacion Laboral o el Tribunal Laboral (Art. 518 LFT). No dejes pasar este plazo.</div>
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:8px">CalculaMX — Informacion con fines orientativos, no constituye asesoria legal. Consulta un abogado para tu caso.</p>
+  <a href="/">CalculaMX</a>
+  <a href="/liquidacion/">Liquidacion</a>
+  <a href="/finiquito/">Finiquito</a>
+  <a href="/isr/">ISR</a>
+  <a href="/aguinaldo/">Aguinaldo</a>
+  <a href="/nosotros/">Nosotros</a>
+  <a href="/privacidad/">Privacidad</a>
+  <a href="/contacto/">Contacto</a>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    answer.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
