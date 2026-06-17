@@ -91,4 +91,26 @@
     <xhtml:link rel="alternate" hreflang="es-MX" href="https://calculamx.com.mx/tenencia/"/>
   </url>
 
+
+  <url>
+    <loc>https://calculamx.com.mx/nosotros/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/privacidad/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://calculamx.com.mx/contacto/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
