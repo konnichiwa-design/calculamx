@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de IVA México 2026 — CalculaMX</title>
-  <meta name="description" content="Calcula el IVA al 16% o 8% zona fronteriza en segundos. Suma o desglosa el impuesto de cualquier cantidad. Gratis y actualizado 2026.">
+  <meta name="description" content="Calcula el IVA al 16% o 8% zona fronteriza en segundos: suma o desglosa el impuesto de cualquier cantidad. Con tabla de montos comunes, ejemplo de factura con retención y fórmulas. Gratis, actualizado 2026.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://calculamx.com.mx/iva/">
   <meta name="geo.region" content="MX">
@@ -126,6 +126,16 @@
     .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
     .content-section ul { margin: 8px 0 12px 20px; }
     .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    .content-section table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; font-size: 0.88rem; }
+    .content-section th { background: var(--primary); color: white; text-align: left; padding: 10px 14px; font-weight: 700; font-size: 0.82rem; }
+    .content-section td { padding: 9px 14px; border-bottom: 1px solid #f3f4f6; color: var(--muted); }
+    .content-section tr:last-child td { border-bottom: none; }
+    .content-section td strong { color: var(--primary); }
+    .ejemplo-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
+    .ejemplo-box h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+    .ejemplo-box p { margin-bottom: 8px; }
+    .fuentes { font-size: 0.78rem; color: #9ca3af; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.7; }
 
     .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
 
@@ -184,6 +194,26 @@
         "@type": "Question",
         "name": "¿Cómo se calcula el IVA en México?",
         "acceptedAnswer": { "@type": "Answer", "text": "Para agregar IVA: precio × 1.16 (o × 1.08 en frontera). Para desglosar el IVA de un precio que ya lo incluye: precio ÷ 1.16 (o ÷ 1.08) para obtener el precio base, y la diferencia es el IVA." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto es el IVA de $1,000 pesos?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El IVA de $1,000 pesos a la tasa general del 16% es de $160, para un total de $1,160. En zona fronteriza (8%) sería $80 de IVA y un total de $1,080." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Los servicios digitales como Netflix o Uber pagan IVA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Desde junio de 2020, las plataformas digitales extranjeras que prestan servicios en México están obligadas a cobrar el 16% de IVA a los usuarios mexicanos y enterarlo al SAT." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si tengo saldo a favor de IVA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Puedes acreditarlo contra el IVA de los meses siguientes o solicitar su devolución al SAT mediante el Formato Electrónico de Devoluciones (FED). El SAT tiene 40 días hábiles para resolver." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre tasa 0% y exento en IVA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "En tasa 0% el contribuyente puede acreditar el IVA de sus gastos e insumos, lo que puede generar saldo a favor. En los actos exentos no se puede acreditar el IVA de los insumos relacionados." }
       }
     ]
   }
@@ -349,7 +379,8 @@
       <div class="info-item"><span>Agregar 8%</span><span>× 1.08</span></div>
       <div class="info-item"><span>Desglosar 16%</span><span>÷ 1.16</span></div>
       <div class="info-item"><span>Desglosar 8%</span><span>÷ 1.08</span></div>
-      <div class="related-box">
+    </div>
+    <div class="related-box">
       <h3>Calculadoras relacionadas</h3>
       <a href="/isr/" class="related-link"><span class="r-icon">📊</span><span class="r-label">ISR 2026</span></a>
       <a href="/finiquito/" class="related-link"><span class="r-icon">📄</span><span class="r-label">Finiquito 2026</span></a>
@@ -385,6 +416,43 @@
   <h2>¿Cómo calculo el IVA manualmente?</h2>
   <p>Para <strong>agregar IVA</strong> a un precio base: multiplica por 1.16 (tasa general) o por 1.08 (zona fronteriza). Por ejemplo, $500 × 1.16 = $580 total.</p>
   <p>Para <strong>desglosar el IVA</strong> de un precio que ya lo incluye: divide entre 1.16 (o 1.08) para obtener el precio base. Por ejemplo, $580 ÷ 1.16 = $500 base, y $580 - $500 = $80 de IVA.</p>
+
+  <h2>Tabla rápida: IVA al 16% de los montos más comunes</h2>
+  <p>Si solo necesitas una referencia rápida, aquí está el IVA ya calculado para los montos más buscados:</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Precio sin IVA</th><th>IVA (16%)</th><th>Total con IVA</th></tr>
+      <tr><td>$100.00</td><td>$16.00</td><td><strong>$116.00</strong></td></tr>
+      <tr><td>$250.00</td><td>$40.00</td><td><strong>$290.00</strong></td></tr>
+      <tr><td>$500.00</td><td>$80.00</td><td><strong>$580.00</strong></td></tr>
+      <tr><td>$1,000.00</td><td>$160.00</td><td><strong>$1,160.00</strong></td></tr>
+      <tr><td>$1,500.00</td><td>$240.00</td><td><strong>$1,740.00</strong></td></tr>
+      <tr><td>$2,000.00</td><td>$320.00</td><td><strong>$2,320.00</strong></td></tr>
+      <tr><td>$5,000.00</td><td>$800.00</td><td><strong>$5,800.00</strong></td></tr>
+      <tr><td>$10,000.00</td><td>$1,600.00</td><td><strong>$11,600.00</strong></td></tr>
+    </table>
+  </div>
+  <p>Para el proceso inverso (sabes el total y quieres el precio base), divide entre 1.16: por ejemplo, de un ticket de $1,160.00, el precio base es $1,000.00 y el IVA es $160.00.</p>
+
+  <h2>Ejemplo práctico: factura de un freelancer</h2>
+  <div class="ejemplo-box">
+    <h4>📄 Caso: diseñadora freelance factura $8,000 a una empresa</h4>
+    <p><strong>Paso 1 — IVA trasladado:</strong> $8,000.00 × 16% = <strong>$1,280.00</strong> de IVA. Subtotal de la factura: $9,280.00.</p>
+    <p><strong>Paso 2 — Retención de IVA:</strong> como factura a una persona moral, la empresa le retiene dos terceras partes del IVA (Art. 1o-A LIVA): $1,280.00 × 2/3 = <strong>$853.33 retenidos</strong>.</p>
+    <p><strong>Paso 3 — Lo que recibe:</strong> $9,280.00 − $853.33 de IVA retenido = <strong>$8,426.67</strong> (antes de la retención de ISR del 10%, que se calcula por separado).</p>
+    <p>La retención no es dinero perdido: la empresa la entera al SAT a cuenta del contribuyente, quien la acredita en su declaración mensual.</p>
+  </div>
+
+  <h2>IVA trasladado vs. IVA acreditable: cómo se paga al SAT</h2>
+  <p>Si tienes actividad empresarial, el IVA que realmente pagas al SAT cada mes es la <strong>diferencia entre dos montos</strong>:</p>
+  <ul>
+    <li><strong>IVA trasladado:</strong> el que cobras a tus clientes en tus facturas (ventas).</li>
+    <li><strong>IVA acreditable:</strong> el que pagaste a tus proveedores en tus gastos e insumos con CFDI (compras).</li>
+  </ul>
+  <p>Si trasladaste $10,000 y acreditaste $6,000, pagas $4,000 al SAT. Si acreditaste más de lo que trasladaste, generas un <strong>saldo a favor</strong> que puedes acreditar en meses siguientes o solicitar en devolución.</p>
+  <p>La declaración mensual de IVA se presenta <strong>a más tardar el día 17 del mes siguiente</strong> al que corresponde el pago (Art. 5o-D LIVA).</p>
+
+  <p class="fuentes"><strong>Fuentes:</strong> Ley del Impuesto al Valor Agregado (arts. 1o, 1o-A, 2o-A y 5o-D) · Decretos de estímulos fiscales región fronteriza norte y sur (DOF) · Portal del SAT (sat.gob.mx).<br>Última actualización: 13 de julio de 2026. Esta calculadora es de referencia y no sustituye la asesoría de un contador.</p>
 </div>
 
 <div class="faq-section">
@@ -413,6 +481,21 @@
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la diferencia entre tasa 0% y exento en IVA? <span class="faq-arrow">▼</span></button>
     <div class="faq-a">En tasa 0% el contribuyente puede acreditar el IVA que pagó en sus gastos e insumos (IVA acreditable), lo que puede generar un saldo a favor del contribuyente. En los actos exentos, no se puede acreditar el IVA de los insumos relacionados, lo que representa un costo adicional.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto es el IVA de $1,000 pesos? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El IVA de $1,000 pesos a la tasa general del 16% es de $160, para un total de $1,160. En zona fronteriza (8%) sería $80 de IVA y un total de $1,080. Si los $1,000 ya incluyen IVA, el precio base es $862.07 y el IVA es $137.93.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Los servicios digitales como Netflix o Uber pagan IVA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí. Desde junio de 2020, las plataformas digitales extranjeras que prestan servicios en México (streaming, transporte, hospedaje, apps) están obligadas a cobrar el 16% de IVA a los usuarios mexicanos y enterarlo al SAT.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si tengo saldo a favor de IVA? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Cuando tu IVA acreditable (el que pagaste en gastos) supera al trasladado (el que cobraste), generas saldo a favor. Puedes acreditarlo contra el IVA de los meses siguientes o solicitar su devolución al SAT mediante el Formato Electrónico de Devoluciones (FED). El SAT tiene 40 días hábiles para resolver.</div>
   </div>
 
 </div>
