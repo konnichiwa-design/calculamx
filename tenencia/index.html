@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Tenencia CDMX 2026 — Gratis | CalculaMX</title>
-  <meta name="description" content="Calcula tu tenencia vehicular CDMX 2026 gratis. Autos, motos, camionetas y taxis. Conoce cuánto debes pagar con descuentos por antigüedad incluidos.">
+  <meta name="description" content="Calcula tu tenencia vehicular CDMX 2026 gratis: autos, motos, camionetas y taxis. Con tabla de montos por valor del auto, ejemplo y descuentos por antigüedad y pago anticipado.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://calculamx.com.mx/tenencia/">
   <meta name="geo.region" content="MX-DIF">
@@ -139,6 +139,16 @@
     .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
     .content-section ul { margin: 8px 0 12px 20px; }
     .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    .content-section table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; font-size: 0.88rem; }
+    .content-section th { background: var(--primary); color: white; text-align: left; padding: 10px 14px; font-weight: 700; font-size: 0.82rem; }
+    .content-section td { padding: 9px 14px; border-bottom: 1px solid #f3f4f6; color: var(--muted); }
+    .content-section tr:last-child td { border-bottom: none; }
+    .content-section td strong { color: var(--primary); }
+    .ejemplo-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
+    .ejemplo-box h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+    .ejemplo-box p { margin-bottom: 8px; }
+    .fuentes { font-size: 0.78rem; color: #9ca3af; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.7; }
 
     .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
 
@@ -193,8 +203,8 @@
       },
       {
         "@type": "Question",
-        "name": "¿Cuándo vence el plazo para pagar la tenencia CDMX 2026?",
-        "acceptedAnswer": { "@type": "Answer", "text": "La tenencia en CDMX se puede pagar durante todo el año, pero si pagas en enero y febrero obtienes descuento del 10%, en marzo 5% y de abril en adelante pagas el monto completo. El plazo máximo sin recargo es el 31 de diciembre de 2026." }
+        "name": "¿Cuándo vence el plazo para pagar tenencia CDMX?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Puedes pagar la tenencia durante todo el año. Sin embargo, los descuentos por pago oportuno solo aplican en enero-febrero (10%) y marzo (5%). El vencimiento anual es el 31 de diciembre de 2026." }
       },
       {
         "@type": "Question",
@@ -203,13 +213,23 @@
       },
       {
         "@type": "Question",
-        "name": "¿Cómo se calcula el valor catálogo de mi vehículo para tenencia?",
-        "acceptedAnswer": { "@type": "Answer", "text": "El valor catálogo es publicado anualmente por la Secretaría de Finanzas de la CDMX. Se basa en el valor de mercado del vehículo ajustado por el año modelo. Para efectos del cálculo de tenencia, puedes usar el valor de factura del vehículo o el valor de mercado actual." }
+        "name": "¿Qué es el valor catálogo para tenencia?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El valor catálogo es el precio de referencia que la Secretaría de Finanzas de la CDMX asigna a cada vehículo según su modelo, año y características. Se publica anualmente. Para estimar tu tenencia puedes usar el valor de factura o el valor de mercado actual de tu vehículo." }
       },
       {
         "@type": "Question",
         "name": "¿Las motocicletas pagan tenencia en CDMX?",
         "acceptedAnswer": { "@type": "Answer", "text": "Sí, las motocicletas pagan tenencia en CDMX. El cálculo es igual que para automóviles: 3% sobre el valor catálogo, con descuento del 20% para motos con 10 o más años de antigüedad." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo calculo la tenencia de un auto 2018 o de modelos anteriores?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Se usa la misma fórmula: 3% sobre el valor actual del vehículo. Lo que cambia es la antigüedad: un auto modelo 2018 tiene 8 años en 2026, por lo que aún no alcanza el descuento del 20% (aplica a partir de 10 años, modelos 2016 o anteriores). Ingresa el año y el valor de mercado actual en la calculadora para el monto exacto." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto es la tenencia de un auto de $300,000 en CDMX?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Para un auto particular de $300,000, la tenencia 2026 es aproximadamente $9,000 (el 3% del valor). Si pagas en enero o febrero baja a $8,100 con el 10% de descuento. Si el auto tiene 10 años o más, se aplica además el 20% de descuento por antigüedad." }
       }
     ]
   }
@@ -421,6 +441,31 @@
   <p>La tenencia vehicular (oficialmente <em>Impuesto sobre Tenencia o Uso de Vehículos</em>) es un impuesto local que se cobra anualmente en la Ciudad de México por ser propietario de un vehículo. Aunque el gobierno federal eliminó la tenencia federal en 2012, la CDMX mantiene su propio impuesto de tenencia local regulado por el Código Fiscal de la Ciudad de México.</p>
   <p>En 2026, la tasa aplicable es del <strong>3% sobre el valor catálogo del vehículo</strong>, publicado anualmente por la Secretaría de Finanzas de la CDMX.</p>
 
+  <h2>Tabla: cuánto pagas de tenencia según el valor del auto</h2>
+  <p>Estimación de la tenencia 2026 para un auto particular (3% del valor), mostrando también el monto con descuento por antigüedad (autos modelo 2016 o anterior, −20%):</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Valor del vehículo</th><th>Tenencia 2026 (3%)</th><th>Auto ≥10 años (−20%)</th></tr>
+      <tr><td>$100,000</td><td><strong>$3,000</strong></td><td>$2,400</td></tr>
+      <tr><td>$150,000</td><td><strong>$4,500</strong></td><td>$3,600</td></tr>
+      <tr><td>$200,000</td><td><strong>$6,000</strong></td><td>$4,800</td></tr>
+      <tr><td>$300,000</td><td><strong>$9,000</strong></td><td>$7,200</td></tr>
+      <tr><td>$400,000</td><td><strong>$12,000</strong></td><td>$9,600</td></tr>
+      <tr><td>$500,000</td><td><strong>$15,000</strong></td><td>$12,000</td></tr>
+      <tr><td>$750,000</td><td><strong>$22,500</strong></td><td>$18,000</td></tr>
+      <tr><td>$1,000,000</td><td><strong>$30,000</strong></td><td>$24,000</td></tr>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;">Motocicletas pagan un factor menor (≈2.55%) y camionetas/taxis un factor mayor. Si además pagas en enero-febrero obtienes un 10% adicional de descuento (5% en marzo). Usa la calculadora de arriba para tu caso exacto.</p>
+
+  <div class="ejemplo-box">
+    <h4>📝 Ejemplo: tenencia de un auto de $300,000</h4>
+    <p><strong>Datos:</strong> auto particular a gasolina, modelo 2023, valor $300,000.</p>
+    <p><strong>Cálculo:</strong> $300,000 × 3% = <strong>$9,000</strong> de tenencia base (no aplica descuento por antigüedad porque tiene menos de 10 años).</p>
+    <p><strong>Si pagas en enero-febrero:</strong> $9,000 × 0.90 = <strong>$8,100</strong> con el 10% de descuento por pago oportuno.</p>
+    <p><strong>Si el mismo auto fuera modelo 2015</strong> (11 años): $9,000 − 20% = $7,200, y pagando en enero-febrero quedaría en <strong>$6,480</strong>.</p>
+  </div>
+
   <h2>¿Quiénes están exentos de tenencia en CDMX?</h2>
   <ul>
     <li>Vehículos eléctricos e híbridos (exención total)</li>
@@ -440,6 +485,8 @@
     <li>Instituciones bancarias autorizadas</li>
     <li>Verificentros (pago simultáneo con verificación)</li>
   </ul>
+
+  <p class="fuentes"><strong>Fuentes:</strong> Código Fiscal de la Ciudad de México, artículos sobre el Impuesto sobre Tenencia o Uso de Vehículos. Tablas de valor catálogo y subsidios publicados anualmente por la Secretaría de Administración y Finanzas de la CDMX (finanzas.cdmx.gob.mx). Cifras estimadas de referencia; los factores por tipo de vehículo son aproximados. Verifica el monto oficial en el portal de la Secretaría de Finanzas.</p>
 </div>
 
 <!-- FAQ -->
@@ -484,6 +531,22 @@
       <span class="faq-arrow">▼</span>
     </button>
     <div class="faq-a">El valor catálogo es el precio de referencia que la Secretaría de Finanzas de la CDMX asigna a cada vehículo según su modelo, año y características. Se publica anualmente. Para estimar tu tenencia puedes usar el valor de factura o el valor de mercado actual de tu vehículo.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cómo calculo la tenencia de un auto 2018 o de modelos anteriores?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">Se usa la misma fórmula: 3% sobre el valor actual del vehículo. Lo que cambia es la antigüedad: un auto modelo 2018 tiene 8 años en 2026, por lo que aún no alcanza el descuento del 20% (aplica a partir de 10 años, es decir modelos 2016 o anteriores). Ingresa el año y el valor de mercado actual en la calculadora para obtener el monto exacto.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cuánto es la tenencia de un auto de $300,000 en CDMX?
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">Para un auto particular de $300,000, la tenencia 2026 es aproximadamente $9,000 (el 3% del valor). Si pagas en enero o febrero baja a $8,100 con el 10% de descuento. Si el auto tiene 10 años o más, se aplica además el 20% de descuento por antigüedad. Consulta la tabla de arriba para otros valores.</div>
   </div>
 </div>
 

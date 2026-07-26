@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Aguinaldo México 2026 — CalculaMX</title>
-  <meta name="description" content="Calcula cuánto te corresponde de aguinaldo 2026. Ingresa tu sueldo y tiempo trabajado. Mínimo legal 15 días. Incluye desglose y exención de ISR. Gratis.">
+  <meta name="description" content="Calcula tu aguinaldo 2026: ingresa tu sueldo y días trabajados. Mínimo legal 15 días (Art. 87 LFT). Con tabla de montos por salario, ejemplo con ISR y cálculo proporcional. Gratis.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://calculamx.com.mx/aguinaldo/">
   <meta name="geo.region" content="MX">
@@ -115,6 +115,16 @@
     .content-section p { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
     .content-section ul { margin: 8px 0 12px 20px; }
     .content-section li { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    .content-section table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; font-size: 0.88rem; }
+    .content-section th { background: var(--primary); color: white; text-align: left; padding: 10px 14px; font-weight: 700; font-size: 0.82rem; }
+    .content-section td { padding: 9px 14px; border-bottom: 1px solid #f3f4f6; color: var(--muted); }
+    .content-section tr:last-child td { border-bottom: none; }
+    .content-section td strong { color: var(--primary); }
+    .ejemplo-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
+    .ejemplo-box h4 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+    .ejemplo-box p { margin-bottom: 8px; }
+    .fuentes { font-size: 0.78rem; color: #9ca3af; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.7; }
 
     .ad-mid { display: flex; justify-content: center; padding: 20px 24px; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; }
 
@@ -153,18 +163,43 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Cuántos días de aguinaldo me corresponden en México 2026?",
-        "acceptedAnswer": { "@type": "Answer", "text": "El mínimo legal es 15 días de salario por año trabajado, según el Artículo 87 de la Ley Federal del Trabajo. Muchas empresas otorgan más días como prestación superior." }
-      },
-      {
-        "@type": "Question",
         "name": "¿Cuándo se paga el aguinaldo en México?",
-        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo debe pagarse antes del 20 de diciembre de cada año. Si el trabajador no ha cumplido un año, recibe la parte proporcional al tiempo trabajado." }
+        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo debe pagarse antes del 20 de diciembre de cada año, según el Artículo 87 de la LFT. Muchas empresas lo pagan en las primeras semanas de diciembre o incluso en noviembre." }
       },
       {
         "@type": "Question",
-        "name": "¿El aguinaldo causa ISR?",
-        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo tiene una exención de ISR equivalente a 30 días de salario mínimo general vigente (aproximadamente $7,467.90 en 2026). El monto que exceda esa cantidad sí paga ISR." }
+        "name": "¿El aguinaldo se calcula sobre el sueldo neto o bruto?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo se calcula sobre el salario diario base (salario ordinario bruto), no sobre el neto descontado. Incluye las partes integrantes del salario como comisiones fijas, pero generalmente excluye bonos variables y horas extra ocasionales." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa con el aguinaldo si renuncio antes de diciembre?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Si terminas tu relación laboral antes del 20 de diciembre, tienes derecho a la parte proporcional del aguinaldo correspondiente al tiempo trabajado en ese año. Esto forma parte del finiquito que el patrón debe pagarte al momento de la separación." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Los trabajadores por honorarios tienen derecho a aguinaldo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. El aguinaldo es una prestación laboral que aplica únicamente a los trabajadores subordinados con relación laboral bajo la LFT. Los trabajadores independientes (honorarios, personas morales, RESICO) no tienen derecho a aguinaldo por ley, aunque el contratante puede otorgarlo voluntariamente." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo negociar más días de aguinaldo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los 15 días son el mínimo legal; las empresas pueden ofrecer más como prestación superior. Es común que las empresas de gobierno o grandes corporativos ofrezcan entre 25 y 40 días. Si lo tienes por escrito en tu contrato o política de empresa, el patrón está obligado a respetarlo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto es el aguinaldo de 15 días?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo de 15 días equivale a tu salario diario multiplicado por 15. Por ejemplo, con $500 diarios son $7,500; con $1,000 diarios son $15,000. Usa la calculadora para tu caso exacto, incluida la parte proporcional si no trabajaste el año completo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se calcula el aguinaldo proporcional?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El aguinaldo proporcional se calcula con la fórmula: salario diario × 15 × (días trabajados en el año ÷ 365). Por ejemplo, con $500 diarios y 184 días trabajados, el aguinaldo proporcional es $500 × 15 × (184÷365) = $3,780.82." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El aguinaldo cuenta en el finiquito o la liquidación?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si dejas de trabajar antes del pago anual, la parte proporcional del aguinaldo forma parte de tu finiquito. En caso de despido injustificado, también se incluye en la liquidación junto con la indemnización de ley." }
       }
     ]
   }
@@ -366,6 +401,31 @@
   <p>El aguinaldo es una <strong>prestación obligatoria</strong> establecida en el Artículo 87 de la Ley Federal del Trabajo (LFT). Todo trabajador que haya laborado durante el año tiene derecho a recibir un pago equivalente a <strong>mínimo 15 días de salario</strong>, antes del 20 de diciembre de cada año.</p>
   <p>Si el trabajador no llevó un año completo, tiene derecho a la <strong>parte proporcional</strong> al tiempo trabajado. Por ejemplo, quien ingresó en julio recibirá aproximadamente la mitad del aguinaldo anual.</p>
 
+  <h2>Tabla: cuánto es tu aguinaldo de 15 días 2026</h2>
+  <p>Cálculo rápido del aguinaldo mínimo legal (15 días) según tu salario diario, e indicando qué parte excede la exención de ISR ($7,467.90 = 30 días de salario mínimo):</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Salario diario</th><th>Aguinaldo (15 días)</th><th>Parte que grava ISR</th></tr>
+      <tr><td>$248.93 <small>(mínimo)</small></td><td><strong>$3,733.95</strong></td><td>Exento ✓</td></tr>
+      <tr><td>$300.00</td><td><strong>$4,500.00</strong></td><td>Exento ✓</td></tr>
+      <tr><td>$400.00</td><td><strong>$6,000.00</strong></td><td>Exento ✓</td></tr>
+      <tr><td>$500.00</td><td><strong>$7,500.00</strong></td><td>$32.10</td></tr>
+      <tr><td>$700.00</td><td><strong>$10,500.00</strong></td><td>$3,032.10</td></tr>
+      <tr><td>$1,000.00</td><td><strong>$15,000.00</strong></td><td>$7,532.10</td></tr>
+      <tr><td>$1,500.00</td><td><strong>$22,500.00</strong></td><td>$15,032.10</td></tr>
+      <tr><td>$2,000.00</td><td><strong>$30,000.00</strong></td><td>$22,532.10</td></tr>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;">Si tu empresa otorga más de 15 días, multiplica: <strong>salario diario × días otorgados</strong>. La exención de ISR es la misma ($7,467.90), independientemente de los días que recibas.</p>
+
+  <div class="ejemplo-box">
+    <h4>📝 Ejemplo: aguinaldo de un trabajador que ganó $500/día</h4>
+    <p><strong>Datos:</strong> salario diario de $500, año completo trabajado (365 días), 15 días de aguinaldo.</p>
+    <p><strong>Cálculo:</strong> $500 × 15 días = <strong>$7,500.00</strong> de aguinaldo bruto.</p>
+    <p><strong>ISR:</strong> la exención cubre $7,467.90; solo $32.10 se suman al ingreso gravable de diciembre. En la práctica, la retención es de unos pocos pesos.</p>
+    <p><strong>Si hubiera entrado el 1 de julio</strong> (184 días): $500 × 15 × (184 ÷ 365) = <strong>$3,780.82</strong> proporcional, totalmente exento de ISR.</p>
+  </div>
+
   <h2>¿Cómo se calcula el aguinaldo?</h2>
   <p>La fórmula básica es: <strong>Salario diario × días de aguinaldo × (días trabajados en el año ÷ 365)</strong>.</p>
   <ul>
@@ -380,6 +440,8 @@
 
   <h2>¿Qué pasa si el patrón no paga el aguinaldo?</h2>
   <p>El incumplimiento es una <strong>violación a la Ley Federal del Trabajo</strong>. El trabajador puede presentar una queja ante la STPS, la Procuraduría Federal de la Defensa del Trabajo (PROFEDET) o demandar ante el Centro de Conciliación Laboral. El patrón puede recibir multas de 50 a 5,000 veces la UMA diaria.</p>
+
+  <p class="fuentes"><strong>Fuentes:</strong> Ley Federal del Trabajo, Art. 87 (aguinaldo) y Art. 88 (proporcionalidad). Ley del Impuesto Sobre la Renta, Art. 93 fracción XIV (exención de 30 días de salario mínimo). Salario mínimo general 2026 publicado por la CONASAMI ($248.93 diarios). Cifras de referencia; verifica los montos vigentes con el SAT y un contador para tu caso específico.</p>
 </div>
 
 <div class="faq-section">
@@ -408,6 +470,21 @@
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">¿Puedo negociar más días de aguinaldo? <span class="faq-arrow">▼</span></button>
     <div class="faq-a">Sí. Los 15 días son el mínimo legal; las empresas pueden ofrecer más como prestación superior. Es común que las empresas de gobierno o grandes corporativos ofrezcan entre 25 y 40 días. Si lo tienes por escrito en tu contrato o política de empresa, el patrón está obligado a respetarlo.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto es el aguinaldo de 15 días? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El aguinaldo de 15 días equivale a multiplicar tu salario diario por 15. Por ejemplo, con $500 diarios son $7,500; con $1,000 diarios son $15,000. Consulta la tabla de arriba para ver el monto según tu salario, o usa la calculadora para tu caso exacto, incluida la parte proporcional si no trabajaste el año completo.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo se calcula el aguinaldo proporcional? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">El aguinaldo proporcional se calcula con la fórmula: salario diario × 15 × (días trabajados en el año ÷ 365). Por ejemplo, si ganas $500 diarios y trabajaste 184 días (medio año), tu aguinaldo proporcional es $500 × 15 × (184÷365) = $3,780.82. La calculadora lo hace automáticamente si indicas tus fechas de ingreso y de pago.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿El aguinaldo cuenta en el finiquito o la liquidación? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a">Sí. Si dejas de trabajar antes del pago anual, la parte proporcional del aguinaldo forma parte de tu <a href="/finiquito/" style="color:var(--accent);">finiquito</a>. En caso de despido injustificado, también se incluye en la <a href="/liquidacion/" style="color:var(--accent);">liquidación</a> junto con la indemnización de ley. El patrón debe pagártelo al momento de la separación.</div>
   </div>
 
 </div>
